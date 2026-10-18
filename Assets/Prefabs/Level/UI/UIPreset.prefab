@@ -321,6 +321,7 @@ MonoBehaviour:
   curseIcon: {fileID: 3468718601386047429}
   adviceObject: {fileID: 3180904762608184127}
   adviceText: {fileID: 6577225367051273456}
+  heldTargetBubble: {fileID: 0}
   hintArrow: {fileID: 3749226439239250747}
   hintArrowOffsetBlueprint: {x: 24, y: -108}
   hintArrowOffsetPickaxe: {x: 0, y: -72}

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Placements;

@@ -27,9 +27,9 @@ using MVZ2Logic;
 namespace MVZ2.GameContent.Contraptions
 {
     [AutoEntityBehaviourDefinition(VanillaContraptionNames.AntiGravityPad)]
-    public class AntiGravityPad : ContraptionBehaviour
+    public class ExpandAntiGravityPad : ContraptionBehaviour
     {
-        public AntiGravityPad(string nsp, string name) : base(nsp, name)
+        public ExpandAntiGravityPad(string nsp, string name) : base(nsp, name)
         {
             AddAura(new GravityAura());
             projectileDetector = new AntiGravityPadDetector(false, AFFECT_HEIGHT);

@@ -1,4 +1,4 @@
-﻿#nullable enable  
+#nullable enable  
   
 using MVZ2.Vanilla.Entities;  
 using MVZ2.Vanilla.Properties;  
@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             // 只保留透明度效果：将实体的 TINT 乘上一个 alpha 可变的颜色  
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));  
             // 隐身时隐藏血条；buff 被移除时该修饰器会自动撤销，血条恢复正常  
-            var hpbarModifier = new IntModifier(LogicEntityProps.HP_BAR_VISIBILITY, IntegerOperator.Set, HPBarVisibility.HIDDEN);  
+            var hpbarModifier = new IntModifier(LogicEntityProps.HP_BAR_VISIBILITY, IntegerOperator.Set, HPBarVisibility.NEVER);
             AddModifier(hpbarModifier);  
         }  
   

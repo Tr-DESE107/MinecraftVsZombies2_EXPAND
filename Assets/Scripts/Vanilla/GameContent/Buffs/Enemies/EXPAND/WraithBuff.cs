@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
             var hpbarModifier = new IntModifier(LogicEntityProps.HP_BAR_VISIBILITY, IntegerOperator.Set, PROP_HP_BAR_VISIBLITY)
             {
-                Condition = m => m == HPBarVisibility.HIDDEN
+                Condition = m => m == HPBarVisibility.NEVER
             };
             AddModifier(hpbarModifier);
             AddModifier(new FloatModifier(LogicEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));

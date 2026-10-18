@@ -136,6 +136,21 @@ MonoBehaviour:
   - name: arcade/heavy_weapon
     texture: {fileID: 2800000, guid: ff7053569e162c6489dce24f636dd305, type: 3}
     tags: []
+  - name: arcade/InfinityFrankenstein
+    texture: {fileID: 2800000, guid: 2f4081f86456f1642acda342a85435c1, type: 3}
+    tags: []
+  - name: arcade/InfinityGiant
+    texture: {fileID: 2800000, guid: b2e7ce43aa269844fb7ad1df34213bbf, type: 3}
+    tags: []
+  - name: arcade/InfinityLockedChest
+    texture: {fileID: 2800000, guid: ac237bc3a80a23240b1314ff7617b5a3, type: 3}
+    tags: []
+  - name: arcade/InfinityNightmare
+    texture: {fileID: 2800000, guid: 3bdf7dcfe0783c24a906a5f5318e710f, type: 3}
+    tags: []
+  - name: arcade/InfinityRedDragon
+    texture: {fileID: 2800000, guid: e9a3032d16dcc19458bd14cfcdb98c90, type: 3}
+    tags: []
   - name: arcade/InfinitySeija
     texture: {fileID: 2800000, guid: 86aaff32bcd73994c911e269b32ba84f, type: 3}
     tags: []
@@ -144,6 +159,9 @@ MonoBehaviour:
     tags: []
   - name: arcade/i_zombie
     texture: {fileID: 2800000, guid: 954f4a9aadd5d0141a70086f5aaedcc5, type: 3}
+    tags: []
+  - name: arcade/krakens_revenge
+    texture: {fileID: 2800000, guid: 16d8ae1b40eaded4f9770dc99b287a0a, type: 3}
     tags: []
   - name: arcade/LigneMaginot
     texture: {fileID: 2800000, guid: 1726e22d886c3544785500d1d6ed7026, type: 3}
@@ -189,6 +207,9 @@ MonoBehaviour:
     tags: []
   - name: arcade/red_dragons_revenge
     texture: {fileID: 2800000, guid: d48244988b1911e418e1b2b636f88599, type: 3}
+    tags: []
+  - name: arcade/SeijaRevenge
+    texture: {fileID: 2800000, guid: 05bd01ecfceda5f4897c446b696f7cd1, type: 3}
     tags: []
   - name: arcade/the_giants_revenge
     texture: {fileID: 2800000, guid: 0d4b43785901a8f4390699a767958f94, type: 3}
@@ -237,6 +258,9 @@ MonoBehaviour:
     tags: []
   - name: archive/mausoleum_note
     texture: {fileID: 2800000, guid: 3cc2a4067785bbb479556fa02098483e, type: 3}
+    tags: []
+  - name: archive/mountain_note
+    texture: {fileID: 2800000, guid: 71b4461aed005fd4cb5084cfffcc4554, type: 3}
     tags: []
   - name: archive/palace_note
     texture: {fileID: 2800000, guid: d17d37c1a790e63419fc44c2c577189a, type: 3}
@@ -406,6 +430,9 @@ MonoBehaviour:
   - name: chapter_transition/title_mausoleum
     texture: {fileID: 2800000, guid: e67606b0e90b7e940844495857add1f7, type: 3}
     tags: []
+  - name: chapter_transition/title_mountain
+    texture: {fileID: 2800000, guid: c9d19f5411337a243beed27052d79af6, type: 3}
+    tags: []
   - name: chapter_transition/title_palace
     texture: {fileID: 2800000, guid: 23c593eab5a6c084f8279e3507114199, type: 3}
     tags: []
@@ -414,6 +441,9 @@ MonoBehaviour:
     tags: []
   - name: characters/armor_stand
     texture: {fileID: 2800000, guid: 79a357758cd7dff4d83ebc2928ce0812, type: 3}
+    tags: []
+  - name: characters/aya
+    texture: {fileID: 2800000, guid: f323863dc4a7d3d409736848c3a1773c, type: 3}
     tags: []
   - name: characters/byakuren
     texture: {fileID: 2800000, guid: 4dce52e9fb4e43b4a9bf9a9af890bcf9, type: 3}
@@ -445,14 +475,23 @@ MonoBehaviour:
   - name: characters/marisa
     texture: {fileID: 2800000, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
     tags: []
+  - name: characters/marisa_icon
+    texture: {fileID: 2800000, guid: 600d5920c6039f040bc0c11816818368, type: 3}
+    tags: []
   - name: characters/miko
     texture: {fileID: 2800000, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    tags: []
+  - name: characters/nitori
+    texture: {fileID: 2800000, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
     tags: []
   - name: characters/nue
     texture: {fileID: 2800000, guid: ea907a3e2eaa545429191634d8af4841, type: 3}
     tags: []
   - name: characters/orant
     texture: {fileID: 2800000, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
+    tags: []
+  - name: characters/reimu
+    texture: {fileID: 2800000, guid: e7e3e3ce1446ec845a9bdbe0320f999e, type: 3}
     tags: []
   - name: characters/rin
     texture: {fileID: 2800000, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
@@ -465,6 +504,9 @@ MonoBehaviour:
     tags: []
   - name: characters/seija
     texture: {fileID: 2800000, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    tags: []
+  - name: characters/seija_icon
+    texture: {fileID: 2800000, guid: 4345fda2cd86628478a1ce628b29dd6c, type: 3}
     tags: []
   - name: characters/sekibanki
     texture: {fileID: 2800000, guid: 5e391a23c6381c14c9f44d8b0da02c2b, type: 3}
@@ -526,6 +568,9 @@ MonoBehaviour:
   - name: icons/dream_key_shield
     texture: {fileID: 2800000, guid: 536be77b316de444c86963d500ad1922, type: 3}
     tags: []
+  - name: icons/frozen
+    texture: {fileID: 2800000, guid: f51e605779f2951469683e6e88f6c210, type: 3}
+    tags: []
   - name: icons/parasitized_icon
     texture: {fileID: 2800000, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
     tags: []
@@ -543,6 +588,9 @@ MonoBehaviour:
     tags: []
   - name: icons/z
     texture: {fileID: 2800000, guid: b4afc6a6c73738d48818d19fcc98eab8, type: 3}
+    tags: []
+  - name: level/depth_map_default
+    texture: {fileID: 2800000, guid: 9bd684baef76f674694130f5bdda1f93, type: 3}
     tags: []
   - name: level/hp_bar
     texture: {fileID: 2800000, guid: 885cf94d2d3f2844895b0a87b1fcc5ea, type: 3}
@@ -631,6 +679,9 @@ MonoBehaviour:
   - name: misc/abandoned_house
     texture: {fileID: 2800000, guid: 50bf732bad4c58e4594fe0d57da0eeff, type: 3}
     tags: []
+  - name: misc/balance_insufficient
+    texture: {fileID: 2800000, guid: 9f858d359d58aaf4b8c8c90deffcb3db, type: 3}
+    tags: []
   - name: misc/blazing_hell_cliff
     texture: {fileID: 2800000, guid: f395daa66520f244ab609c2feaea92c7, type: 3}
     tags: []
@@ -642,6 +693,9 @@ MonoBehaviour:
     tags: []
   - name: misc/dead_red_dragon
     texture: {fileID: 2800000, guid: 0da8ea7b3ec83e94793e912ac5ea6c81, type: 3}
+    tags: []
+  - name: misc/debris_of_nitoris_lab
+    texture: {fileID: 2800000, guid: 92c4375d1ea0656428e74e371fd3a4d6, type: 3}
     tags: []
   - name: misc/downed_tokiko
     texture: {fileID: 2800000, guid: afa886669857a1e418b0316c139ebcc2, type: 3}
@@ -658,6 +712,9 @@ MonoBehaviour:
   - name: misc/eientei_inside
     texture: {fileID: 2800000, guid: 7115796f746855040a8dba6478a983f0, type: 3}
     tags: []
+  - name: misc/ender_pearl_fragment
+    texture: {fileID: 2800000, guid: 981e06318f0565543b9f7d17a3dd56d8, type: 3}
+    tags: []
   - name: misc/end_ship
     texture: {fileID: 2800000, guid: 7e371a692db43054c88eb8560c9ebd74, type: 3}
     tags: []
@@ -667,11 +724,20 @@ MonoBehaviour:
   - name: misc/explosion_before_3_years
     texture: {fileID: 2800000, guid: 831f7ad8d2311d448970951982d07ad8, type: 3}
     tags: []
+  - name: misc/eye_on_nitoris_machine
+    texture: {fileID: 2800000, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/fake_chapter_transition_7
+    texture: {fileID: 2800000, guid: 54ad5c4d8faf2904ba63b26bc46ce577, type: 3}
+    tags: []
   - name: misc/fall_from_ship
     texture: {fileID: 2800000, guid: a81e7ee6085bf10488c8ac5cec8948f8, type: 3}
     tags: []
   - name: misc/frankenstein
     texture: {fileID: 2800000, guid: c52ffe26b09fa8d43bfa1881edcd3b04, type: 3}
+    tags: []
+  - name: misc/gems_icon
+    texture: {fileID: 2800000, guid: 8c64ca25f06e50342a0dc9628c381323, type: 3}
     tags: []
   - name: misc/giant_in_mausoleum
     texture: {fileID: 2800000, guid: 7891ad9049ccbeb45810adbce12d4cfa, type: 3}
@@ -685,8 +751,29 @@ MonoBehaviour:
   - name: misc/human_village
     texture: {fileID: 2800000, guid: 1a6935911a14b294597e34fb03cfb049, type: 3}
     tags: []
+  - name: misc/kappa_base
+    texture: {fileID: 2800000, guid: fb247d0a2aa14b8459e51b9d2d077ee6, type: 3}
+    tags: []
   - name: misc/kourindou_front
     texture: {fileID: 2800000, guid: 1d01c78f7d98df044b653eab390c102e, type: 3}
+    tags: []
+  - name: misc/kraken_appears
+    texture: {fileID: 2800000, guid: 1fb58e13be515ac4ba86881026972d7b, type: 3}
+    tags: []
+  - name: misc/kraken_broken
+    texture: {fileID: 2800000, guid: cbaafa442f23ad146b1ebdae6a6ec378, type: 3}
+    tags: []
+  - name: misc/kraken_broken_eye
+    texture: {fileID: 2800000, guid: 38202251749970243b3779ef6623045c, type: 3}
+    tags: []
+  - name: misc/kraken_entangled
+    texture: {fileID: 2800000, guid: 9183a57c807999f448422b7fc08ba742, type: 3}
+    tags: []
+  - name: misc/kraken_pov_underwater
+    texture: {fileID: 2800000, guid: 2677b35242f2f93439793805fd1929ca, type: 3}
+    tags: []
+  - name: misc/kraken_shot_by_laser
+    texture: {fileID: 2800000, guid: 9f5deac37b2dd074fbf216b9fd119b57, type: 3}
     tags: []
   - name: misc/letter_for_help
     texture: {fileID: 2800000, guid: 7c77b2bc79808994aaee8edec5031dc8, type: 3}
@@ -703,6 +790,9 @@ MonoBehaviour:
   - name: misc/memory_with_unknown_person
     texture: {fileID: 2800000, guid: bb754e26dee4d5441be3bad97415c324, type: 3}
     tags: []
+  - name: misc/misty_lake
+    texture: {fileID: 2800000, guid: e730faf94d12d364892e6bd4e9e54d49, type: 3}
+    tags: []
   - name: misc/mountain
     texture: {fileID: 2800000, guid: b281ded5b7339de43a309d71320b5309, type: 3}
     tags: []
@@ -716,6 +806,9 @@ MonoBehaviour:
   - name: misc/mysterious_hacker
     texture: {fileID: 2800000, guid: bae54dd42f53f3647bb2d151a04d3d1d, type: 3}
     tags: []
+  - name: misc/new_prosthesis
+    texture: {fileID: 2800000, guid: 84de6080eb4ceb14ba8e79f53d55a5b5, type: 3}
+    tags: []
   - name: misc/nightmare
     texture: {fileID: 2800000, guid: 8f515a416fe31cb4b8033bfb9fb4dc5b, type: 3}
     tags: []
@@ -728,6 +821,12 @@ MonoBehaviour:
     tags: []
   - name: misc/nightmare_art
     texture: {fileID: 2800000, guid: 80c498f2605fad848859bce97a8c16ed, type: 3}
+    tags: []
+  - name: misc/nitoris_key
+    texture: {fileID: 2800000, guid: 20f62567e2777f949a40677808f8a129, type: 3}
+    tags: []
+  - name: misc/nitoris_machine
+    texture: {fileID: 2800000, guid: 31fe0f41d379d7b4e8b6b728f403c20d, type: 3}
     tags: []
   - name: misc/palace
     texture: {fileID: 2800000, guid: a834091dfc5d3884cb48abf3ecb36da3, type: 3}
@@ -782,6 +881,9 @@ MonoBehaviour:
     tags: []
   - name: mobile_blueprint/AntiGravityPad
     texture: {fileID: 2800000, guid: d3fcf478a2435a14cad0b456609aed1c, type: 3}
+    tags: []
+  - name: mobile_blueprint/anti_gravity_pad
+    texture: {fileID: 2800000, guid: a3c56b34ce5f8204792ee0ccd2d1d482, type: 3}
     tags: []
   - name: mobile_blueprint/anubisand
     texture: {fileID: 2800000, guid: 2d37eb66e5d769343ab9e6ee42496b68, type: 3}
@@ -1145,6 +1247,12 @@ MonoBehaviour:
     tags: []
   - name: mobile_blueprint/KogasaZombie
     texture: {fileID: 2800000, guid: 226a3cf89e4a07e4aab3a61a2ba15f3e, type: 3}
+    tags: []
+  - name: mobile_blueprint/kraken
+    texture: {fileID: 2800000, guid: 7b02c064d8862d043b3f72e9b597fb6b, type: 3}
+    tags: []
+  - name: mobile_blueprint/kraken_tentacle
+    texture: {fileID: 2800000, guid: a10d9e99736eeaf4e983426d14cc2160, type: 3}
     tags: []
   - name: mobile_blueprint/LCMTNT
     texture: {fileID: 2800000, guid: 7481dbcee85f61e4ebe3fd97845a4e22, type: 3}
@@ -1521,6 +1629,9 @@ MonoBehaviour:
   - name: mobile_blueprint/thunder_drum
     texture: {fileID: 2800000, guid: 904706dca625dc84db7ba9432de30ec2, type: 3}
     tags: []
+  - name: mobile_blueprint/time_bomb
+    texture: {fileID: 2800000, guid: 5944025fda4d2094b8cf2f64c041365a, type: 3}
+    tags: []
   - name: mobile_blueprint/tnt
     texture: {fileID: 2800000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
     tags: []
@@ -1647,6 +1758,9 @@ MonoBehaviour:
   - name: note/background_mausoleum
     texture: {fileID: 2800000, guid: e22d8952fb88ae345a9f5ae2e633b5d4, type: 3}
     tags: []
+  - name: note/background_mountain
+    texture: {fileID: 2800000, guid: a3698e01407869b4a9910d4cadeb4c56, type: 3}
+    tags: []
   - name: note/background_palace
     texture: {fileID: 2800000, guid: 5fe8cc97fa275b24c8696a7ff5c984fa, type: 3}
     tags: []
@@ -1670,6 +1784,9 @@ MonoBehaviour:
     tags: []
   - name: note/mausoleum
     texture: {fileID: 2800000, guid: b453b81b803463f4ba41b29936133619, type: 3}
+    tags: []
+  - name: note/mountain
+    texture: {fileID: 2800000, guid: 1c8fb5a201f2bfb4e8b305bedea3e7f2, type: 3}
     tags: []
   - name: note/palace
     texture: {fileID: 2800000, guid: 41b8b1da0aae7ce4ca2f884df9b30083, type: 3}
@@ -1900,6 +2017,15 @@ MonoBehaviour:
   - name: ui/zoom
     texture: {fileID: 2800000, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
     tags: []
+  - name: achievements/notify/arcade_unlocked
+    texture: {fileID: 2800000, guid: a4651535c4836dc47bdb75587a5e5155, type: 3}
+    tags: []
+  - name: achievements/notify/curse_unlocked
+    texture: {fileID: 2800000, guid: 15dcdb0b2cc2a8a46b27bd8cee0be1e4, type: 3}
+    tags: []
+  - name: achievements/notify/music_room_unlocked
+    texture: {fileID: 2800000, guid: 17603344107c96a4c928f40181f9bfa1, type: 3}
+    tags: []
   - name: arcade/iz/puzzleRandomCvsRandomE
     texture: {fileID: 2800000, guid: b4361fdba51b0a847ada7e0aed9fbeb9, type: 3}
     tags: []
@@ -1989,6 +2115,45 @@ MonoBehaviour:
     tags: []
   - name: entity/boss/gun_fire
     texture: {fileID: 2800000, guid: c6834e54b22c072438a7aa1583ebc4f5, type: 3}
+    tags: []
+  - name: entity/boss/kraken
+    texture: {fileID: 2800000, guid: 119620b92e8026044982534873f81a6a, type: 3}
+    tags: []
+  - name: entity/boss/kraken_cannon
+    texture: {fileID: 2800000, guid: d66d84e359546d04eaddcc22eeff9431, type: 3}
+    tags: []
+  - name: entity/boss/kraken_charge_line
+    texture: {fileID: 2800000, guid: 5dbc9f602d05f2c4487c5f86fcd17525, type: 3}
+    tags: []
+  - name: entity/boss/kraken_charge_spot
+    texture: {fileID: 2800000, guid: e41236a6967813e4ab29d3ff8f9adcc7, type: 3}
+    tags: []
+  - name: entity/boss/kraken_core
+    texture: {fileID: 2800000, guid: aa1476bbdb242744497d6c716caa764d, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eyeball_red
+    texture: {fileID: 2800000, guid: f018b21b00230354680e60dfedb54de6, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eyelid_left
+    texture: {fileID: 2800000, guid: 0247cd36ced288f4f8c45c53226978c3, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eyelid_right
+    texture: {fileID: 2800000, guid: c88cae2b803e4044da6496756af7679e, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eye_blue
+    texture: {fileID: 2800000, guid: c33ac363acb8a8c4880d6010ec060ab0, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eye_green
+    texture: {fileID: 2800000, guid: 8aca6e4a3c9a32444bd754d29229c461, type: 3}
+    tags: []
+  - name: entity/boss/kraken_gatlin
+    texture: {fileID: 2800000, guid: 83dec3f12f9e3b6488eac50496909347, type: 3}
+    tags: []
+  - name: entity/boss/kraken_laser_gun
+    texture: {fileID: 2800000, guid: 6fbdb1f1d4d6ba44fbbcf0abbe8cd3f1, type: 3}
+    tags: []
+  - name: entity/boss/kraken_tentacle
+    texture: {fileID: 2800000, guid: 4bae6e5f7f5b40a4fbb3390236587c73, type: 3}
     tags: []
   - name: entity/boss/locked_chest
     texture: {fileID: 2800000, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
@@ -2100,6 +2265,9 @@ MonoBehaviour:
     tags: []
   - name: entity/contraption/amethyst_pylon
     texture: {fileID: 2800000, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    tags: []
+  - name: entity/contraption/anti_gravity_pad
+    texture: {fileID: 2800000, guid: 44fdc3f416c1b094a80c7e2502b3a910, type: 3}
     tags: []
   - name: entity/contraption/anvil
     texture: {fileID: 2800000, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
@@ -2347,6 +2515,9 @@ MonoBehaviour:
   - name: entity/contraption/skyward_beacon
     texture: {fileID: 2800000, guid: b18e3e85e3d64b14d9e17ae88b752b33, type: 3}
     tags: []
+  - name: entity/contraption/small_dispenser
+    texture: {fileID: 2800000, guid: eff83f4b92807d34aa8a6930548d2f54, type: 3}
+    tags: []
   - name: entity/contraption/snipenser_heads
     texture: {fileID: 2800000, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     tags: []
@@ -2388,6 +2559,12 @@ MonoBehaviour:
     tags: []
   - name: entity/contraption/thunder_drum
     texture: {fileID: 2800000, guid: 824ceee383f361649b57e79656c673da, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb
+    texture: {fileID: 2800000, guid: 0ed470f103647d8429034cfb3db18fbc, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    texture: {fileID: 2800000, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
     tags: []
   - name: entity/contraption/tnt
     texture: {fileID: 2800000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
@@ -2467,6 +2644,9 @@ MonoBehaviour:
   - name: entity/effect/combat_trail_wave
     texture: {fileID: 2800000, guid: 727d9b6ad4e6962458354304fc84ccbc, type: 3}
     tags: []
+  - name: entity/effect/critical_spark
+    texture: {fileID: 2800000, guid: 5c9d92b859873624595f1e4a9722c4fc, type: 3}
+    tags: []
   - name: entity/effect/dark_hole_circle
     texture: {fileID: 2800000, guid: d019990e5b66306429a8c40bebc19912, type: 3}
     tags: []
@@ -2513,14 +2693,23 @@ MonoBehaviour:
   - name: entity/effect/frankenstein_jump_trail
     texture: {fileID: 2800000, guid: 7fb8f9b8ab883a64887b34f86731c9b9, type: 3}
     tags: []
+  - name: entity/effect/frozen_shard
+    texture: {fileID: 2800000, guid: 98c3c4abfa390cd42b9f9fb459149755, type: 3}
+    tags: []
   - name: entity/effect/gas_diffusion
     texture: {fileID: 2800000, guid: e5e566d19ad3e024c8c3e91f928d8be1, type: 3}
     tags: []
   - name: entity/effect/heart_particle
     texture: {fileID: 2800000, guid: fe713e5300f7e974ba913b9c644552c4, type: 3}
     tags: []
+  - name: entity/effect/ice_pillar
+    texture: {fileID: 2800000, guid: cfec3fbf52a48584eb64d7f307e7ea2e, type: 3}
+    tags: []
   - name: entity/effect/iz_observer
     texture: {fileID: 2800000, guid: 3dbdc96cab9eea847bf295ab52b4a5de, type: 3}
+    tags: []
+  - name: entity/effect/kraken_death_ray
+    texture: {fileID: 2800000, guid: 2fb4610d3736e804c9c5282a578ae64e, type: 3}
     tags: []
   - name: entity/effect/locked_chest_shadow
     texture: {fileID: 2800000, guid: 78d2df784ddbd3c499324ac0f5a31020, type: 3}
@@ -2555,6 +2744,9 @@ MonoBehaviour:
   - name: entity/effect/mine_debris
     texture: {fileID: 2800000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
     tags: []
+  - name: entity/effect/miracle_mallet_minion
+    texture: {fileID: 2800000, guid: e9c2bf7fd23752840a85d59c5bc659eb, type: 3}
+    tags: []
   - name: entity/effect/nightmareaper_shadow
     texture: {fileID: 2800000, guid: 79171aca3bcf918459cf2160bda1f9f2, type: 3}
     tags: []
@@ -2568,6 +2760,9 @@ MonoBehaviour:
     texture: {fileID: 2800000, guid: 457b5a24e00ab4e4dbfda04a0d313e49, type: 3}
     tags:
     - censored
+  - name: entity/effect/nightmare_portal_background_pandora
+    texture: {fileID: 2800000, guid: af8792d825c458342b0f0f787135ae6c, type: 3}
+    tags: []
   - name: entity/effect/nightmare_portal_frame
     texture: {fileID: 2800000, guid: 9f887f3e85dc48d4e8d4bd36aa0a9e12, type: 3}
     tags: []
@@ -2575,6 +2770,9 @@ MonoBehaviour:
     texture: {fileID: 2800000, guid: ffe7678ba632c984daedf8d9223f6c42, type: 3}
     tags:
     - censored
+  - name: entity/effect/nightmare_portal_frame_pandora
+    texture: {fileID: 2800000, guid: e6e1cb37a3ce65d4da721fb510fcb246, type: 3}
+    tags: []
   - name: entity/effect/nightmare_portal_mask
     texture: {fileID: 2800000, guid: 04dcfd1cd164cbb41b834f5a6fdfba4b, type: 3}
     tags: []
@@ -3523,6 +3721,9 @@ MonoBehaviour:
   - name: level/castle/castle_twilight
     texture: {fileID: 2800000, guid: bb5ecf4eaca68cc49be8e39e2b78bda8, type: 3}
     tags: []
+  - name: level/castle/depth_map
+    texture: {fileID: 2800000, guid: b727fdfa047071d4cb97c0358353372b, type: 3}
+    tags: []
   - name: level/castle/foreground
     texture: {fileID: 2800000, guid: 7eb25f3d547617c4bb047d1f95e5f495, type: 3}
     tags: []
@@ -3535,8 +3736,8 @@ MonoBehaviour:
   - name: level/day/day_house_cover
     texture: {fileID: 2800000, guid: a9e913e5bc94c0c49808cc3e0c25228a, type: 3}
     tags: []
-  - name: level/dream/DreamNight
-    texture: {fileID: 2800000, guid: 412474974d83c1441840e3f07734ae7c, type: 3}
+  - name: level/dream/depth_map
+    texture: {fileID: 2800000, guid: a66d2eb5f06b4cf42b3a4bfbf639842b, type: 3}
     tags: []
   - name: level/dream/dream_ground
     texture: {fileID: 2800000, guid: a3399410694747943aee3e605146f887, type: 3}
@@ -3612,6 +3813,9 @@ MonoBehaviour:
   - name: level/grids/RadiationGridWater
     texture: {fileID: 2800000, guid: 240b39f5bb8954d40bb8413551a71d5b, type: 3}
     tags: []
+  - name: level/halloween/depth_map
+    texture: {fileID: 2800000, guid: 5051d60c79867e94ba378af6397db7f7, type: 3}
+    tags: []
   - name: level/halloween/halloween
     texture: {fileID: 2800000, guid: bd7b2da4545106b46b4afbf8863f9926, type: 3}
     tags: []
@@ -3635,6 +3839,9 @@ MonoBehaviour:
     tags: []
   - name: level/mountain/bridge
     texture: {fileID: 2800000, guid: f1ea97cf2ae2923468cd65767a4c2b71, type: 3}
+    tags: []
+  - name: level/mountain/depth_map
+    texture: {fileID: 2800000, guid: 512d13e3df1de6d4c9c6d4450a48aa28, type: 3}
     tags: []
   - name: level/mountain/mountain
     texture: {fileID: 2800000, guid: fe5483b57b4f942498536011ab35c856, type: 3}
@@ -3897,6 +4104,9 @@ MonoBehaviour:
     tags: []
   - name: ui/level/GreenCardMobile
     texture: {fileID: 2800000, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
+    tags: []
+  - name: ui/level/held_target_bubble
+    texture: {fileID: 2800000, guid: 852536933faed164ea28577a7706b1a5, type: 3}
     tags: []
   - name: ui/level/hint_arrow
     texture: {fileID: 2800000, guid: e54f2595624bbc447b98881de587ce72, type: 3}
@@ -4384,6 +4594,27 @@ MonoBehaviour:
   - name: entity/projectile/EXPAND_projectiles/Squid
     texture: {fileID: 2800000, guid: 55f1f6688da83694087992270e170cb6, type: 3}
     tags: []
+  - name: level/dream/EXPAND/DreamNightGround
+    texture: {fileID: 2800000, guid: d4329f3886884fe4cb949dcdd8ec8e10, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/DreamNightHouseCover
+    texture: {fileID: 2800000, guid: 2852f645bc702264a8d5c7c1ccf69d07, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/DreamNightPool
+    texture: {fileID: 2800000, guid: 9e8ab73081f4927499a65ce0b848ba33, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/DreamNightSky
+    texture: {fileID: 2800000, guid: ae01cffe24012cd45af046845ed4fb09, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/NightmareNightGround
+    texture: {fileID: 2800000, guid: e0dc55bc6d3f63e48b8469ea7687839a, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/NightmareNightHouseCover
+    texture: {fileID: 2800000, guid: a4527531e0871614782e6617b773c4c9, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/NightmareNightSky
+    texture: {fileID: 2800000, guid: 5aec50f2d3cad4848a37653c78595409, type: 3}
+    tags: []
   - name: map/gensokyo/pins/castle
     texture: {fileID: 2800000, guid: 9696331d07114754fbccc29acd1b4846, type: 3}
     tags: []
@@ -4467,6 +4698,15 @@ MonoBehaviour:
     tags: []
   - name: ui/level/progress_bar/frankenstein_background
     texture: {fileID: 2800000, guid: 54522e226cf17e14bb45c04de8805928, type: 3}
+    tags: []
+  - name: ui/level/progress_bar/kraken_background
+    texture: {fileID: 2800000, guid: 1302921f4e5d60c48988c4559f03a94f, type: 3}
+    tags: []
+  - name: ui/level/progress_bar/kraken_fill
+    texture: {fileID: 2800000, guid: a2cd642208324b14ebe87ed6b9a48a8b, type: 3}
+    tags: []
+  - name: ui/level/progress_bar/kraken_foreground
+    texture: {fileID: 2800000, guid: c809229c55a81fc44aef503393a05467, type: 3}
     tags: []
   - name: ui/level/progress_bar/level_progress_banner
     texture: {fileID: 2800000, guid: 43d0c46d78f545946b9f8472fc64be72, type: 3}
@@ -4890,6 +5130,26 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: ff7053569e162c6489dce24f636dd305, type: 3}
     tags: []
+  - name: arcade/InfinityFrankenstein
+    index: 0
+    sprite: {fileID: 21300000, guid: 2f4081f86456f1642acda342a85435c1, type: 3}
+    tags: []
+  - name: arcade/InfinityGiant
+    index: 0
+    sprite: {fileID: 21300000, guid: b2e7ce43aa269844fb7ad1df34213bbf, type: 3}
+    tags: []
+  - name: arcade/InfinityLockedChest
+    index: 0
+    sprite: {fileID: 21300000, guid: ac237bc3a80a23240b1314ff7617b5a3, type: 3}
+    tags: []
+  - name: arcade/InfinityNightmare
+    index: 0
+    sprite: {fileID: 21300000, guid: 3bdf7dcfe0783c24a906a5f5318e710f, type: 3}
+    tags: []
+  - name: arcade/InfinityRedDragon
+    index: 0
+    sprite: {fileID: 21300000, guid: e9a3032d16dcc19458bd14cfcdb98c90, type: 3}
+    tags: []
   - name: arcade/InfinitySeija
     index: 0
     sprite: {fileID: 21300000, guid: 86aaff32bcd73994c911e269b32ba84f, type: 3}
@@ -4901,6 +5161,10 @@ MonoBehaviour:
   - name: arcade/i_zombie
     index: 0
     sprite: {fileID: 21300000, guid: 954f4a9aadd5d0141a70086f5aaedcc5, type: 3}
+    tags: []
+  - name: arcade/krakens_revenge
+    index: 0
+    sprite: {fileID: 21300000, guid: 16d8ae1b40eaded4f9770dc99b287a0a, type: 3}
     tags: []
   - name: arcade/LigneMaginot
     index: 0
@@ -4961,6 +5225,10 @@ MonoBehaviour:
   - name: arcade/red_dragons_revenge
     index: 0
     sprite: {fileID: 21300000, guid: d48244988b1911e418e1b2b636f88599, type: 3}
+    tags: []
+  - name: arcade/SeijaRevenge
+    index: 0
+    sprite: {fileID: 21300000, guid: 05bd01ecfceda5f4897c446b696f7cd1, type: 3}
     tags: []
   - name: arcade/the_giants_revenge
     index: 0
@@ -5025,6 +5293,10 @@ MonoBehaviour:
   - name: archive/mausoleum_note
     index: 0
     sprite: {fileID: 21300000, guid: 3cc2a4067785bbb479556fa02098483e, type: 3}
+    tags: []
+  - name: archive/mountain_note
+    index: 0
+    sprite: {fileID: 21300000, guid: 71b4461aed005fd4cb5084cfffcc4554, type: 3}
     tags: []
   - name: archive/palace_note
     index: 0
@@ -5250,6 +5522,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: e67606b0e90b7e940844495857add1f7, type: 3}
     tags: []
+  - name: chapter_transition/title_mountain
+    index: 0
+    sprite: {fileID: 21300000, guid: c9d19f5411337a243beed27052d79af6, type: 3}
+    tags: []
   - name: chapter_transition/title_palace
     index: 0
     sprite: {fileID: 21300000, guid: 23c593eab5a6c084f8279e3507114199, type: 3}
@@ -5261,6 +5537,14 @@ MonoBehaviour:
   - name: characters/armor_stand
     index: 0
     sprite: {fileID: 21300000, guid: 79a357758cd7dff4d83ebc2928ce0812, type: 3}
+    tags: []
+  - name: characters/aya
+    index: 0
+    sprite: {fileID: -1691880924, guid: f323863dc4a7d3d409736848c3a1773c, type: 3}
+    tags: []
+  - name: characters/aya
+    index: 1
+    sprite: {fileID: 695930052, guid: f323863dc4a7d3d409736848c3a1773c, type: 3}
     tags: []
   - name: characters/byakuren
     index: 0
@@ -5422,6 +5706,10 @@ MonoBehaviour:
     index: 5
     sprite: {fileID: -1758476239, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
     tags: []
+  - name: characters/marisa_icon
+    index: 0
+    sprite: {fileID: 21300000, guid: 600d5920c6039f040bc0c11816818368, type: 3}
+    tags: []
   - name: characters/miko
     index: 0
     sprite: {fileID: -1815168315, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
@@ -5454,6 +5742,38 @@ MonoBehaviour:
     index: 7
     sprite: {fileID: 1527462565, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
     tags: []
+  - name: characters/nitori
+    index: 0
+    sprite: {fileID: -1714250842, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
+  - name: characters/nitori
+    index: 1
+    sprite: {fileID: -1447608187, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
+  - name: characters/nitori
+    index: 2
+    sprite: {fileID: 362114915, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
+  - name: characters/nitori
+    index: 3
+    sprite: {fileID: -240023498, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
+  - name: characters/nitori
+    index: 4
+    sprite: {fileID: 762190977, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
+  - name: characters/nitori
+    index: 5
+    sprite: {fileID: 1770158782, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
+  - name: characters/nitori
+    index: 6
+    sprite: {fileID: 1755804379, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
+  - name: characters/nitori
+    index: 7
+    sprite: {fileID: -730168879, guid: deb495fd1d3e94049b97f37eb1ad8db4, type: 3}
+    tags: []
   - name: characters/nue
     index: 0
     sprite: {fileID: -363754419, guid: ea907a3e2eaa545429191634d8af4841, type: 3}
@@ -5473,6 +5793,14 @@ MonoBehaviour:
   - name: characters/orant
     index: 2
     sprite: {fileID: 180654886, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
+    tags: []
+  - name: characters/reimu
+    index: 0
+    sprite: {fileID: -1244388808, guid: e7e3e3ce1446ec845a9bdbe0320f999e, type: 3}
+    tags: []
+  - name: characters/reimu
+    index: 1
+    sprite: {fileID: 556154212, guid: e7e3e3ce1446ec845a9bdbe0320f999e, type: 3}
     tags: []
   - name: characters/rin
     index: 0
@@ -5573,6 +5901,10 @@ MonoBehaviour:
   - name: characters/seija
     index: 8
     sprite: {fileID: 1360310571, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+    tags: []
+  - name: characters/seija_icon
+    index: 0
+    sprite: {fileID: 21300000, guid: 4345fda2cd86628478a1ce628b29dd6c, type: 3}
     tags: []
   - name: characters/sekibanki
     index: 0
@@ -5790,6 +6122,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 536be77b316de444c86963d500ad1922, type: 3}
     tags: []
+  - name: icons/frozen
+    index: 0
+    sprite: {fileID: 21300000, guid: f51e605779f2951469683e6e88f6c210, type: 3}
+    tags: []
   - name: icons/parasitized_icon
     index: 0
     sprite: {fileID: -1697089634, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
@@ -5817,6 +6153,10 @@ MonoBehaviour:
   - name: icons/z
     index: 0
     sprite: {fileID: 21300000, guid: b4afc6a6c73738d48818d19fcc98eab8, type: 3}
+    tags: []
+  - name: level/depth_map_default
+    index: 0
+    sprite: {fileID: 21300000, guid: 9bd684baef76f674694130f5bdda1f93, type: 3}
     tags: []
   - name: level/hp_bar
     index: 0
@@ -6042,6 +6382,18 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 50bf732bad4c58e4594fe0d57da0eeff, type: 3}
     tags: []
+  - name: misc/balance_insufficient
+    index: 0
+    sprite: {fileID: -462341804, guid: 9f858d359d58aaf4b8c8c90deffcb3db, type: 3}
+    tags: []
+  - name: misc/balance_insufficient
+    index: 1
+    sprite: {fileID: -1978496456, guid: 9f858d359d58aaf4b8c8c90deffcb3db, type: 3}
+    tags: []
+  - name: misc/balance_insufficient
+    index: 2
+    sprite: {fileID: 1754060175, guid: 9f858d359d58aaf4b8c8c90deffcb3db, type: 3}
+    tags: []
   - name: misc/blazing_hell_cliff
     index: 0
     sprite: {fileID: 21300000, guid: f395daa66520f244ab609c2feaea92c7, type: 3}
@@ -6057,6 +6409,10 @@ MonoBehaviour:
   - name: misc/dead_red_dragon
     index: 0
     sprite: {fileID: 21300000, guid: 0da8ea7b3ec83e94793e912ac5ea6c81, type: 3}
+    tags: []
+  - name: misc/debris_of_nitoris_lab
+    index: 0
+    sprite: {fileID: 21300000, guid: 92c4375d1ea0656428e74e371fd3a4d6, type: 3}
     tags: []
   - name: misc/downed_tokiko
     index: 0
@@ -6078,6 +6434,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 7115796f746855040a8dba6478a983f0, type: 3}
     tags: []
+  - name: misc/ender_pearl_fragment
+    index: 0
+    sprite: {fileID: 21300000, guid: 981e06318f0565543b9f7d17a3dd56d8, type: 3}
+    tags: []
   - name: misc/end_ship
     index: 0
     sprite: {fileID: 21300000, guid: 7e371a692db43054c88eb8560c9ebd74, type: 3}
@@ -6090,6 +6450,38 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 831f7ad8d2311d448970951982d07ad8, type: 3}
     tags: []
+  - name: misc/eye_on_nitoris_machine
+    index: 0
+    sprite: {fileID: 1261516928, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/eye_on_nitoris_machine
+    index: 1
+    sprite: {fileID: 1075868484, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/eye_on_nitoris_machine
+    index: 2
+    sprite: {fileID: 749274696, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/eye_on_nitoris_machine
+    index: 3
+    sprite: {fileID: 191735576, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/eye_on_nitoris_machine
+    index: 4
+    sprite: {fileID: 1006614309, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/eye_on_nitoris_machine
+    index: 5
+    sprite: {fileID: -734336342, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/eye_on_nitoris_machine
+    index: 6
+    sprite: {fileID: -421642021, guid: 82c6e658f46d763498c78528bca383a4, type: 3}
+    tags: []
+  - name: misc/fake_chapter_transition_7
+    index: 0
+    sprite: {fileID: 21300000, guid: 54ad5c4d8faf2904ba63b26bc46ce577, type: 3}
+    tags: []
   - name: misc/fall_from_ship
     index: 0
     sprite: {fileID: 21300000, guid: a81e7ee6085bf10488c8ac5cec8948f8, type: 3}
@@ -6097,6 +6489,10 @@ MonoBehaviour:
   - name: misc/frankenstein
     index: 0
     sprite: {fileID: 21300000, guid: c52ffe26b09fa8d43bfa1881edcd3b04, type: 3}
+    tags: []
+  - name: misc/gems_icon
+    index: 0
+    sprite: {fileID: 21300000, guid: 8c64ca25f06e50342a0dc9628c381323, type: 3}
     tags: []
   - name: misc/giant_in_mausoleum
     index: 0
@@ -6130,9 +6526,37 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 1a6935911a14b294597e34fb03cfb049, type: 3}
     tags: []
+  - name: misc/kappa_base
+    index: 0
+    sprite: {fileID: 21300000, guid: fb247d0a2aa14b8459e51b9d2d077ee6, type: 3}
+    tags: []
   - name: misc/kourindou_front
     index: 0
     sprite: {fileID: 21300000, guid: 1d01c78f7d98df044b653eab390c102e, type: 3}
+    tags: []
+  - name: misc/kraken_appears
+    index: 0
+    sprite: {fileID: 21300000, guid: 1fb58e13be515ac4ba86881026972d7b, type: 3}
+    tags: []
+  - name: misc/kraken_broken
+    index: 0
+    sprite: {fileID: 21300000, guid: cbaafa442f23ad146b1ebdae6a6ec378, type: 3}
+    tags: []
+  - name: misc/kraken_broken_eye
+    index: 0
+    sprite: {fileID: 21300000, guid: 38202251749970243b3779ef6623045c, type: 3}
+    tags: []
+  - name: misc/kraken_entangled
+    index: 0
+    sprite: {fileID: 21300000, guid: 9183a57c807999f448422b7fc08ba742, type: 3}
+    tags: []
+  - name: misc/kraken_pov_underwater
+    index: 0
+    sprite: {fileID: 21300000, guid: 2677b35242f2f93439793805fd1929ca, type: 3}
+    tags: []
+  - name: misc/kraken_shot_by_laser
+    index: 0
+    sprite: {fileID: 21300000, guid: 9f5deac37b2dd074fbf216b9fd119b57, type: 3}
     tags: []
   - name: misc/letter_for_help
     index: 0
@@ -6154,6 +6578,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: bb754e26dee4d5441be3bad97415c324, type: 3}
     tags: []
+  - name: misc/misty_lake
+    index: 0
+    sprite: {fileID: 21300000, guid: e730faf94d12d364892e6bd4e9e54d49, type: 3}
+    tags: []
   - name: misc/mountain
     index: 0
     sprite: {fileID: 21300000, guid: b281ded5b7339de43a309d71320b5309, type: 3}
@@ -6171,6 +6599,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: bae54dd42f53f3647bb2d151a04d3d1d, type: 3}
     tags: []
+  - name: misc/new_prosthesis
+    index: 0
+    sprite: {fileID: 21300000, guid: 84de6080eb4ceb14ba8e79f53d55a5b5, type: 3}
+    tags: []
   - name: misc/nightmare
     index: 0
     sprite: {fileID: 21300000, guid: 8f515a416fe31cb4b8033bfb9fb4dc5b, type: 3}
@@ -6187,6 +6619,14 @@ MonoBehaviour:
   - name: misc/nightmare_art
     index: 0
     sprite: {fileID: 21300000, guid: 80c498f2605fad848859bce97a8c16ed, type: 3}
+    tags: []
+  - name: misc/nitoris_key
+    index: 0
+    sprite: {fileID: 21300000, guid: 20f62567e2777f949a40677808f8a129, type: 3}
+    tags: []
+  - name: misc/nitoris_machine
+    index: 0
+    sprite: {fileID: 21300000, guid: 31fe0f41d379d7b4e8b6b728f403c20d, type: 3}
     tags: []
   - name: misc/palace
     index: 0
@@ -6279,6 +6719,10 @@ MonoBehaviour:
   - name: mobile_blueprint/AntiGravityPad
     index: 0
     sprite: {fileID: 21300000, guid: d3fcf478a2435a14cad0b456609aed1c, type: 3}
+    tags: []
+  - name: mobile_blueprint/anti_gravity_pad
+    index: 0
+    sprite: {fileID: 21300000, guid: a3c56b34ce5f8204792ee0ccd2d1d482, type: 3}
     tags: []
   - name: mobile_blueprint/anubisand
     index: 0
@@ -6763,6 +7207,14 @@ MonoBehaviour:
   - name: mobile_blueprint/KogasaZombie
     index: 0
     sprite: {fileID: 21300000, guid: 226a3cf89e4a07e4aab3a61a2ba15f3e, type: 3}
+    tags: []
+  - name: mobile_blueprint/kraken
+    index: 0
+    sprite: {fileID: 21300000, guid: 7b02c064d8862d043b3f72e9b597fb6b, type: 3}
+    tags: []
+  - name: mobile_blueprint/kraken_tentacle
+    index: 0
+    sprite: {fileID: 21300000, guid: a10d9e99736eeaf4e983426d14cc2160, type: 3}
     tags: []
   - name: mobile_blueprint/LCMTNT
     index: 0
@@ -7264,6 +7716,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 904706dca625dc84db7ba9432de30ec2, type: 3}
     tags: []
+  - name: mobile_blueprint/time_bomb
+    index: 0
+    sprite: {fileID: 21300000, guid: 5944025fda4d2094b8cf2f64c041365a, type: 3}
+    tags: []
   - name: mobile_blueprint/tnt
     index: 0
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
@@ -7432,6 +7888,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: e22d8952fb88ae345a9f5ae2e633b5d4, type: 3}
     tags: []
+  - name: note/background_mountain
+    index: 0
+    sprite: {fileID: 21300000, guid: a3698e01407869b4a9910d4cadeb4c56, type: 3}
+    tags: []
   - name: note/background_palace
     index: 0
     sprite: {fileID: 21300000, guid: 5fe8cc97fa275b24c8696a7ff5c984fa, type: 3}
@@ -7463,6 +7923,10 @@ MonoBehaviour:
   - name: note/mausoleum
     index: 0
     sprite: {fileID: 21300000, guid: b453b81b803463f4ba41b29936133619, type: 3}
+    tags: []
+  - name: note/mountain
+    index: 0
+    sprite: {fileID: 21300000, guid: 1c8fb5a201f2bfb4e8b305bedea3e7f2, type: 3}
     tags: []
   - name: note/palace
     index: 0
@@ -8021,6 +8485,18 @@ MonoBehaviour:
     index: 1
     sprite: {fileID: 1378232367, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
     tags: []
+  - name: achievements/notify/arcade_unlocked
+    index: 0
+    sprite: {fileID: 21300000, guid: a4651535c4836dc47bdb75587a5e5155, type: 3}
+    tags: []
+  - name: achievements/notify/curse_unlocked
+    index: 0
+    sprite: {fileID: 21300000, guid: 15dcdb0b2cc2a8a46b27bd8cee0be1e4, type: 3}
+    tags: []
+  - name: achievements/notify/music_room_unlocked
+    index: 0
+    sprite: {fileID: 21300000, guid: 17603344107c96a4c928f40181f9bfa1, type: 3}
+    tags: []
   - name: arcade/iz/puzzleRandomCvsRandomE
     index: 0
     sprite: {fileID: 21300000, guid: b4361fdba51b0a847ada7e0aed9fbeb9, type: 3}
@@ -8288,6 +8764,58 @@ MonoBehaviour:
   - name: entity/boss/gun_fire
     index: 0
     sprite: {fileID: 21300000, guid: c6834e54b22c072438a7aa1583ebc4f5, type: 3}
+    tags: []
+  - name: entity/boss/kraken
+    index: 0
+    sprite: {fileID: 21300000, guid: 119620b92e8026044982534873f81a6a, type: 3}
+    tags: []
+  - name: entity/boss/kraken_cannon
+    index: 0
+    sprite: {fileID: 21300000, guid: d66d84e359546d04eaddcc22eeff9431, type: 3}
+    tags: []
+  - name: entity/boss/kraken_charge_line
+    index: 0
+    sprite: {fileID: 21300000, guid: 5dbc9f602d05f2c4487c5f86fcd17525, type: 3}
+    tags: []
+  - name: entity/boss/kraken_charge_spot
+    index: 0
+    sprite: {fileID: 21300000, guid: e41236a6967813e4ab29d3ff8f9adcc7, type: 3}
+    tags: []
+  - name: entity/boss/kraken_core
+    index: 0
+    sprite: {fileID: 21300000, guid: aa1476bbdb242744497d6c716caa764d, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eyeball_red
+    index: 0
+    sprite: {fileID: 21300000, guid: f018b21b00230354680e60dfedb54de6, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eyelid_left
+    index: 0
+    sprite: {fileID: 21300000, guid: 0247cd36ced288f4f8c45c53226978c3, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eyelid_right
+    index: 0
+    sprite: {fileID: 21300000, guid: c88cae2b803e4044da6496756af7679e, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eye_blue
+    index: 0
+    sprite: {fileID: 21300000, guid: c33ac363acb8a8c4880d6010ec060ab0, type: 3}
+    tags: []
+  - name: entity/boss/kraken_eye_green
+    index: 0
+    sprite: {fileID: 21300000, guid: 8aca6e4a3c9a32444bd754d29229c461, type: 3}
+    tags: []
+  - name: entity/boss/kraken_gatlin
+    index: 0
+    sprite: {fileID: 21300000, guid: 83dec3f12f9e3b6488eac50496909347, type: 3}
+    tags: []
+  - name: entity/boss/kraken_laser_gun
+    index: 0
+    sprite: {fileID: 21300000, guid: 6fbdb1f1d4d6ba44fbbcf0abbe8cd3f1, type: 3}
+    tags: []
+  - name: entity/boss/kraken_tentacle
+    index: 0
+    sprite: {fileID: 21300000, guid: 4bae6e5f7f5b40a4fbb3390236587c73, type: 3}
     tags: []
   - name: entity/boss/locked_chest
     index: 0
@@ -8900,6 +9428,10 @@ MonoBehaviour:
   - name: entity/contraption/amethyst_pylon
     index: 6
     sprite: {fileID: -663098386, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    tags: []
+  - name: entity/contraption/anti_gravity_pad
+    index: 0
+    sprite: {fileID: 21300000, guid: 44fdc3f416c1b094a80c7e2502b3a910, type: 3}
     tags: []
   - name: entity/contraption/anvil
     index: 0
@@ -9777,6 +10309,10 @@ MonoBehaviour:
     index: 3
     sprite: {fileID: 888369719, guid: b18e3e85e3d64b14d9e17ae88b752b33, type: 3}
     tags: []
+  - name: entity/contraption/small_dispenser
+    index: 0
+    sprite: {fileID: 21300000, guid: eff83f4b92807d34aa8a6930548d2f54, type: 3}
+    tags: []
   - name: entity/contraption/snipenser_heads
     index: 0
     sprite: {fileID: 1279227878, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
@@ -9997,6 +10533,50 @@ MonoBehaviour:
     index: 2
     sprite: {fileID: 1055655857, guid: 824ceee383f361649b57e79656c673da, type: 3}
     tags: []
+  - name: entity/contraption/time_bomb
+    index: 0
+    sprite: {fileID: 21300000, guid: 0ed470f103647d8429034cfb3db18fbc, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 0
+    sprite: {fileID: 409197630, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 1
+    sprite: {fileID: 586827730, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 2
+    sprite: {fileID: -892716949, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 3
+    sprite: {fileID: 305818687, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 4
+    sprite: {fileID: -133001031, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 5
+    sprite: {fileID: -864037680, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 6
+    sprite: {fileID: 982951533, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 7
+    sprite: {fileID: -1408762319, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 8
+    sprite: {fileID: -1117441140, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
+  - name: entity/contraption/time_bomb_number
+    index: 9
+    sprite: {fileID: 894498172, guid: d79738f9c32550d43bda5b5aa5eeafbd, type: 3}
+    tags: []
   - name: entity/contraption/tnt
     index: 0
     sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
@@ -10213,6 +10793,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 727d9b6ad4e6962458354304fc84ccbc, type: 3}
     tags: []
+  - name: entity/effect/critical_spark
+    index: 0
+    sprite: {fileID: 21300000, guid: 5c9d92b859873624595f1e4a9722c4fc, type: 3}
+    tags: []
   - name: entity/effect/dark_hole_circle
     index: 0
     sprite: {fileID: 21300000, guid: d019990e5b66306429a8c40bebc19912, type: 3}
@@ -10397,6 +10981,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 7fb8f9b8ab883a64887b34f86731c9b9, type: 3}
     tags: []
+  - name: entity/effect/frozen_shard
+    index: 0
+    sprite: {fileID: 21300000, guid: 98c3c4abfa390cd42b9f9fb459149755, type: 3}
+    tags: []
   - name: entity/effect/gas_diffusion
     index: 0
     sprite: {fileID: 21300000, guid: e5e566d19ad3e024c8c3e91f928d8be1, type: 3}
@@ -10405,6 +10993,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: fe713e5300f7e974ba913b9c644552c4, type: 3}
     tags: []
+  - name: entity/effect/ice_pillar
+    index: 0
+    sprite: {fileID: 21300000, guid: cfec3fbf52a48584eb64d7f307e7ea2e, type: 3}
+    tags: []
   - name: entity/effect/iz_observer
     index: 0
     sprite: {fileID: -816891172, guid: 3dbdc96cab9eea847bf295ab52b4a5de, type: 3}
@@ -10412,6 +11004,10 @@ MonoBehaviour:
   - name: entity/effect/iz_observer
     index: 1
     sprite: {fileID: -1768560323, guid: 3dbdc96cab9eea847bf295ab52b4a5de, type: 3}
+    tags: []
+  - name: entity/effect/kraken_death_ray
+    index: 0
+    sprite: {fileID: 21300000, guid: 2fb4610d3736e804c9c5282a578ae64e, type: 3}
     tags: []
   - name: entity/effect/locked_chest_shadow
     index: 0
@@ -10485,6 +11081,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
     tags: []
+  - name: entity/effect/miracle_mallet_minion
+    index: 0
+    sprite: {fileID: 21300000, guid: e9c2bf7fd23752840a85d59c5bc659eb, type: 3}
+    tags: []
   - name: entity/effect/nightmareaper_shadow
     index: 0
     sprite: {fileID: 21300000, guid: 79171aca3bcf918459cf2160bda1f9f2, type: 3}
@@ -10526,6 +11126,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 457b5a24e00ab4e4dbfda04a0d313e49, type: 3}
     tags:
     - censored
+  - name: entity/effect/nightmare_portal_background_pandora
+    index: 0
+    sprite: {fileID: 21300000, guid: af8792d825c458342b0f0f787135ae6c, type: 3}
+    tags: []
   - name: entity/effect/nightmare_portal_frame
     index: 0
     sprite: {fileID: 21300000, guid: 9f887f3e85dc48d4e8d4bd36aa0a9e12, type: 3}
@@ -10535,6 +11139,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ffe7678ba632c984daedf8d9223f6c42, type: 3}
     tags:
     - censored
+  - name: entity/effect/nightmare_portal_frame_pandora
+    index: 0
+    sprite: {fileID: 21300000, guid: e6e1cb37a3ce65d4da721fb510fcb246, type: 3}
+    tags: []
   - name: entity/effect/nightmare_portal_mask
     index: 0
     sprite: {fileID: 21300000, guid: 04dcfd1cd164cbb41b834f5a6fdfba4b, type: 3}
@@ -15079,6 +15687,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: bb5ecf4eaca68cc49be8e39e2b78bda8, type: 3}
     tags: []
+  - name: level/castle/depth_map
+    index: 0
+    sprite: {fileID: 21300000, guid: b727fdfa047071d4cb97c0358353372b, type: 3}
+    tags: []
   - name: level/castle/foreground
     index: 0
     sprite: {fileID: 21300000, guid: 7eb25f3d547617c4bb047d1f95e5f495, type: 3}
@@ -15095,9 +15707,9 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: a9e913e5bc94c0c49808cc3e0c25228a, type: 3}
     tags: []
-  - name: level/dream/DreamNight
+  - name: level/dream/depth_map
     index: 0
-    sprite: {fileID: 21300000, guid: 412474974d83c1441840e3f07734ae7c, type: 3}
+    sprite: {fileID: 21300000, guid: a66d2eb5f06b4cf42b3a4bfbf639842b, type: 3}
     tags: []
   - name: level/dream/dream_ground
     index: 0
@@ -15213,6 +15825,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 240b39f5bb8954d40bb8413551a71d5b, type: 3}
     tags: []
+  - name: level/halloween/depth_map
+    index: 0
+    sprite: {fileID: 21300000, guid: 5051d60c79867e94ba378af6397db7f7, type: 3}
+    tags: []
   - name: level/halloween/halloween
     index: 0
     sprite: {fileID: 21300000, guid: bd7b2da4545106b46b4afbf8863f9926, type: 3}
@@ -15244,6 +15860,10 @@ MonoBehaviour:
   - name: level/mountain/bridge
     index: 0
     sprite: {fileID: 21300000, guid: f1ea97cf2ae2923468cd65767a4c2b71, type: 3}
+    tags: []
+  - name: level/mountain/depth_map
+    index: 0
+    sprite: {fileID: 21300000, guid: 512d13e3df1de6d4c9c6d4450a48aa28, type: 3}
     tags: []
   - name: level/mountain/mountain
     index: 0
@@ -15998,6 +16618,10 @@ MonoBehaviour:
     index: 3
     sprite: {fileID: 1894590824, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
     tags: []
+  - name: ui/level/held_target_bubble
+    index: 0
+    sprite: {fileID: 21300000, guid: 852536933faed164ea28577a7706b1a5, type: 3}
+    tags: []
   - name: ui/level/hint_arrow
     index: 0
     sprite: {fileID: 21300000, guid: e54f2595624bbc447b98881de587ce72, type: 3}
@@ -16116,11 +16740,7 @@ MonoBehaviour:
     tags: []
   - name: ui/level/nightmare_broken_glasses
     index: 22
-    sprite: {fileID: 3439651553194031847, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    tags: []
-  - name: ui/level/nightmare_broken_glasses
-    index: 23
-    sprite: {fileID: -2918477655606386715, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    sprite: {fileID: -724685578, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
     tags: []
   - name: ui/level/OreuiDownPressed
     index: 0
@@ -18086,6 +18706,34 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 55f1f6688da83694087992270e170cb6, type: 3}
     tags: []
+  - name: level/dream/EXPAND/DreamNightGround
+    index: 0
+    sprite: {fileID: 21300000, guid: d4329f3886884fe4cb949dcdd8ec8e10, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/DreamNightHouseCover
+    index: 0
+    sprite: {fileID: 21300000, guid: 2852f645bc702264a8d5c7c1ccf69d07, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/DreamNightPool
+    index: 0
+    sprite: {fileID: 21300000, guid: 9e8ab73081f4927499a65ce0b848ba33, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/DreamNightSky
+    index: 0
+    sprite: {fileID: 21300000, guid: ae01cffe24012cd45af046845ed4fb09, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/NightmareNightGround
+    index: 0
+    sprite: {fileID: 21300000, guid: e0dc55bc6d3f63e48b8469ea7687839a, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/NightmareNightHouseCover
+    index: 0
+    sprite: {fileID: 21300000, guid: a4527531e0871614782e6617b773c4c9, type: 3}
+    tags: []
+  - name: level/dream/EXPAND/NightmareNightSky
+    index: 0
+    sprite: {fileID: 21300000, guid: 5aec50f2d3cad4848a37653c78595409, type: 3}
+    tags: []
   - name: map/gensokyo/pins/castle
     index: 0
     sprite: {fileID: 21300000, guid: 9696331d07114754fbccc29acd1b4846, type: 3}
@@ -18649,6 +19297,18 @@ MonoBehaviour:
   - name: ui/level/progress_bar/frankenstein_background
     index: 0
     sprite: {fileID: 21300000, guid: 54522e226cf17e14bb45c04de8805928, type: 3}
+    tags: []
+  - name: ui/level/progress_bar/kraken_background
+    index: 0
+    sprite: {fileID: 21300000, guid: 1302921f4e5d60c48988c4559f03a94f, type: 3}
+    tags: []
+  - name: ui/level/progress_bar/kraken_fill
+    index: 0
+    sprite: {fileID: 21300000, guid: a2cd642208324b14ebe87ed6b9a48a8b, type: 3}
+    tags: []
+  - name: ui/level/progress_bar/kraken_foreground
+    index: 0
+    sprite: {fileID: 21300000, guid: c809229c55a81fc44aef503393a05467, type: 3}
     tags: []
   - name: ui/level/progress_bar/level_progress_banner
     index: 0
