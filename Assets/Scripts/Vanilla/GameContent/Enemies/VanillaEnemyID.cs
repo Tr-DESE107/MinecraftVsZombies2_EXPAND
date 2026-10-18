@@ -80,6 +80,9 @@ namespace MVZ2.GameContent.Enemies
         public const string creaking = "creaking";
         public const string zombieCow = "zombie_cow";
         public const string bubble = "bubble";
+        public const string drowned = "drowned";
+        public const string leatherCappedDrowned = "leather_capped_drowned";
+        public const string ironHelmettedDrowned = "iron_helmetted_drowned";
 
 
         //EXPAND_C1
@@ -279,6 +282,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID creaking = Get(VanillaEnemyNames.creaking);
         public static readonly NamespaceID zombieCow = Get(VanillaEnemyNames.zombieCow);
         public static readonly NamespaceID bubble = Get(VanillaEnemyNames.bubble);
+        public static readonly NamespaceID drowned = Get(VanillaEnemyNames.drowned);
+        public static readonly NamespaceID leatherCappedDrowned = Get(VanillaEnemyNames.leatherCappedDrowned);
+        public static readonly NamespaceID ironHelmettedDrowned = Get(VanillaEnemyNames.ironHelmettedDrowned);
 
         //EXPAND_C1
         public static readonly NamespaceID SkeletonHead = Get(VanillaEnemyNames.SkeletonHead);

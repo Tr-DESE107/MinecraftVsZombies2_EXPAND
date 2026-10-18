@@ -20,6 +20,14 @@ namespace MVZ2.Models
                 return null;
             return slotMeta.Anchor;
         }
+        public static ModelAnchor? GetCenterAnchor(this Model model)
+        {
+            return model.GetAnchor(LogicModelHelper.ANCHOR_CENTER);
+        }
+        public static ModelAnchor? GetRootAnchor(this Model model)
+        {
+            return model.GetAnchor(LogicModelHelper.ANCHOR_ROOT);
+        }
         public static Model? CreateArmor(this Model model, string anchor, NamespaceID slot, NamespaceID id)
         {
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);

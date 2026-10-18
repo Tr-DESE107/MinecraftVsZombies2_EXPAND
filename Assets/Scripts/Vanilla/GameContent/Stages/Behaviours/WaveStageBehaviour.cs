@@ -27,6 +27,8 @@ namespace MVZ2.GameContent.Stages
         public void RunWaveTimer(LevelEngine level)
         {
             CheckWaveAdvancement(level);
+            if (level.NoWaveAdvancement())
+                return;
 
             var waveTimer = GetWaveTimer(level);
             if (waveTimer.RunToExpiredAndNotNull())
@@ -36,6 +38,8 @@ namespace MVZ2.GameContent.Stages
         }
         public void RunBossWave(LevelEngine level)
         {
+            if (level.NoWaveAdvancement())
+                return;
             CheckWaveAdvancement(level);
 
             var waveTimer = GetWaveTimer(level);
@@ -142,7 +146,10 @@ namespace MVZ2.GameContent.Stages
                 TriggerHugeWaveApproaching(level);
                 return;
             }
-            NextWave(level);
+            else
+            {
+                NextWave(level);
+            }
         }
         private void TriggerHugeWaveApproaching(LevelEngine level)
         {

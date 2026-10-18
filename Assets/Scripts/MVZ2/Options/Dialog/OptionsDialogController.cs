@@ -11,6 +11,7 @@ using MVZ2Logic.Audios;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Games;
+using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Options;
 using MVZ2Logic.Saves;
@@ -236,7 +237,7 @@ namespace MVZ2.Options
                         var level = Main.LevelManager.GetLevelController();
                         if (!level.Exists())
                             break;
-                        level.ShowRestartConfirmDialog();
+                        level.ShowRestartConfirmDialog(LevelRestartStatus.InLevel);
                     }
                     break;
             }

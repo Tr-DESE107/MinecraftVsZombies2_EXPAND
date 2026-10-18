@@ -11,7 +11,6 @@ using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;                        // HasBuff<T> / GetBuffs<T>  
-using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 
@@ -33,8 +32,7 @@ namespace MVZ2.GameContent.Effects
 
             detectBuffer.Clear();
             laserDetector.DetectEntities(entity, detectBuffer);
-            var effectsArray = entity.GetDamageEffects();
-            var damageEffects = effectsArray == null ? new DamageEffectList() : new DamageEffectList(effectsArray);
+            var damageEffects = entity.GetDamageEffectList();
             foreach (var target in detectBuffer)
             {
                 target.TakeDamage(entity.GetDamage(), damageEffects, entity);

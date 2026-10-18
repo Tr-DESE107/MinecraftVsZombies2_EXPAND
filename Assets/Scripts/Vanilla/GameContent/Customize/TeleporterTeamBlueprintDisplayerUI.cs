@@ -2,11 +2,10 @@
 
 using System;
 using MVZ2.Blueprints;
+using MVZ2.Level.Inputing;
 using MVZ2.UI;
-using MVZ2Logic.Inputs;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.GameContent.Customize
@@ -42,9 +41,9 @@ namespace MVZ2.GameContent.Customize
             confirmButton.onClick.AddListener(OnConfirmClickCallback);
             cancelButton.onClick.AddListener(OnCancelClickCallback);
         }
-        private void OnBlueprintPointerInteractionCallback(int index, PointerEventData eventData, PointerInteraction interaction)
+        private void OnBlueprintPointerInteractionCallback(int index, PointerInteractionArgs args)
         {
-            OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction);
+            OnBlueprintPointerInteraction?.Invoke(index, args);
         }
         private void OnConfirmClickCallback()
         {
@@ -54,7 +53,7 @@ namespace MVZ2.GameContent.Customize
         {
             OnCancelClick?.Invoke();
         }
-        public event Action<int, PointerEventData, PointerInteraction>? OnBlueprintPointerInteraction;
+        public event Action<int, PointerInteractionArgs>? OnBlueprintPointerInteraction;
         public event Action? OnConfirmClick;
         public event Action? OnCancelClick;
         [SerializeField]

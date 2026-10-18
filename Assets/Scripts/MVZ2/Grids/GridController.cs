@@ -32,7 +32,7 @@ namespace MVZ2.Grids
         #region 生命周期
         private void Awake()
         {
-            view.OnPointerInteraction += (view, pointer, interaction) => OnPointerInteraction?.Invoke(this, pointer, interaction);
+            view.OnPointerInteraction += (view, args) => OnPointerInteraction?.Invoke(this, args);
             hpBarSource = new GridHPBarSource(this);
         }
         public void Init(GridInitData data)
@@ -193,7 +193,7 @@ namespace MVZ2.Grids
             return cachedName;
         }
 
-        public event Action<GridController, PointerEventData, PointerInteraction>? OnPointerInteraction;
+        public event Action<GridController, PointerInteractionArgs>? OnPointerInteraction;
 
         public MainManager Main => MainManager.Instance;
         public LevelController? Level { get; private set; }
@@ -289,9 +289,9 @@ namespace MVZ2.Grids
                     if (!entity.Exists())
                         continue;
                     var visibility = entity.GetHPBarVisibility();
-                    if (visibility == HPBarVisibility.HIDDEN)
+                    if (visibility == HPBarVisibility.NEVER)
                         continue;
-                    if (!shouldShow && visibility != HPBarVisibility.FORCE)
+                    if (!shouldShow && visibility != HPBarVisibility.ALWAYS)
                         continue;
                     if (entity.GetGrid() != grid)
                         continue;

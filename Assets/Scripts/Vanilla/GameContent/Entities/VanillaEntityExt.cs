@@ -16,6 +16,7 @@ using MVZ2.Vanilla.Armors;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
@@ -463,6 +464,10 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 换格
+        public static bool IsChangingTile(this Entity entity)
+        {
+            return entity.HasBuff<ChangeGridBuff>();
+        }
         public static void StartChangingGrid(this Entity entity, int column, int lane, bool destroyConflict = true, float speedFactor = 0.5f)
         {
             var buff = entity.GetFirstBuff<ChangeGridBuff>();
@@ -512,7 +517,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 buff = entity.AddBuff<StunBuff>();
             }
-            StunBuff.SetStunTime(buff, timeout);
+            StunBuff.MaxStunTime(buff, timeout);
         }
         public static void SoulFreeze(this Entity entity, int timeout)
         {
@@ -740,40 +745,55 @@ namespace MVZ2.Vanilla.Entities
         }
         public static bool IsAboveLand(this Entity entity)
         {
-            var grid = entity.GetGrid();
-            return grid == null || (!grid.IsWater() && !grid.IsCloud());
+            return !entity.IsOnWater() && !entity.IsAboveCloud();
         }
-        public static void PlaySplashEffect(this Entity entity)
+        public static Entity? PlayAirSplashEffect(this Entity entity)
         {
             var size = entity.GetScaledSize();
             var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
-            entity.PlaySplashEffect(scale * Vector3.one);
+            return entity.PlayAirSplashEffect(scale * Vector3.one);
         }
-        public static void PlaySplashEffect(this Entity entity, Vector3 scale)
+        public static Entity? PlayAirSplashEffect(this Entity entity, Vector3 scale)
         {
-            var level = entity.Level;
-            entity.PlaySplashEffect(scale, level.GetWaterColor());
+            return entity.PlaySplashEffect(scale, new Color(1, 1, 1, 0.5f));
         }
-        public static void PlayAirSplashEffect(this Entity entity)
+        public static Entity? PlaySplashEffectAt(this Entity entity, Vector3 position)
         {
             var size = entity.GetScaledSize();
             var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
-            entity.PlayAirSplashEffect(scale * Vector3.one);
+            return entity.PlaySplashEffectAt(position, scale * Vector3.one);
         }
-        public static void PlayAirSplashEffect(this Entity entity, Vector3 scale)
+        public static Entity? PlaySplashEffectAt(this Entity entity, Vector3 position, Vector3 scale)
         {
-            entity.PlaySplashEffect(scale, new Color(1, 1, 1, 0.5f));
+            return entity.PlaySplashEffectAt(position, scale, entity.Level.GetWaterColor());
         }
-        public static void PlaySplashEffect(this Entity entity, Vector3 scale, Color color)
+        public static Entity? PlaySplashEffectAt(this Entity entity, Vector3 position, Vector3 scale, Color color)
+        {
+            var splash = entity.Spawn(VanillaEffectID.splashParticles, position);
+            if (splash != null)
+            {
+                splash.SetTint(color);
+                splash.SetDisplayScale(scale);
+            }
+            ;
+            return splash;
+        }
+        public static Entity? PlaySplashEffect(this Entity entity)
+        {
+            var size = entity.GetScaledSize();
+            var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
+            return entity.PlaySplashEffect(scale * Vector3.one);
+        }
+        public static Entity? PlaySplashEffect(this Entity entity, Vector3 scale)
         {
             var level = entity.Level;
+            return entity.PlaySplashEffect(scale, level.GetWaterColor());
+        }
+        public static Entity? PlaySplashEffect(this Entity entity, Vector3 scale, Color color)
+        {
             var pos = entity.Position;
             pos.y = entity.GetGroundY();
-            level.Spawn(VanillaEffectID.splashParticles, pos, entity)?.Let(e =>
-            {
-                e.SetTint(color);
-                e.SetDisplayScale(scale);
-            });
+            return entity.PlaySplashEffectAt(pos, scale, color);
         }
 
         public static void PlayAirSplashSound(this Entity entity)
@@ -1021,6 +1041,30 @@ namespace MVZ2.Vanilla.Entities
             PetrifiedBuff.MaxTime(buff, time);
             PostApplyStatusEffect(entity, buff, source);
         }
+        public static void InflictFrozen(this Entity entity, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.frozen);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetBuffs(buffDefinition).FirstOrDefault(e => !e.IsFromAura);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            FrozenBuff.MaxTime(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
+        }
+        public static void InflictFrozenAndSlow(this Entity entity, int freezeTime, int slowTime, ILevelSourceReference? source)
+        {
+            if (entity.CanDeactive())
+            {
+                entity.InflictFrozen(freezeTime, source);
+            }
+            if (!entity.ImmuneSlowing())
+            {
+                entity.InflictSlow(freezeTime + slowTime, source);
+            }
+        }
 
 
         public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference? source)
@@ -1054,7 +1098,7 @@ namespace MVZ2.Vanilla.Entities
             PostApplyStatusEffect(entity, buff, source);
         }
 
-        public static void Unfreeze(this Entity entity, ILevelSourceReference? source)
+        public static void RemoveSlow(this Entity entity, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
             var SoulFreeze = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.SoulFreeze);
@@ -1063,6 +1107,19 @@ namespace MVZ2.Vanilla.Entities
             entity.RemoveBuffs(buffDefinition);
             entity.RemoveBuffs(SoulFreeze);
             PostRemoveStatusEffect(entity, buffDefinition, source);
+        }
+        public static void RemoveFrozen(this Entity entity, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.frozen);
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            entity.RemoveBuffs(buffDefinition);
+            PostRemoveStatusEffect(entity, buffDefinition, source);
+        }
+        public static void Unfreeze(this Entity entity, ILevelSourceReference? source)
+        {
+            entity.RemoveSlow(source);
+            entity.RemoveFrozen(source);
         }
 
         #region EXPAND_BUFF
@@ -1314,6 +1371,40 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 冻结物体
+        public static void FreezeObjects(this Entity entity, Detector detector)
+        {
+            using var resultsItem = ListPool<Entity>.Rent();
+            var results = resultsItem.Value;
+            detector.DetectEntities(entity, results);
+            foreach (var ent in results)
+            {
+                using var behavioursItem = ent.Definition.GetBehavioursDisposeable<IBeFrozenBehaviour>();
+                foreach (var behaviour in behavioursItem.Value)
+                {
+                    behaviour.BeFrozen(ent, entity);
+                }
+            }
+        }
+        #endregion
+
+        #region 盔甲丢弃物
+        public static Entity? ThrowArmorDiscard(this Entity entity, Armor armor, NamespaceID slot, Vector3 velocity)
+        {
+            var armorID = armor.Definition.GetID();
+            var position = entity.GetArmorDisplayPosition(slot, armorID);
+            var displayScale = entity.GetArmorDisplayScale(slot, armorID);
+
+            var spawnParam = entity.GetSpawnParams();
+            spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, displayScale);
+            spawnParam.EntityVelocity = velocity;
+            return entity.Spawn(VanillaEffectID.brokenArmor, position, spawnParam)?.Let(e =>
+            {
+                e.ChangeModel(armor.Definition.GetModelID());
+            });
+        }
+        #endregion
+
         public static float GetRealGroundLimitY(this Entity entity)
         {
             return entity.GetGroundLimitOffset() + entity.GetGroundY();
@@ -1333,6 +1424,62 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.Level.SpawnUnlockArtifactPickupIfPossible(areaID, unlockID, artifactID, position, entity);
         }
+
+        #region 覆盖地块范围
+        public static RectInt GetOverlappedTileRect(this Entity entity)
+        {
+            var level = entity.Level;
+            var bounds = entity.GetBounds();
+            var min = bounds.min;
+            var max = bounds.max;
+            var column1 = level.GetColumn(min.x);
+            var column2 = level.GetColumn(max.x);
+            var lane1 = level.GetLane(min.z);
+            var lane2 = level.GetLane(max.z);
+            var minColumn = Mathf.Min(column1, column2);
+            var maxColumn = Mathf.Max(column1, column2);
+            var minLane = Mathf.Min(lane1, lane2);
+            var maxLane = Mathf.Max(lane1, lane2);
+            return new RectInt(minColumn, minLane, maxColumn - minColumn, maxLane - minLane);
+        }
+        #endregion
+
+        #region 炸飞
+        public static void BlowUpEnemiesToSky(this Entity entity, float range, DamageOutput[] damageOutputs)
+        {
+            foreach (var output in damageOutputs)
+            {
+                var result = output.BodyResult;
+                if (result != null && result.Fatal)
+                {
+                    var target = output.Entity;
+                    if (target.Type == EntityTypes.ENEMY)
+                    {
+                        var distance = (target.Position - entity.Position).magnitude;
+                        var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
+                        target.Velocity = target.Velocity + Vector3.up * speed;
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region 对齐地块
+        public static void AdjustToTile(this Entity entity)
+        {
+            entity.AdjustToTile(entity.GetColumn(), entity.GetLane());
+        }
+        public static void AdjustToTile(this Entity entity, int targetColumn, int targetLane)
+        {
+            var gridPivotOffset = entity.GetGridPivotOffset();
+            float targetX = entity.Level.GetEntityColumnX(targetColumn) - gridPivotOffset.x;
+            float targetZ = entity.Level.GetEntityLaneZ(targetLane) - gridPivotOffset.z;
+            var pos = entity.Position;
+            pos.x = targetX;
+            pos.z = targetZ;
+            entity.Position = pos;
+        }
+        #endregion
 
         private const string PROP_REGION = "entities";
         [EntityPropertyRegistry(PROP_REGION)]

@@ -11,6 +11,8 @@ namespace MVZ2.GameContent.Placements
         public CattailPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.aquatic)
         {
             AddMethod(VanillaPlaceMethods.upgrade);
+            this.SetCanOnWater(true);
+            this.SetCanOnLand(false);
         }
     }
 }

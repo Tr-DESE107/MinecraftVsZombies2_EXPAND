@@ -47,6 +47,7 @@ namespace MVZ2.GameContent.Effects
         public const string breakoutBoard = "breakout_board";
         public const string nightmareWatchingEye = "nightmare_watching_eye";
         public const string nightmarePortal = "nightmare_portal";
+        public const string nightmarePortalPandora = "nightmare_portal_pandora";
         public const string darkMatterParticles = "dark_matter_particles";
         public const string nightmareaperSplash = "nightmareaper_splash";
         public const string nightmareaperShadow = "nightmareaper_shadow";
@@ -67,6 +68,7 @@ namespace MVZ2.GameContent.Effects
         public const string seijaFaintEffect = "seija_faint_effect";
         public const string witherSummoners = "wither_summoners";
         public const string castleTwilight = "castle_twilight";
+        public const string miracleMalletMinion = "miracle_mallet_minion";
 
         public const string thunderBoltHorizontal = "thunder_bolt_horizontal";
         public const string emberParticles = "ember_particles";
@@ -129,11 +131,18 @@ namespace MVZ2.GameContent.Effects
         public const string creakingParticles = "creaking_particles";
         public const string cleaveAttack = "cleave_attack";
         public const string bubbleBreakParticles = "bubble_break_particles";
+        public const string frozenShards = "frozen_shards";
+        public const string cursedFireBreath = "cursed_fire_breath";
+        public const string krakenDeathRay = "kraken_death_ray";
+        public const string criticalSparks = "critical_sparks";
+        public const string krakenDrainageSplash = "kraken_drainage_splash";
 
         //EXPAND
         public const string SoulFreeze = "SoulFreeze";
         public const string BurnLaser = "BurnLaser";
         public const string RadiationLight = "RadiationLight";
+        public const string risingIcePillar = "rising_ice_pillar";
+        public const string krakenLandTentacle = "kraken_land_tentacle";
     }
     public static class VanillaEffectID
     {
@@ -177,6 +186,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID breakoutBoard = Get(VanillaEffectNames.breakoutBoard);
         public static readonly NamespaceID nightmareWatchingEye = Get(VanillaEffectNames.nightmareWatchingEye);
         public static readonly NamespaceID nightmarePortal = Get(VanillaEffectNames.nightmarePortal);
+        public static readonly NamespaceID nightmarePortalPandora = Get(VanillaEffectNames.nightmarePortalPandora);
         public static readonly NamespaceID darkMatterParticles = Get(VanillaEffectNames.darkMatterParticles);
         public static readonly NamespaceID nightmareaperSplash = Get(VanillaEffectNames.nightmareaperSplash);
         public static readonly NamespaceID nightmareaperShadow = Get(VanillaEffectNames.nightmareaperShadow);
@@ -197,6 +207,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID seijaFaintEffect = Get(VanillaEffectNames.seijaFaintEffect);
         public static readonly NamespaceID witherSummoners = Get(VanillaEffectNames.witherSummoners);
         public static readonly NamespaceID castleTwilight = Get(VanillaEffectNames.castleTwilight);
+        public static readonly NamespaceID miracleMalletMinion = Get(VanillaEffectNames.miracleMalletMinion);
 
         public static readonly NamespaceID thunderBoltHorizontal = Get(VanillaEffectNames.thunderBoltHorizontal);
         public static readonly NamespaceID emberParticles = Get(VanillaEffectNames.emberParticles);
@@ -259,12 +270,19 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID creakingParticles = Get(VanillaEffectNames.creakingParticles);
         public static readonly NamespaceID cleaveAttack = Get(VanillaEffectNames.cleaveAttack);
         public static readonly NamespaceID bubbleBreakParticles = Get(VanillaEffectNames.bubbleBreakParticles);
+        public static readonly NamespaceID frozenShards = Get(VanillaEffectNames.frozenShards);
+        public static readonly NamespaceID cursedFireBreath = Get(VanillaEffectNames.cursedFireBreath);
+        public static readonly NamespaceID krakenDeathRay = Get(VanillaEffectNames.krakenDeathRay);
+        public static readonly NamespaceID criticalSparks = Get(VanillaEffectNames.criticalSparks);
+        public static readonly NamespaceID krakenDrainageSplash = Get(VanillaEffectNames.krakenDrainageSplash);
+        public static readonly NamespaceID risingIcePillar = Get(VanillaEffectNames.risingIcePillar);
 
         //EXPAND
         public static readonly NamespaceID SoulFreeze = Get(VanillaEffectNames.SoulFreeze);
         public static readonly NamespaceID BurnLaser = Get(VanillaEffectNames.BurnLaser);
         public static readonly NamespaceID RadiationLight = Get(VanillaEffectNames.RadiationLight);
 
+        public static readonly NamespaceID krakenLandTentacle = Get(VanillaEffectNames.krakenLandTentacle);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

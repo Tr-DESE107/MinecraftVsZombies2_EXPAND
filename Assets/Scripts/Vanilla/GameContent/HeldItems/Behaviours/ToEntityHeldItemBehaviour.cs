@@ -54,7 +54,10 @@ namespace MVZ2.GameContent.HeldItems
                         var entityTarget = grid.FindPointerTargetEntity(gridTarget.LocalPointerPosition.y, CanUseOnEntity, out var rangeMin, out var rangeMax);
                         if (entityTarget != null)
                         {
-                            return HeldHighlight.Green(grid, rangeMin, rangeMax);
+                            var highlight = HeldHighlight.Green(grid, rangeMin, rangeMax);
+                            highlight.mode |= HeldHighlightMode.Entity | HeldHighlightMode.EntityBubble;
+                            highlight.entity = entityTarget;
+                            return highlight;
                         }
                         return HeldHighlight.Red(grid);
                     }

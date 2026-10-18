@@ -1,11 +1,46 @@
+## Modified
+- Add alternating patterns to the land tiles of the level background of Youkai Mountain.
+
+## Fixed
+- Fixed the issue where when a huge wave of monsters arrived, the number of spawned monsters actually increased by another huge wave.
+
+---
+
+# 0.7.1
+## Modified
+- After clearing the Palanquin Ship, the silhouette of the zombie cow will now be displayed in the Almanac.
+- Projectiles fired by CAT-TL MK-II no longer sink into water.
+- Some specially spawned enemy monsters (such as Soul Sand, Bubbles, etc.) no longer drop any rewards.
+
+### Balance
+- Youkai Mountain Day 3, Day 4 and Day 5
+  - Adjusted enemy types to spawn.
+- Youkai Mountain Day 11
+  - After Kraken enters phase 2, Nitori will now provide blueprints of Lily Pads.
+
+## Fixed
+- Fixed the issue of the target entity bubble in mobile platforms won't display and will cause errors.
+- Fixed the issue where icons of blueprint pickups on mobile devices would be removed by 3D models.
+- Fixed the issue where the artifact pickup of Gale Leaf will still be spawned even if the Wooden Fan is not evoked.
+- Fixed the issue of incorrect rendering in Teleporter Team UI.
+- Fixed the issue where the contraption transformed from Command Block does not inherit the movement effect of the Command Block.
+- Fixed the issue of Thunder Drum shaking monsters in the waters outside screen at Youkai Mountain.
+- Fixed the issue where when using an Ejector to throw a netherrack contraption, if the contraption is destroyed, the flame effect will not be triggered.
+- Fixed the issue of Cow Horn triggering in BOSS waves.
+- Fixed the issue where Broken Lock will trigger for enemy contraptions.
+- Fixed the issue where Lily Pad's evocation cannot spawn Lily Pads under suspending contraptions.
+- Fixed the issue where CAT-TL MK-II does not display as "not recommended" in pure land levels.
+- Fixed the issue where fire damage cannot unfreeze enemies.
+- Fixed the issue where Leather Cap Zombies does not appear on Youkai Mountain Day 10 (it indeed does not appear on Day 9).
+
+---
+
+# 0.7.0
 ## Added
-- Added commands:
-  - /test hugewaveevent: Triggers the huge wave event.
-  - /test finalwaveevent：Triggers the final wave event.
-  - /blueprint slots：Sets the slot count for blueprints.
-  - /artifact slots：Sets the slot count for artifacts.
-  - /money set：Sets money.
-  - /money add：Increases money.
+- Added Chapter 7 - Youkai Mountian.
+- Added curse system.
+- Added screenshot function.
+- On mobile, when multiple targetable entities are within a tile, a icon bubble are now displayed on the left to confirm the final target.
 - Added entity material "Apparition" and "Wither Bone", removed entity material "Nether".
   - The material of Soul Furnace has been changed to "Wood".
   - The material of Ghost, Ghast, and Napstablook has been changed to "Apparition".
@@ -13,8 +48,23 @@
   - The material of the Wisp Fly has been changed to "Flesh".
 - Added entity attribute "Fire Immunity".
   - Applied to Soul Furnace and Wisp Fly.
-- Added screenshot function.
 - Added textures for Moonlight Sensors in their daytime form.
+- Added unlock hint for the music room and arcade.
+- Added 4 new stats categories:
+  - Level completed
+  - Game over
+  - Level restarted
+  - Enabled curses
+- Added the red filter before version 0.3.0 back for Nightmare Battle.
+- Added 8 new Random China events.
+- Added commands:
+  - /test hugewaveevent: Triggers the huge wave event.
+  - /test finalwaveevent：Triggers the final wave event.
+  - /blueprint slots：Sets the slot count for blueprints.
+  - /artifact slots：Sets the slot count for artifacts.
+  - /money set：Sets money.
+  - /money add：Increases money.
+- Added a hidden Easter egg for Error Blocks. **NEVER TRY IT.**
 
 ## Modified
 - When a projectile entity undergoes angular rotation due to directional deflection, its hitbox will now rotate correctly.
@@ -24,6 +74,7 @@
 - Adjusted the textures of Stone Shield and Emperor Zombie.
 - The cursor for Force Pad's evocation and Skyward Beacon now has a unique sprite.
 - Achievement descriptions are now hidden until the prerequisites for unlocking the achievement have been met (such as not having the means to complete the achievement).
+- Adjusted the shattered glass texture at the beginning of the second phase of Nightmare Battle.
 
 ### Balance
 - Adventure
@@ -51,11 +102,15 @@
   - Effect of weakness: Damage lowered to 0 -> Melee attack damage lowered to 0
 - Dream Crystal
   - Toughness: 2000 -> 3000
+- Dream Silk
+  - Cost: 75 -> 50
 - Transfenser
   - Laser Damage: 5 -> 3
 - Amethyst Pylon
-  - Cost: 125 -> 175
+  - Damage: 10/20/40/60 -> 10/20/30/40
   - Evocation will now be affected by damage bonuses as usual.
+- Giant Bowl
+  - Capacity: 5 -> 3
 - Black Hole Bomb
   - Recharge Time: Very Long -> Long
 - Nuke
@@ -75,14 +130,35 @@
 - Zombie Cat
   - Stun duration after revival: 1 second -> 0 second
   - Probability of Wisp Fly Spawn: 50% -> 100% (Hard), 50% (Other Difficulties)
-  - Cost in I, Zombie mode: 150 -> 125 
 - Mutant Zombie
   - Now blocks Skeleton Horses from jumping.
+- Nightmare
+  - Reduced the weight of some fate options:
+    - Decrepify: 80% weight
+    - Insanity: 60% weight
+    - Come True: 80% weight
+    - The Lurker: 60% weight
+    - The Black Sun: 90% weight
+  - "Insanity" fate option: No longer select the leftmost contraptions
+  - "Come True" fate option: No longer give Ghasts stats bonuses
+  - "Pandora's Box " fate option reworked: Randomly swap the positions of all contraptions on the battlefield -> Opens two green summoning portals in random lanes that continuously summon Iron Helmet Zombies
+  - After selecting a fate option, a text effect description of the option will now pop up.
+  - The effect of Decrepify and Insanity is now cleared after the death of Slender Man.
+- Wither
+  - Now can be interrupted by Golden Apple even when Wither is using a charge attack instead of an eat attack.
+- Hoe
+  - Effect reworked: Kills the first enemy monster every battle -> Kills the first 3 enemy monsters every battle
+- Miracle Mallet Replica
+  - Effect reworked: +15% damage for friendly contraptions -> Summons a mallet minion that stuns the leftmost enemy monster
+- Manipulative Talismans
+  - Chance: 10% -> 25%
 - Eye of the Giant
   - Damage multiplier: 250% -> 200%
   - Attack speed multiplier: 50% -> 60%
 - Broken Lock
-  - Recharge time reduction ratio: 1:1 -> 2:1
+  - Effect reworked:
+    - Old: For every 1% damage a contraption has taken, its blueprint recharge time will be decreased by 1%
+    - New: When a contraption is destroyed, it drops a blueprint pickup. This artifact is then put on a 15s cooldown
 
 ## Fixed
 - Fixed the issue where the charging animation of Tesla Coil would continue to play even when it was disabled.
@@ -95,6 +171,12 @@
 - Fixed the issue where the material of Anvils is not metal.
 - Fixed the issue where Black Hole Bombs cannot attract monsters from the upper row to the current row.
 - Fixed the issue where Anvils do not destroy invincible contraptions upon landing.
+- Fixed the issue where the Mummies' Poison Gas did not deal damage to enemies when it burned.
+- Fixed the issue where Reverse Satellite will try to align with the position of its lane.
+- Fixed the issue of bad pixels in the armor icon of HP bars.
+- Fixed the issue of dark matter particles located at the bottom of Slenderman when it dies.
+- Fixed the issue where the zombie before transforming into Frankenstein can be petrified.
+- Fixed the issue where bullets fired from the reflective barrier could climb when a projectile that too low in position hit the barrier.
 
 ---
 

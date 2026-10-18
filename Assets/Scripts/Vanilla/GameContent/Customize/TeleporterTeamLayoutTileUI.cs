@@ -4,12 +4,10 @@ using System;
 using System.Collections.Generic;
 using MVZ2.Level.Inputing;
 using MVZ2.Models;
-using MVZ2Logic.Inputs;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.GameContent.Customize
@@ -19,6 +17,12 @@ namespace MVZ2.GameContent.Customize
         public void SetHighlightColor(Color color)
         {
             tileHighlight.color = color;
+        }
+        public void SetZ(float z)
+        {
+            var position = transform.localPosition;
+            position.z = z;
+            transform.localPosition = position;
         }
         public void ClearLayerModels()
         {
@@ -60,11 +64,11 @@ namespace MVZ2.GameContent.Customize
             modelContainerTemplate.gameObject.SetActive(false);
             handler.OnPointerInteraction += OnPointerInteractionCallback;
         }
-        private void OnPointerInteractionCallback(LevelPointerInteractionHandler handler, PointerEventData eventData, PointerInteraction interaction)
+        private void OnPointerInteractionCallback(LevelPointerInteractionHandler handler, PointerInteractionArgs args)
         {
-            OnPointerInteraction?.Invoke(this, eventData, interaction);
+            OnPointerInteraction?.Invoke(this, args);
         }
-        public event Action<TeleporterTeamLayoutTileUI, PointerEventData, PointerInteraction>? OnPointerInteraction;
+        public event Action<TeleporterTeamLayoutTileUI, PointerInteractionArgs>? OnPointerInteraction;
         [SerializeField]
         private Image tileHighlight = null!;
         [SerializeField]

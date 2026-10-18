@@ -2,13 +2,11 @@
 
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2Logic.Entities;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -20,96 +18,49 @@ namespace MVZ2.GameContent.Stages
         public override void PostWave(LevelEngine level, int wave)
         {
             base.PostWave(level, wave);
-            if (wave <= 10 || wave >= level.GetTotalWaveCount())
+            if (wave != 11)
                 return;
-            //if (!level.EntityExists(VanillaEffectID.spiritUniverse))
-            //{
-            //    var pos = new Vector3((LevelPositions.LEFT_BORDER + LevelPositions.RIGHT_BORDER) * 0.5f, 0, LevelPositions.LAWN_HEIGHT * 0.5f);
-            //    level.Spawn(VanillaEffectID.spiritUniverse, pos, null);
-            //}
+            level.ShakeScreen(5, 0, 60);
+            level.PlaySound(VanillaSoundID.mechSetup, volume: 0.5f);
         }
         protected override void AfterFinalWaveUpdate(LevelEngine level)
         {
             base.AfterFinalWaveUpdate(level);
-            //StartBossTransitionUpdate<TheGiantTransitionBuff>(level);
+            StartBossTransitionUpdate<KrakenTransitionBuff>(level);
         }
-        //protected override void BossFightWaveUpdate(LevelEngine level)
-        //{
-        //    base.BossFightWaveUpdate(level);
-        //    var state = GetBossState(level);
-        //    switch (state)
-        //    {
-        //        case BOSS_STATE_PHASE1_2:
-        //            TheGiantUpdate(level);
-        //            break;
-        //        case BOSS_STATE_PHASE3_TRANSITION:
-        //            TheGiantPhase3TransitionUpdate(level);
-        //            break;
-        //        case BOSS_STATE_PHASE3:
-        //            TheGiantPhase3Update(level);
-        //            break;
-        //    }
-        //}
-        //private void TheGiantUpdate(LevelEngine level)
-        //{
-        //    // 巨人1、2阶段战斗
-        //    // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
-        //    // 如果有Boss存活，不停生成怪物。
-        //    var phase2Boss = level.EntityExists(e => e.IsEntityOf(VanillaBossID.theGiant) && e.IsHostileEntity() && !e.IsDead && TheGiant.GetPhase(e) == TheGiant.PHASE_2);
+        protected override void BossFightWaveUpdate(LevelEngine level)
+        {
+            base.BossFightWaveUpdate(level);
 
-        //    WaveStageBehaviour.SetHighWave(level, phase2Boss);
-        //    if (level.EntityExists(IsAliveHostileBoss))
-        //    {
-        //        RunBossWave(level);
-        //        return;
-        //    }
+            // 克拉肯战斗
+            // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
+            // 如果有Boss存活，不停生成怪物。
+            var bossAlive = level.EntityExists(IsAliveHostileBoss);
+            if (bossAlive)
+            {
+                RunBossWave(level);
+            }
+            else
+            {
+                Global.Music.StartFade(0f, 0.5f);
+                StartAfterBossState(level, VanillaBossID.kraken);
+            }
+        }
+        protected override void AfterBossWaveUpdate(LevelEngine level)
+        {
+            base.AfterBossWaveUpdate(level);
+            ClearEnemies(level);
+            EnterLevelEnemiesClearedState(level);
 
-        //    level.StopMusic();
-
-        //    SetBossState(level, BOSS_STATE_PHASE3_TRANSITION);
-        //}
-        //private void TheGiantPhase3TransitionUpdate(LevelEngine level)
-        //{
-        //    ClearEnemies(level);
-        //    EnterLevelEnemiesClearedState(level);
-        //    if (level.EntityExists(e => e.IsEntityOf(VanillaBossID.theGiant) && e.IsHostileEntity() && !e.IsDead && TheGiant.GetPhase(e) == TheGiant.PHASE_3))
-        //    {
-        //        // 巨人3阶段出现
-        //        level.PlayMusic(VanillaMusicID.mausoleumBoss2);
-        //        SetBossState(level, BOSS_STATE_PHASE3);
-        //        ExitLevelEnemiesClearedState(level);
-        //        return;
-        //    }
-        //}
-        //private void TheGiantPhase3Update(LevelEngine level)
-        //{
-        //    if (level.EntityExists(IsAliveHostileBoss))
-        //    {
-        //        RunBossWave(level);
-        //        return;
-        //    }
-
-        //    StartAfterBossState(level, VanillaBossID.theGiant);
-        //}
-        //protected override void AfterBossWaveUpdate(LevelEngine level)
-        //{
-        //    base.AfterBossWaveUpdate(level);
-        //    ClearEnemies(level);
-        //    EnterLevelEnemiesClearedState(level);
-
-        //    if (!level.IsFirstAdventure())
-        //        return;
-        //    if (level.IsCleared)
-        //        return;
-        //    if (level.HasBuff<TheGiantClearedBuff>())
-        //        return;
-        //    if (level.EntityExists(IsAliveHostileBoss))
-        //        return;
-        //    level.AddBuff<TheGiantClearedBuff>();
-        //}
-
-        //public const int BOSS_STATE_PHASE1_2 = 0;
-        //public const int BOSS_STATE_PHASE3_TRANSITION = 1;
-        //public const int BOSS_STATE_PHASE3 = 2;
+            if (!level.IsFirstAdventure())
+                return;
+            if (level.IsCleared)
+                return;
+            if (level.EntityExists(IsAliveHostileBoss))
+                return;
+            if (level.HasBuff<KrakenClearedBuff>())
+                return;
+            level.AddBuff<KrakenClearedBuff>();
+        }
     }
 }

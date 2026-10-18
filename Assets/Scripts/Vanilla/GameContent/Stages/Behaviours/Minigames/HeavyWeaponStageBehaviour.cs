@@ -120,7 +120,7 @@ namespace MVZ2.GameContent.Stages
                 return snipenser;
             var param = new SpawnParams();
             param.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());
-            param.SetProperty(LogicEntityProps.HP_BAR_VISIBILITY, HPBarVisibility.FORCE);
+            param.SetProperty(LogicEntityProps.HP_BAR_VISIBILITY, HPBarVisibility.ALWAYS);
             return level.Spawn(VanillaContraptionID.MegaSnipenser, cart.Position, cart, param);
         }
         private void PreContraptionTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> result)

@@ -3,9 +3,9 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Entities;
-using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -15,7 +15,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Timing;
-using PVZEngine.Tools;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
 
@@ -33,7 +32,7 @@ namespace MVZ2.GameContent.Contraptions
             var lendCount = GetLendCount(entity);
             for (int i = 0; i < lendCount; i++)
             {
-                entity.Spawn(VanillaPickupID.starshard, entity.GetCenter());
+                entity.ProduceStarshard(entity.GetCenter());
             }
         }
         protected override void UpdateLogic(Entity entity)
@@ -58,17 +57,7 @@ namespace MVZ2.GameContent.Contraptions
                     seconds = Mathf.Clamp(seconds * multiplier, minSeconds, maxSeconds);
                     timer.ResetSeconds(seconds);
 
-                    int lane;
-                    var creakingSpawn = entity.Level.Content.GetSpawnDefinition(VanillaSpawnID.creaking);
-                    if (creakingSpawn != null)
-                    {
-                        lane = creakingSpawn.GetRandomSpawnLane(entity.Level);
-                    }
-                    else
-                    {
-                        lane = entity.Level.GetRandomEnemySpawnLane();
-                    }
-                    SpawnCreaking(entity, lane);
+                    SpawnCreakingAtRandomLane(entity);
                 }
             }
 
@@ -122,7 +111,7 @@ namespace MVZ2.GameContent.Contraptions
                 SpawnCreaking(entity, i);
             }
         }
-        public static void SpawnCreaking(Entity entity, int lane)
+        public static Entity? SpawnCreaking(Entity entity, int lane)
         {
             entity.PlaySound(VanillaSoundID.creakingSpawn);
 
@@ -134,14 +123,32 @@ namespace MVZ2.GameContent.Contraptions
                 var z = level.GetEntityLaneZ(lane);
                 var y = level.GetGroundY(x, z);
                 var pos = new Vector3(x, y, z) + entityDef.GetStartingPositionOffset();
-                level.Spawn(entityDef, pos, entity)?.Let(creaking =>
+                var creaking = level.Spawn(entityDef, pos, entity);
+                if (creaking != null)
                 {
                     var param = entity.GetSpawnParams();
                     param.SetProperty(CreakingParticles.PROP_SOURCE_POSITION, entity.GetCenter());
                     param.SetProperty(CreakingParticles.PROP_TARGET_POSITION, creaking.GetCenter());
                     entity.Spawn(VanillaEffectID.creakingParticles, entity.GetCenter(), param);
-                });
+                }
+                ;
+                return creaking;
             }
+            return null;
+        }
+        public static Entity? SpawnCreakingAtRandomLane(Entity entity)
+        {
+            int lane;
+            var creakingSpawn = entity.Level.Content.GetSpawnDefinition(VanillaSpawnID.creaking);
+            if (creakingSpawn != null)
+            {
+                lane = creakingSpawn.GetRandomSpawnLane(entity.Level);
+            }
+            else
+            {
+                lane = entity.Level.GetRandomEnemySpawnLane();
+            }
+            return SpawnCreaking(entity, lane);
         }
         public static int GetLendCount(Entity entity) => entity.GetBehaviourField<int>(PROP_LEND_COUNT);
         public static void SetLendCount(Entity entity, int value) => entity.SetBehaviourField(PROP_LEND_COUNT, value);

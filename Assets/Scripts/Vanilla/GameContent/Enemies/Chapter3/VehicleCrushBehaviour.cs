@@ -10,7 +10,6 @@ using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -23,60 +22,105 @@ namespace MVZ2.GameContent.Enemies
         public override void PostCollision(EntityCollision collision, int state)
         {
             base.PostCollision(collision, state);
+            if (!ShouldCollide(collision, state))
+                return;
+
+            OnTargetCollide(collision, state);
+        }
+        public virtual bool ShouldCollide(EntityCollision collision, int state)
+        {
             if (state == EntityCollisionHelper.STATE_EXIT)
-                return;
+                return false;
             if (!collision.Collider.IsForMain())
-                return;
+                return false;
             var other = collision.Other;
             if (!other.IsVulnerableEntity())
-                return;
+                return false;
             var entity = collision.Entity;
             if (NoCrush(entity) || !entity.IsHostile(other))
-                return;
-
+                return false;
+            return true;
+        }
+        public virtual void OnTargetCollide(EntityCollision collision, int state)
+        {
+            var entity = collision.Entity;
             Crush(entity, collision.OtherCollider);
         }
-
-        public static void Crush(Entity chariot, IEntityCollider otherCollider)
+        public virtual bool ShouldIgnoreSpikes(Entity chariot, Entity other)
+        {
+            return true;
+        }
+        public virtual void Crush(Entity chariot, IEntityCollider otherCollider)
         {
             var other = otherCollider.Entity;
-            float damage = other.GetTakenCrushDamage();
+            if (!other.ExistsAndAlive())
+                return;
             var vehicleInteraction = other.GetVehicleInteraction();
             switch (vehicleInteraction)
             {
-                case VehicleInteraction.BLOCK:
-                    damage = chariot.GetDamage() * 0.1f;
+                case VehicleInteraction.CRUSH:
+                    InteractCrush(chariot, otherCollider, other.GetTakenCrushDamage());
                     break;
-                case VehicleInteraction.IGNORE:
-                    return;
+                case VehicleInteraction.BLOCK:
+                    PostBlocked(chariot, other);
+                    DealCrushDamage(chariot, otherCollider, chariot.GetDamage() * 0.1f);
+                    break;
+                case VehicleInteraction.SPIKE:
+                    if (!ShouldIgnoreSpikes(chariot, other))
+                    {
+                        InteractCrush(chariot, otherCollider, other.GetTakenCrushDamage());
+                    }
+                    break;
             }
-
-            if (!other.IsDead)
+        }
+        public virtual void InteractCrush(Entity chariot, IEntityCollider otherCollider, float damage)
+        {
+            var other = otherCollider.Entity;
+            if (other.IsInvincible() && !other.IsInvisible())
             {
-                if (vehicleInteraction == VehicleInteraction.BLOCK || other.IsInvincible())
-                {
-                    var vel = chariot.Velocity;
-                    if (vel.x * chariot.GetFacingX() > 0)
-                    {
-                        vel.x = 0;
-                    }
-                    chariot.Velocity = vel;
-                }
-                DamageEffectList damageEffects = new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
-                otherCollider.TakeDamage(damage, damageEffects, chariot)?.Let(o =>
-                {
-                    if (o.BodyResult != null && o.BodyResult.Fatal)
-                    {
-                        if (other.Type == EntityTypes.PLANT || other.Type == EntityTypes.OBSTACLE)
-                        {
-                            other.PlaySound(VanillaSoundID.smash);
-                        }
-                        else if (other.Type == EntityTypes.ENEMY)
-                        {
-                            other.PlaySound(VanillaSoundID.grind);
-                        }
-                    }
-                });
+                PostBlocked(chariot, other);
+            }
+            DealCrushDamage(chariot, otherCollider, damage);
+        }
+        public virtual void PostBlocked(Entity chariot, Entity other)
+        {
+            SetBlockedVehicleVelocity(chariot, other);
+        }
+        public virtual void SetBlockedVehicleVelocity(Entity chariot, Entity other)
+        {
+            var vel = chariot.Velocity;
+            if (vel.x * chariot.GetFacingX() > 0)
+            {
+                vel.x = 0;
+            }
+            chariot.Velocity = vel;
+        }
+        public virtual void DealCrushDamage(Entity chariot, IEntityCollider otherCollider, float damage)
+        {
+            DamageEffectList damageEffects = new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
+            var damageOutput = otherCollider.TakeDamage(damage, damageEffects, chariot);
+            if (damageOutput != null)
+            {
+                var other = otherCollider.Entity;
+                PostCrushDamage(chariot, other, damageOutput);
+            }
+        }
+        public virtual void PostCrushDamage(Entity vehicle, Entity other, DamageOutput damageOutput)
+        {
+            if (damageOutput.BodyResult != null && damageOutput.BodyResult.Fatal)
+            {
+                PlayCrushSound(vehicle, other, damageOutput);
+            }
+        }
+        public virtual void PlayCrushSound(Entity vehicle, Entity other, DamageOutput damageOutput)
+        {
+            if (other.Type == EntityTypes.PLANT || other.Type == EntityTypes.OBSTACLE)
+            {
+                other.PlaySound(VanillaSoundID.smash);
+            }
+            else if (other.Type == EntityTypes.ENEMY)
+            {
+                other.PlaySound(VanillaSoundID.grind);
             }
         }
         public static bool NoCrush(Entity entity) => entity.GetBehaviourField<bool>(PROP_NO_CRUSH);

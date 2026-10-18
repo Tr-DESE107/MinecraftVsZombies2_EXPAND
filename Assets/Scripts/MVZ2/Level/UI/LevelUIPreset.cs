@@ -7,7 +7,6 @@ using MVZ2.Level.Inputing;
 using MVZ2.Level.Starshards;
 using MVZ2.UI;
 using MVZ2.UI.Level;
-using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Tools.Unity;
@@ -380,6 +379,20 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
+        #region 手持物品气泡
+        public void SetHeldItemBubbleActive(bool active)
+        {
+            heldTargetBubble.SetVisible(active);
+        }
+        public void SetHeldItemBubbleContent(Sprite? sprite)
+        {
+            heldTargetBubble.SetContent(sprite);
+        }
+        public void SetHeldItemBubblePosition(Vector2 position)
+        {
+            heldTargetBubble.SetPosition(position);
+        }
+        #endregion
         public void SetCameraLimitWidth(float t)
         {
             t = Mathf.Clamp01(t);
@@ -444,7 +457,7 @@ namespace MVZ2.Level.UI
             animator.enabled = false;
             foreach (var receiver in receivers)
             {
-                receiver.OnPointerInteraction += (r, data, interaction) => OnRaycastReceiverPointerInteraction?.Invoke(r.GetArea(), data, interaction);
+                receiver.OnPointerInteraction += (r, args) => OnRaycastReceiverPointerInteraction?.Invoke(r.GetArea(), args);
             }
 
             starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
@@ -467,6 +480,7 @@ namespace MVZ2.Level.UI
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
 
+            blueprints.OnBlueprintPointerInteraction += (index, args, c) => OnBlueprintPointerInteraction?.Invoke(index, args, c);
             if (minecartUpButton)
                 minecartUpButton.OnHeldChanged += (held) => OnMinecartUpHeldChanged?.Invoke(held);
             if (minecartDownButton)
@@ -476,7 +490,6 @@ namespace MVZ2.Level.UI
             if (minecartRightButton)
                 minecartRightButton.OnHeldChanged += (held) => OnMinecartRightHeldChanged?.Invoke(held);
 
-            blueprints.OnBlueprintPointerInteraction += (index, e, i, c) => OnBlueprintPointerInteraction?.Invoke(index, e, i, c);
         }
 
         private void OnArtifactPointerEnterCallback(ArtifactItemUI item)
@@ -490,7 +503,7 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 事件
-        public event Action<LawnArea, PointerEventData, PointerInteraction>? OnRaycastReceiverPointerInteraction;
+        public event Action<LawnArea, PointerInteractionArgs>? OnRaycastReceiverPointerInteraction;
 
         public event Action<PointerEventData>? OnPickaxePointerEnter;
         public event Action<PointerEventData>? OnPickaxePointerExit;
@@ -505,7 +518,7 @@ namespace MVZ2.Level.UI
         public event Action<PointerEventData>? OnTriggerPointerExit;
         public event Action<PointerEventData>? OnTriggerPointerDown;
 
-        public event Action<int, PointerEventData, PointerInteraction, bool>? OnBlueprintPointerInteraction;
+        public event Action<int, PointerInteractionArgs, bool>? OnBlueprintPointerInteraction;
 
         public event Action? OnStartGameCalled;
         public event Action? OnMenuButtonClick;
@@ -615,6 +628,10 @@ namespace MVZ2.Level.UI
         GameObject adviceObject = null!;
         [SerializeField]
         TextMeshProUGUI adviceText = null!;
+
+        [Header("Held Target Bubble")]
+        [SerializeField]
+        HeldTargetBubble heldTargetBubble = null!;
 
         [Header("Hint Arrow")]
         [SerializeField]

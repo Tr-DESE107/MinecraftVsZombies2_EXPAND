@@ -961,12 +961,16 @@
             </flavors>
         </entry>
         <entry id="mvz2:giant_bowl">
+            <variables>
+                <variable name="produce_time">60</variable>
+                <variable name="store_limit">3</variable>
+            </variables>
             <header>
                 <p><![CDATA[巨碗能够缓慢生产并存储<ref=[misc]mvz2:starshard.miracle_mallet>星之碎片</ref>，这些星之碎片只能通过摧毁巨碗取出。]]></p>
             </header>
             <properties>
-                <p>生产时间：<![CDATA[<color=red>60秒</color>]]></p>
-                <p>存储上限：<![CDATA[<color=red>5</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red><var local="produce_time"/>秒</color>]]></p>
+                <p>存储上限：<![CDATA[<color=red><var local="store_limit"/></color>]]></p>
                 <p>技能：<![CDATA[<color=red>向内部存储一颗<ref=[misc]mvz2:starshard.miracle_mallet>星之碎片</ref></color>]]></p>
             </properties>
             <flavor>
@@ -1296,7 +1300,7 @@
                 <p>特点：<![CDATA[<color=red>发光的敌人额外受到25%伤害，额外受到100%的火焰伤害。</color>]]></p>
                 <p>射击模式：</p>
                 <p>  伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>  发射间隔：<![CDATA[<color=red><var local="fire_interval" />秒</color>]]></p>
+                <p>  攻击速度：<![CDATA[<color=red>1发/<var local="fire_interval" />秒</color>]]></p>
                 <p>  发光时长：<![CDATA[<color=red><var local="glowing_duration" />秒</color>]]></p>
                 <p>  技能：<![CDATA[<color=red>射出<var local="evocation_arrow_count" />支光灵箭</color>]]></p>
                 <p>激光模式：</p>
@@ -1321,7 +1325,7 @@
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />（燧石），<var local="gravel_damage" />（沙砾）+30/s(窒息伤害)</color>]]></p>
-                <p>投掷间隔：<![CDATA[<color=red>3秒</color>]]></p>
+                <p>攻击速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
                 <p>定身时长：<![CDATA[<color=red>5秒</color>]]></p>
                 <p>沙砾概率：<![CDATA[<color=red>25%</color>]]></p>
                 <p>技能：<![CDATA[<color=red>向每个敌人投出一块沙砾</color>]]></p>
@@ -1404,7 +1408,7 @@
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>15（无光源），30（1光源），60（2光源），90（3光源及以上）</color>]]></p>
-                <p>攻击间隔：<![CDATA[<color=red>3秒</color>]]></p>
+                <p>攻击速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
                 <p>光源等级：<![CDATA[<color=red>受照射光源等级之和与驱动档位影响，取8的余数，输出对应等级的光照</color>]]></p>
                 <p>驱动：<![CDATA[<color=red>驱动后驱动档位+1（0–7循环），改变激光颜色</color>]]></p>
                 <p>技能：<![CDATA[<color=red>发射一道贯穿三行的白色细激光，1.5秒后展开为大功率光束，持续6.2秒，期间以250/秒造成伤害，之后紫晶塔短路30秒</color>]]></p>
@@ -1468,7 +1472,7 @@
                 <p>枫车会向前发射风刃。风刃如果经过其他枫车，其伤害会增加。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>1发/<var local="fire_interval" />秒</color>]]></p>
+                <p>攻击速度：<![CDATA[<color=red>1发/<var local="fire_interval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />锐利伤害</color>]]></p>
                 <p>特殊：<![CDATA[<color=red>经过枫车的风刃+<var id="mvz2:entity_damage" />伤害</color>]]></p>
                 <p>技能：<![CDATA[<color=red>对所有敌人造成<var local="evocation_damage" />点伤害X次。（X=场上枫车的数量）</color>]]></p>
@@ -1526,7 +1530,7 @@
                 <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />：<color=red><var local="flesh_density"/>%</color>]]></p>
                 <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:leather" />：<color=red><var local="leather_density"/>%</color>]]></p>
                 <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:grass" />：<color=red><var local="grass_density"/>%</color>]]></p>
-                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:ice" />：<color=red><var local="ice_density"/>%（砸碎时发射冰锥）</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:ice" />：<color=red><var local="ice_density"/>%（发射冰锥并冻结怪物）</color>]]></p>
                 <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:wood" />：<color=red><var local="wood_density"/>%</color>]]></p>
                 <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:shadow" />：<color=red><var local="shadow_density"/>%</color>]]></p>
                 <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:cloud" />：<color=red><var local="cloud_density"/>%（震飞周围敌怪）</color>]]></p>
@@ -1570,7 +1574,7 @@
                 <p>寒冰发射器发射可以使敌人减速的冰箭。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>攻击速度：<![CDATA[<color=red>1发/1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>发射一枚致命的冰封球</color>]]></p>
             </properties>
@@ -1607,7 +1611,7 @@
             <properties>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>半径：<![CDATA[<color=red><var local="radius" />格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>生成两个最大的套娃TNT的蓝图掉落物</color>]]></p>
+                <p>技能：<![CDATA[<color=red>生成一个最大的套娃TNT的蓝图掉落物</color>]]></p>
             </properties>
             <flavor>
                 <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说：</p>
@@ -2010,6 +2014,8 @@
                 <variable name="yellow_explosion_damage">50</variable>
                 <variable name="green_split_damage">50</variable>
                 <variable name="cyan_dps">30 / 4 * 20</variable>
+                <variable name="evoked_transform_times">4</variable>
+                <variable name="evoked_split_count">3</variable>
             </variables>
             <tags>
                 <tag id="mvz2:placement_amethyst_pylon" />
@@ -2019,7 +2025,7 @@
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>继承原射弹的伤害</color>]]></p>
-                <p>技能：<![CDATA[<color=red>下7发经过的射弹各分裂为7枚拥有所有附魔效果的光弹</color>]]></p>
+                <p>技能：<![CDATA[<color=red>下<var local="evoked_transform_times"/>发经过的射弹各分裂为<var local="evoked_split_count"/>枚拥有所有附魔效果的光弹</color>]]></p>
                 <p>附魔效果：</p>
                 <p><![CDATA[<#f00>红</color>：复制为两发]]></p>
                 <p><![CDATA[<#f80>橙</color>：+<var local="orange_pierce_count"/>穿透数量，击中后弹向另一个敌人]]></p>
@@ -2073,7 +2079,7 @@
                 <p>香蒲II型会向任何敌人发射跟踪尖刺。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>2发/1.5秒</color>]]></p>
+                <p>攻击速度：<![CDATA[<color=red>2发/1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>特殊：<![CDATA[<color=red>尖刺会跟踪敌人</color>]]></p>
                 <p>技能：<![CDATA[<color=red>发射很多在战场上弹跳的彩虹猫！</color>]]></p>
@@ -4503,7 +4509,7 @@
                 <p>农具。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>每场战斗中，击杀最先出场的怪物</color>]]></p>
+                <p>效果：<![CDATA[<color=red>消灭每场战斗的前三只敌方怪物</color>]]></p>
             </properties>
             <flavor>
                 <p>踩到了的话被打一下很痛。真的。</p>
@@ -4630,11 +4636,9 @@
                 <p><![CDATA[<ref=[misc]mvz2:shinmyoumaru>针妙丸</ref>公主赏赐有功之臣史蒂夫的宝物，万宝槌的仿制品，曾被<ref=[misc]mvz2:seija>正邪</ref>用于逃离通缉。]]></p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>+15%友方器械伤害</color>]]></p>
+                <p>效果：<![CDATA[<color=red>召唤万宝槌仆从击晕最前方的敌怪</color>]]></p>
             </properties>
             <flavor>
-                <p>万宝槌的仿制品，没有什么魔力，只能普通地造成物理伤害。</p>
-                <p />
                 <p><![CDATA[却说那<ref=[misc]mvz2:seija>小人</ref>参见<ref=[misc]mvz2:shinmyoumaru>小人</ref>，图谋以小搏大。蚍蜉欲撼参天木，终作金靴踏下尘。]]></p>
                 <p><![CDATA[<ref=[misc]mvz2:shinmyoumaru>小人</ref>遭缚，<ref=[misc]mvz2:seija>小人</ref>遁形。小人间彼此算计，最终却成了知己。]]></p>
                 <p>然族民百姓叫苦不迭，城内苍生忧心忡忡。</p>
@@ -4675,7 +4679,7 @@
                 <p><![CDATA[<ref=[misc]mvz2:seiga>青娥</ref>]]>赠送的一叠符箓，据说可以控制僵尸。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>敌方怪物死亡并倒下时，有10%的概率复活并变为友方</color>]]></p>
+                <p>效果：<![CDATA[<color=red>敌方怪物死亡并倒下时，有25%的概率复活并变为友方</color>]]></p>
             </properties>
             <flavor>
                 <p>“这是我们之间的秘密哦……”</p>
@@ -4925,7 +4929,14 @@
                 <p>效果：<![CDATA[<color=red>友方器械攻击速度x150%，但会向随机方向发射子弹</color>]]></p>
             </properties>
             <flavor>
-                <p>====施工中====</p>
+                <p>克拉肯——不知由何人、于何时何地建造的巨型钢铁怪物。</p>
+                <p>它常常潜入水中，趁人不备将人拉入水中溺死，甚至残忍地啃食活人。</p>
+                <p/>
+                <p>它的蓝色眼睛能发射致命魔弹，绿色眼睛能喷射诅咒火焰。</p>
+                <p>而头顶那只激光眼一旦睁开，等待目标的便只有死亡。</p>
+                <p/>
+                <p>它那重量级外壳，无论多么强大的力量都无法将其打穿；唯有能量超过几十万K的高能激光武器，才是它为数不多的弱点。</p>
+                <p>而由于某些设计缺陷，克拉肯一旦机身受损，排水需求便会大幅增加。这也成了它最大的弱点之一。</p>
             </flavor>
         </entry>
         <entry id="mvz2:gale_leaf">
@@ -5277,6 +5288,36 @@
                     <p>骑士沉思了。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:kraken" name="克拉肯" >
+                <unlock>
+                    <condition required="mvz2:level.mountain_11"/>
+                </unlock>
+                <picture sprite="mvz2:misc/kraken_appears"/>
+                <variables>
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:kraken", "entity")</variable>
+                    <variable name="tentacle_hp">property("mvz2:entity/maxHealth", "mvz2:kraken_tentacle", "entity")</variable>
+                </variables>
+                <header>
+                    <p>克拉肯是一台机械巨兽，装载了不可思议的军火与毁灭性的武器。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red><var local="hp" />+<var local="tentacle_hp"/>x6（触手）</color>]]></p>
+                    <p>阶段1：<![CDATA[<color=red>召唤两只触手；触手会使用：机关枪、导弹、激光、召唤、砸击</color>]]></p>
+                    <p>阶段2：<![CDATA[<color=red>本体出现，再召唤两只触手；本体会使用：吼叫、死亡射线、魔焰与魔弹、吸取、排水</color>]]></p>
+                    <p>阶段3：<![CDATA[<color=red>用触手封锁陆地，再召唤两只触手；本体会使用：魔焰与魔弹、命令怒吼、定时炸弹</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>骑士一行人来到一片湖区，他们这次的目标是一只巨型水妖。</p>
+                    <p>那水妖名为克拉肯，是一头巨大而柔韧的章鱼怪物，常出没于湖泊和河流中。每当它出现，总会破坏岸旁的所有建筑，受到它攻击的人无一幸免。</p>
+                    <p>他们正准备发起进攻，却收到了国王要求召回他们的旨意。骑士有一种不祥的预感。</p>
+                    <p>回到王宫后，等着他们的却是国王“赏赐”他们的一长串罪名。什么“谋反”啊、“诽谤”啊，不计其数。他们就这样入了狱。</p>
+                    <p>骑士不甘心，问狱卒到底发生了什么。狱卒冷笑道：“这件事，你应该比我们更清楚。你们这么强大还受人欢迎，谁看了都眼红啊。”</p>
+                    <p>“还有，以后别想着对国王的宠物动手，那头章鱼可是国王用来处理他的敌人的！”</p>
+                    <p>之后，狱卒便离开了。</p>
+                    <p>骑士坐回牢里，握着脖子上黑色的骷髅护身符。似乎若有所思。</p>
+                    <p>有那么一瞬间，骑士笑了一下。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Misc Entities -->
         <group id="mvz2:misc_entities" name="杂项实体" order="200">
@@ -5407,7 +5448,7 @@
                         <conditions>
                             <condition required="mvz2:level.dream_7"/>
                         </conditions>
-                        <p>梦魇来到梦境世界之后，开始对梦境世界进行污染，并将整个世界伪装成什么都没有发生过的样子，然而这受污染的太阳便是它唯一的疏忽。</p>
+                        <p><![CDATA[<ref=[misc]mvz2:nightmare_boss>梦魇</ref>]]>来到梦境世界之后，开始对梦境世界进行污染，并将整个世界伪装成什么都没有发生过的样子，然而这受污染的太阳便是它唯一的疏忽。</p>
                     </flavor>
                 </flavors>
             </entry>
@@ -5537,6 +5578,9 @@
                 </flavor>
             </entry>
             <entry id="mvz2:zombie_cow" name="僵尸牛">
+                <silhouette>
+                    <condition required="mvz2:level.ship_11" />
+                </silhouette>
                 <unlock>
                     <condition required="mvz2:artifact.cow_horn" />
                 </unlock>
@@ -5611,7 +5655,7 @@
                 <properties>
                     <p>耐久：<![CDATA[<color=red><var local="hp"/></color>]]></p>
                     <p>伤害：<![CDATA[<color=red><var local="damage"/></color>]]></p>
-                    <p>射速：<![CDATA[<color=red>1支/<var local="fire_interval"/>秒</color>]]></p>
+                    <p>攻击速度：<![CDATA[<color=red>1发/<var local="fire_interval"/>秒</color>]]></p>
                 </properties>
                 <flavor>
                     <p>他没有消失。他只是累了，想休息了。</p>
@@ -6037,6 +6081,56 @@
                     <p>周围的人也会因为她的能力而难以察觉她的存在。觉能够感知到她的存在，但是无法读取她的内心。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:nitori" name="河城 荷取" >
+                <unlock>
+                    <condition required="mvz2:entered_mountain"/>
+                </unlock>
+                <picture sprite="mvz2:characters/nitori[0]" character="mvz2:nitori"/>
+                <header>
+                    <p>发明家河童，居住于<![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>中，是河童们的领袖人物之一。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>居住于山中的河童们的领袖。河童们擅长在水中活动，同样也是著名的发明家、工匠、工程师——这种称呼怎么叫都好。</p>
+                    <p>河童们处事相当谨慎，荷取也非常怕生，见到陌生人会主动避让或者逃跑。但如果能和她混熟，她也会展现自己活泼的一面。</p>
+                    <p>非常贪财。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:aya" name="射命丸 文" >
+                <unlock>
+                    <condition required="mvz2:level.mountain_4"/>
+                </unlock>
+                <picture sprite="mvz2:characters/aya[0]" character="mvz2:aya"/>
+                <header>
+                    <p><![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>的天狗记者。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>以超级飞行速度，以及满口胡话的报道而臭名昭著的鸦天狗记者。</p>
+                    <p>谨慎而狡猾，喜欢说谎。在编写报道时甚至完全不在乎报道的真实性。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:reimu" name="博丽 灵梦" >
+                <unlock>
+                    <condition required="mvz2:kourindou_visited_mountain_2"/>
+                </unlock>
+                <picture sprite="mvz2:characters/reimu[0]" character="mvz2:reimu"/>
+                <header>
+                    <p><![CDATA[<ref=[misc]mvz2:hakurei_shrine>博丽神社</ref>]]>的巫女，负责解决幻想乡异变的主要人物。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>神社的巫女，人脉很广，<![CDATA[<ref=[misc]mvz2:marisa>魔理沙</ref>]]>的挚友之一。</p>
+                    <p>是治理异变的专家，曾解决过无数大大小小的幻想乡异变，因此而广受人类尊敬。</p>
+                    <p>也曾尝试过解决这场持续了三年的异变，然而实际需求远远超出了她的能力范围，因此也逐渐开始放弃了。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Areas -->
         <group id="mvz2:areas" name="地点" order="400">
@@ -6085,7 +6179,7 @@
                 </unlock>
                 <picture sprite="mvz2:misc/nightmare" />
                 <header>
-                    <p>噩梦世界是被<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>所腐化的<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>。</p>
+                    <p>噩梦世界是被<![CDATA[<ref=[misc]mvz2:nightmare_boss>梦魇</ref>]]>所腐化的<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>。</p>
                 </header>
                 <flavor>
                     <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>]]>曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
@@ -6206,6 +6300,56 @@
                     <p>现在是深秋时节，落叶遍地。不过好像有一片奇特的魔法叶子，始终挂在一棵枯树上，不愿落下。</p>
                     <p>仿佛在等待它真正的主人。</p>
                 </flavor>
+            </entry>
+            <entry id="mvz2:kappa_base" name="河童基地" >
+                <unlock>
+                    <condition required="mvz2:level.mountain_1"/>
+                </unlock>
+                <picture sprite="mvz2:misc/kappa_base"/>
+                <header>
+                    <p><![CDATA[<ref=[misc]mvz2:youkai_mountian>妖怪之山</ref>]]>瀑布后面的一处隐藏洞穴，里面是河童们的一处分基地。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>河童们的一处分基地，藏在九天瀑布后面。</p>
+                        <p>在前些年里，这里安置的是一片农田，用于种植河童们喜爱的食物——黄瓜。</p>
+                        <p>不过随着时间流逝，经过各种复杂的事物流转，农田被搬到了其他地方，而这里则变成了一处工坊。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.mountain_2"/>
+                        </conditions>
+                        <p>经由<![CDATA[<ref=[misc]mvz2:nitori>荷取</ref>]]>确认，<![CDATA[<ref=[misc]mvz2:explosion_before_3_years>三年前的那场爆炸</ref>]]>就发生在这里的一个房间内。</p>
+                        <p>如今这个房间已经被贤者们封锁了。她们下令，只有“真正能解决这场异变”的人才能够来到这个房间。</p>
+                    </flavor>
+                </flavors>
+            </entry>
+            <entry id="mvz2:misty_lake" name="雾之湖" >
+                <unlock>
+                    <condition required="mvz2:level.mountain_4"/>
+                </unlock>
+                <picture sprite="mvz2:misc/misty_lake"/>
+                <header>
+                    <p>幻想乡里的一片大型湖泊，位于<![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>山脚。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>这片湖泊充满雾气，非常寒冷，能见度非常低。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.mountain_4"/>
+                        </conditions>
+                        <p>根据报纸上的传闻，三年前，这里似乎曾有一种幽灵一样的存在在附近游荡。</p>
+                        <p>那种存在似乎会尝试将岸旁的人拖入水中。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.mountain_6"/>
+                        </conditions>
+                        <p>史蒂夫在妖怪之山被<![CDATA[<ref=[misc]mvz2:kraken>克拉肯</ref>]]>抓住后，落入水中，醒来时却发现已经来到了这片湖泊附近。</p>
+                    </flavor>
+                </flavors>
             </entry>
         </group>
         <!-- Starshards -->
@@ -6366,7 +6510,7 @@
                 </unlock>
                 <picture sprite="mvz2:map/dream/nightmare_box" fixedSize="true" zoom="false" />
                 <header>
-                    <p>梦魇魔盒是将<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>的黑魔法收集起来制作而成，并可以使<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>变成<![CDATA[<ref=[misc]mvz2:nightmare_world>噩梦世界</ref>]]>的容器。</p>
+                    <p>梦魇魔盒是将<![CDATA[<ref=[misc]mvz2:nightmare_boss>梦魇</ref>]]>的黑魔法收集起来制作而成，并可以使<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>变成<![CDATA[<ref=[misc]mvz2:nightmare_world>噩梦世界</ref>]]>的容器。</p>
                 </header>
                 <flavor>
                     <p>梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。</p>
@@ -6476,7 +6620,20 @@
                         <conditions>
                             <condition required="mvz2:level.palace_5"/>
                         </conditions>
-                        <p>根据<![CDATA[<ref=[misc]mvz2:satori>觉</ref>]]>所说，三年前爆炸的位置位于<![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>上，大概是河童基地的位置。</p>
+                        <p>根据<![CDATA[<ref=[misc]mvz2:satori>觉</ref>]]>所说，三年前爆炸的位置位于<![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>上，大概是<![CDATA[<ref=[misc]mvz2:kappa_base>河童基地</ref>]]>的位置。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.mountain_2"/>
+                        </conditions>
+                        <p>经由<![CDATA[<ref=[misc]mvz2:nitori>荷取</ref>]]>确认，这场爆炸就发生在<![CDATA[<ref=[misc]mvz2:kappa_base>河童基地</ref>]]>的一个房间内。</p>
+                        <p>如今这个房间已经被贤者们封锁了。她们下令，只有“真正能解决这场异变”的人才能够来到这个房间。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.mountain_8"/>
+                        </conditions>
+                        <p>奇怪的是，辉针城那边都能听到巨响，但是实际上的爆炸范围好像并没有那么大。</p>
                     </flavor>
                 </flavors>
             </entry>
@@ -6507,7 +6664,21 @@
                         <p><![CDATA[<ref=[misc]mvz2:futo>布都</ref>]]>无意间透露了这件事。</p>
                     </flavor>
                     <flavor>
+                        <conditions>
+                            <condition requiredNot="mvz2:level.mountain_4"/>
+                        </conditions>
                         <p>细节尚不知情。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.mountain_4"/>
+                        </conditions>
+                        <p>在三年前的人类村庄，发生了一件匪夷所思的杀人案。</p>
+                        <p>多名被害者接连在光天化日，众目睽睽之下突然被杀死，现场的目击者没有一人目击到真正的凶手是谁。</p>
+                        <p>那些目击者只看到了被害者致命部位受伤，随后倒地的惨象，这引起了大范围的恐慌。</p>
+                        <p>被杀死的五名被害者，以及一位幸存下来的受害者，全部都是伪装成人类居住在村庄里的妖怪。</p>
+                        <p>最后，有一名人类的尸体在运河中被发现，旁边找到了他亲自写下的遗书。</p>
+                        <p>在遗书的内容中，他承认了自己的罪行，以及自己对妖怪的憎恨与咒骂。</p>
                     </flavor>
                 </flavors>
             </entry>
@@ -6555,6 +6726,33 @@
                 <flavor>
                     <p>据<![CDATA[<ref=[misc]mvz2:rin>燐</ref>]]>和<![CDATA[<ref=[misc]mvz2:tokiko>朱鹭子</ref>]]>称，地灵殿中曾出现过一位特殊的凋灵骷髅黑客，它控制了燐和朱鹭子。</p>
                 </flavor>
+            </entry>
+            <entry id="mvz2:nitoris_machine" name="荷取的机器">
+                <unlock>
+                    <condition required="mvz2:level.mountain_8" />
+                </unlock>
+                <picture sprite="mvz2:misc/nitoris_machine" />
+                <header>
+                    <p><![CDATA[<ref=[misc]mvz2:nitori>河城 荷取</ref>]]>在三年前制作过的，用于测试末影珍珠的机器。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>在三年前，爆炸发生之前的前些时间，荷取在山上捡到了一颗末影珍珠。</p>
+                        <p>它引起了河童们很大的兴趣，于是就对它进行了研究。</p>
+                        <p>然后他们以末影珍珠为核心制造了一台测试用的机器，结果在机器启动后，却发生了<![CDATA[<ref=[misc]mvz2:explosion_before_3_years>意外的爆炸</ref>]]>。</p>
+                    </flavor>
+                    <flavor>
+                        <p>末影珍珠是来自史蒂夫世界的物品，它是怎么出现在这里的？</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.mountain_11"/>
+                        </conditions>
+                        <p>荷取坦白了自己曾经见过的恐怖画面：</p>
+                        <p>在机器启动后，机器上突然张开了一只巨大的眼睛盯着她。</p>
+                        <p>在下一个瞬间，机器就发生了爆炸。</p>
+                    </flavor>
+                </flavors>
             </entry>
         </group>
         <!--

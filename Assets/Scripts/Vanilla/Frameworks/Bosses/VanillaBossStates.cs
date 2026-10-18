@@ -84,6 +84,25 @@ namespace MVZ2.Vanilla.Bosses
         public const int LOCKED_CHEST_FIREBREATH = PRIVATE_NUMBER + 19;
         public const int LOCKED_CHEST_TIRED = PRIVATE_NUMBER + 20;
 
+        public const int KRAKEN_TENTACLE_DISAPPEAR = PRIVATE_NUMBER + 0;
+        public const int KRAKEN_TENTACLE_WEAPON = PRIVATE_NUMBER + 1;
+        public const int KRAKEN_TENTACLE_SMASH = PRIVATE_NUMBER + 2;
+        public const int KRAKEN_TENTACLE_HIDDEN = PRIVATE_NUMBER + 3;
+        public const int KRAKEN_TENTACLE_DRILL = PRIVATE_NUMBER + 4;
+
+        public const int KRAKEN_ROAR = PRIVATE_NUMBER + 0;
+        public const int KRAKEN_DIVE = PRIVATE_NUMBER + 1;
+        public const int KRAKEN_APPEAR = PRIVATE_NUMBER + 2;
+        public const int KRAKEN_HIDDEN = PRIVATE_NUMBER + 3;
+        public const int KRAKEN_LASER_EYE = PRIVATE_NUMBER + 4;
+        public const int KRAKEN_ABSORB = PRIVATE_NUMBER + 5;
+        public const int KRAKEN_EYES = PRIVATE_NUMBER + 6;
+        public const int KRAKEN_DRAINAGE = PRIVATE_NUMBER + 8;
+        public const int KRAKEN_SWITCH_PHASE_2 = PRIVATE_NUMBER + 9;
+        public const int KRAKEN_COMMAND_ROAR = PRIVATE_NUMBER + 10;
+        public const int KRAKEN_TIME_BOMB = PRIVATE_NUMBER + 11;
+        public const int KRAKEN_UNSTABLE = PRIVATE_NUMBER + 12;
+
 
         private const int PRIVATE_NUMBER = 10000;
     }

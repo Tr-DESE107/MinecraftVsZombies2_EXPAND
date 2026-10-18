@@ -2,10 +2,9 @@
 
 using System;
 using System.Linq;
-using MVZ2Logic.Inputs;
+using MVZ2.Level.Inputing;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace MVZ2.Grids
 {
@@ -49,12 +48,12 @@ namespace MVZ2.Grids
         {
             return grids.getElements<GridController>().ToArray();
         }
-        private void OnGridPointerInteractionCallback(GridController grid, PointerEventData data, PointerInteraction interaction)
+        private void OnGridPointerInteractionCallback(GridController grid, PointerInteractionArgs args)
         {
             var index = grids.indexOf(grid);
-            OnPointerInteraction?.Invoke(this, index, data, interaction);
+            OnPointerInteraction?.Invoke(this, index, args);
         }
-        public event Action<LaneController, int, PointerEventData, PointerInteraction>? OnPointerInteraction;
+        public event Action<LaneController, int, PointerInteractionArgs>? OnPointerInteraction;
         public int Lane { get; private set; }
         [SerializeField]
         private ElementList grids = null!;

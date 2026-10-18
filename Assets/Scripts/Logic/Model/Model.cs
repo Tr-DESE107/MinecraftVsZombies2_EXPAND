@@ -430,13 +430,6 @@ namespace MVZ2Logic.Models
         {
             return GraphicGroup.GetAllAnchors();
         }
-        public Transform? GetCenterTransform()
-        {
-            var anchor = GetAnchor(LogicModelHelper.ANCHOR_CENTER);
-            if (!anchor.Exists())
-                return null;
-            return anchor.transform;
-        }
         #endregion
         public RandomGenerator GetRNG()
         {
@@ -554,10 +547,10 @@ namespace MVZ2Logic.Models
 
                 SerializableAnimatorPlayingData playingData = new SerializableAnimatorPlayingData()
                 {
-                    currentHash = current.shortNameHash,
+                    currentHash = current.fullPathHash,
                     currentTime = GetNormalizedTime(current.normalizedTime),
 
-                    nextHash = next.shortNameHash,
+                    nextHash = next.fullPathHash,
                     nextNormalizedTime = GetNormalizedTime(next.normalizedTime),
                     nextLength = next.length == Mathf.Infinity ? 0 : next.length,
 

@@ -132,6 +132,8 @@
     <model name="error_block" type="entity" path="mvz2:contraption/upgrade/error_block" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="MegaSnipenser" type="entity" path="mvz2:contraption/palace/MegaSnipenser" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="giant_stone" type="entity" path="mvz2:contraption/mountain/giant_stone" width="80" height="80" xOffset="0" yOffset="-28" />
+    <model name="anti_gravity_pad" type="entity" path="mvz2:contraption/upgrade/anti_gravity_pad" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="time_bomb" type="entity" path="mvz2:contraption/mountain/time_bomb" width="64" height="64" xOffset="0" yOffset="-28" />
 
     <!--EXPAND Contraption-->
     <model name="Poisonser" type="entity" path="mvz2:contraption/halloween/Poisonser" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -447,6 +449,15 @@
     <model name="creaking" type="entity" path="mvz2:enemy/mountain/creaking" width="62" height="152" xOffset="0" yOffset="-64"/>
     <model name="zombie_cow" type="entity" path="mvz2:enemy/ship/zombie_cow" width="86" height="72" xOffset="11" yOffset="-32"/>
     <model name="bubble" type="entity" path="mvz2:enemy/mountain/bubble" width="80" height="80" xOffset="0" yOffset="-40"/>
+    <model name="drowned" type="entity" path="mvz2:enemy/mountain/drowned" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="leather_capped_drowned" type="entity" path="mvz2:enemy/mountain/leather_capped_drowned" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="iron_helmetted_drowned" type="entity" path="mvz2:enemy/mountain/iron_helmetted_drowned" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
 
     <!--EXPAND Enemies C1-->
     <model name="SkeletonHead" type="entity" path="mvz2:enemy/halloween/SkeletonHead" width="32" height="22" xOffset="0" yOffset="-11" />
@@ -745,6 +756,8 @@
     <model name="red_dragon" type="entity" path="mvz2:boss/red_dragon" width="840" height="510" xOffset="-93" yOffset="-170"/>
     <model name="locked_chest" type="entity" path="mvz2:boss/locked_chest" width="60" height="84" xOffset="0" yOffset="-28"/>
     <model name="pink_wither" type="entity" path="mvz2:boss/pink_wither" width="112" height="168" xOffset="6" yOffset="-84" />
+    <model name="kraken" type="entity" path="mvz2:boss/kraken" width="340" height="350" xOffset="0" yOffset="-70"/>
+    <model name="kraken_tentacle" type="entity" path="mvz2:boss/kraken_tentacle" width="80" height="220" xOffset="0" yOffset="-95"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -831,6 +844,7 @@
     <model name="breakout_board" type="entity" path="mvz2:effect/breakout_board" width="32" height="160" xOffset="0" yOffset="0" />
     <model name="nightmare_watching_eye" type="entity" path="mvz2:effect/nightmare_watching_eye" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="nightmare_portal" type="entity" path="mvz2:effect/nightmare_portal" width="64" height="120" xOffset="0" yOffset="-50" />
+    <model name="nightmare_portal_pandora" type="entity" path="mvz2:effect/nightmare_portal_pandora" width="64" height="120" xOffset="0" yOffset="-50" />
     <model name="dark_matter_particles" type="entity" path="mvz2:effect/dark_matter_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="nightmareaper_splash" type="entity" path="mvz2:effect/nightmareaper_splash" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="nightmareaper_shadow" type="entity" path="mvz2:effect/nightmareaper_shadow" width="240" height="200" xOffset="0" yOffset="-20" />
@@ -861,6 +875,8 @@
     <model name="seija_faint_effect" type="entity" path="mvz2:effect/seija_faint_effect" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="wither_summoners" type="entity" path="mvz2:effect/wither_summoners" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="castle_twilight" type="entity" path="mvz2:effect/castle_twilight" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
+    <model name="miracle_mallet_minion" type="entity" path="mvz2:effect/miracle_mallet_minion" width="40" height="40" xOffset="0" yOffset="-12" />
+    
     <model name="thunder_bolt_horizontal" type="entity" path="mvz2:effect/thunder_bolt_horizontal" width="920" height="120" xOffset="-414" yOffset="0" />
     <model name="spawner_appear_embers" type="entity" path="mvz2:effect/spawner_appear_embers" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="ember_particles" type="entity" path="mvz2:effect/ember_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
@@ -925,7 +941,14 @@
     <model name="creaking_particles" type="entity" path="mvz2:effect/creaking_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="cleave_attack" type="entity" path="mvz2:effect/cleave_attack" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="bubble_break_particles" type="entity" path="mvz2:effect/bubble_break_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
-    
+    <model name="frozen_shards" type="entity" path="mvz2:effect/frozen_shards" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="cursed_fire_breath" type="entity" path="mvz2:effect/cursed_fire_breath" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="kraken_death_ray" type="entity" path="mvz2:effect/kraken_death_ray" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
+    <model name="critical_sparks" type="entity" path="mvz2:effect/critical_sparks" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
+    <model name="kraken_drainage_splash" type="entity" path="mvz2:effect/kraken_drainage_splash" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
+    <model name="rising_ice_pillar" type="entity" path="mvz2:effect/rising_ice_pillar" width="80" height="240" xOffset="0" yOffset="-104" />
+    <model name="kraken_land_tentacle" type="entity" path="mvz2:effect/kraken_land_tentacle" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
+
     <!--EXPAND Effects-->
     <model name="BurnLaser" type="entity" path="mvz2:effect/EXPAND_EFFECTS/BurnLaser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="RadiationLight" type="entity" path="mvz2:effect/EXPAND_EFFECTS/RadiationLight" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
@@ -1112,6 +1135,7 @@
     <model name="shackled" type="icon" path="mvz2:icon/shackled" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="burning" type="icon" path="mvz2:icon/burning" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="dazzle" type="icon" path="mvz2:icon/dazzle" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+    <model name="frozen_feet" type="icon" path="mvz2:icon/frozen_feet" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <!--EXPAND Icons-->
     <model name="SpeedParticles" type="icon" path="mvz2:icon/EXPAND_icon/SpeedParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />

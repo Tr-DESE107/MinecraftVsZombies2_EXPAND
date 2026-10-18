@@ -5,11 +5,11 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -151,7 +151,7 @@ namespace MVZ2.GameContent.Contraptions
                         {
                             if (!entity.Level.IsIZombie())
                             {
-                                entity.Level.Spawn(VanillaPickupID.starshard, entity.Position, entity);
+                                entity.ProduceStarshard(entity.Position);
                             }
                             entity.Remove();
                             entity.Level.Spawn(VanillaEffectID.smokeCluster, entity.GetCenter(), entity)?.Let(e =>

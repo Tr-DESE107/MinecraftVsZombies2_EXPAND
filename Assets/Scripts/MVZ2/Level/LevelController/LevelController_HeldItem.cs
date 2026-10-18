@@ -239,12 +239,11 @@ namespace MVZ2.Level
         }
         private HeldHighlight GetEntityHeldHighlight(EntityController entity)
         {
-            var eventData = entity.GetHoveredPointerEventData(0);
-            var pointerId = eventData.pointerId;
+            var pointerId = entity.GetHoveredPointerID();
             var pointerPosition = InputHelper.GetPointerPosition(pointerId);
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
             var target = entity.GetHeldItemTarget(worldPosition, pointerPosition);
-            var pointerParams = InputHelper.GetPointerDataFromEventData(eventData);
+            var pointerParams = InputHelper.GetPointerDataFromPointerId(pointerId);
             return level.GetHeldHighlight(target, pointerParams);
         }
         private HeldHighlight GetGridHeldHighlight(int gridIndex, int pointerId)
@@ -290,11 +289,12 @@ namespace MVZ2.Level
             }
             UpdateGridHighlight(highlight);
             UpdateEntityHighlight(highlight);
+            UpdateHeldTargetBubble(highlight);
         }
         private void UpdateGridHighlight(HeldHighlight highlight)
         {
             ClearGridHighlight();
-            if (highlight.mode != HeldHighlightMode.Grid)
+            if (!highlight.mode.HasFlag(HeldHighlightMode.Grid))
                 return;
             if (Main.InputManager.GetActivePointerType() == PointerTypes.TOUCH)
             {
@@ -311,7 +311,7 @@ namespace MVZ2.Level
                 if (targetGridUI != null)
                 {
                     Color color = Color.clear;
-                    if (highlight.mode == HeldHighlightMode.Grid)
+                    if (highlight.mode.HasFlag(HeldHighlightMode.Grid))
                     {
                         color = gridHighlight.valid ? Color.green : Color.red;
                     }
@@ -324,7 +324,7 @@ namespace MVZ2.Level
         }
         private void UpdateEntityHighlight(HeldHighlight highlight)
         {
-            if (highlight.mode != HeldHighlightMode.Entity)
+            if (!highlight.mode.HasFlag(HeldHighlightMode.Entity))
             {
                 SetHighlightedEntity(null);
                 return;
@@ -335,6 +335,32 @@ namespace MVZ2.Level
                 var ctrl = GetEntityController(targetEntity);
                 SetHighlightedEntity(ctrl);
             }
+        }
+        private void UpdateHeldTargetBubble(HeldHighlight highlight)
+        {
+            var uiPreset = GetUIPreset();
+            var targetEntity = highlight.entity;
+            if (!highlight.mode.HasFlag(HeldHighlightMode.EntityBubble) || targetEntity == null)
+            {
+                uiPreset.SetHeldItemBubbleActive(false);
+                return;
+            }
+            var modelID = targetEntity.ModelID;
+            var sprite = Main.ResourceManager.GetModelIcon(modelID);
+            var tile = targetEntity.GetGrid();
+            Vector3 lawnPosition;
+            if (tile != null)
+            {
+                lawnPosition = tile.GetCenterPosition();
+            }
+            else
+            {
+                lawnPosition = targetEntity.GetCenter();
+            }
+            var worldPosition = LawnToTrans(lawnPosition);
+            uiPreset.SetHeldItemBubbleContent(sprite);
+            uiPreset.SetHeldItemBubblePosition(worldPosition);
+            uiPreset.SetHeldItemBubbleActive(true);
         }
         #endregion
 

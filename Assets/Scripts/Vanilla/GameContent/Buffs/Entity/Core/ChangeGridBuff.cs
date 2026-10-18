@@ -3,7 +3,6 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -17,7 +16,7 @@ namespace MVZ2.GameContent.Buffs.Entities
         public ChangeGridBuff(string nsp, string name) : base(nsp, name)
         {
             var modifier = new IntModifier(VanillaEntityProps.WATER_INTERACTION, IntegerOperator.Set, PROP_WATER_INTERACTION, priority: VanillaModifierPriorities.FORCE);
-            modifier.Condition = v => v >= 0;
+            modifier.Condition = static v => v >= 0;
             AddModifier(modifier);
         }
         public override void PostAdd(Buff buff)
@@ -60,6 +59,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             {
                 pos.x = targetX;
                 pos.z = targetZ;
+                entity.DestroyConflictGridEntities();
                 Stop(buff);
             }
             entity.Position = pos;
@@ -73,11 +73,6 @@ namespace MVZ2.GameContent.Buffs.Entities
         }
         public static void Stop(Buff buff)
         {
-            var entity = buff.GetEntity();
-            if (entity != null && entity.GetGridLayersToTake() != null)
-            {
-                entity.DestroyConflictGridEntities();
-            }
             buff.Remove();
         }
         public static int GetTargetLane(Buff entity) => entity.GetProperty<int>(PROP_TARGET_LANE);

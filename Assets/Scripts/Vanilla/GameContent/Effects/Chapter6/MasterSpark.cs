@@ -10,7 +10,6 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Collisions;
-using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
@@ -71,9 +70,8 @@ namespace MVZ2.GameContent.Effects
 
                 detectBuffer.Clear();
                 laserDetector.DetectMultiple(entity, detectBuffer);
-                var damageEffects = entity.GetDamageEffects();
                 var damage = entity.GetDamage();
-                var effects = damageEffects == null ? new DamageEffectList() : new DamageEffectList(damageEffects);
+                var effects = entity.GetDamageEffectList();
                 foreach (var target in detectBuffer)
                 {
                     target.TakeDamage(damage, effects, entity);

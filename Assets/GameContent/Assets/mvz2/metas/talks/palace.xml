@@ -770,7 +770,7 @@
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
-          <text>找回记忆的事情，我会做些准备，你们现在这里安顿下来吧。</text>
+          <text>找回记忆的事情，我会做些准备，你们先在这里安顿下来吧。</text>
         </sentence>
         <!--语句2-->
         <sentence speaker="mvz2:satori" sounds="mvz2:dialog_surprised">
@@ -1003,7 +1003,7 @@
         </sentence>
         <!--语句3-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
-          <text>这样吗？不过我还是想想试一试。</text>
+          <text>这样吗？不过我还是想试一试。</text>
         </sentence>
         <!--语句4-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">

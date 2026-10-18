@@ -143,6 +143,7 @@ namespace MVZ2.GameContent.Stages
         public const string theGiantsRevenge = "the_giants_revenge";
         public const string redDragonsRevenge = "red_dragons_revenge";
         public const string lockedChestsRevenge = "locked_chests_revenge";
+        public const string krakensRevenge = "krakens_revenge";
 
         //EXPAND Minigames
         public const string a_tooth_for_a_tooth = "a_tooth_for_a_tooth";
@@ -243,6 +244,8 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID ship11 = Get(VanillaStageNames.ship11);
         public static readonly NamespaceID palace1 = Get(VanillaStageNames.palace1);
         public static readonly NamespaceID palace11 = Get(VanillaStageNames.palace11);
+        public static readonly NamespaceID mountain1 = Get(VanillaStageNames.mountain1);
+        public static readonly NamespaceID mountain11 = Get(VanillaStageNames.mountain11);
 
         public static readonly NamespaceID iZombieDebug = Get(VanillaStageNames.iZombieDebug);
 

@@ -64,7 +64,7 @@ namespace MVZ2.GameContent.Enemies
             else if (EnemyMeleeBehaviour.HasMeleeTarget(enemy))
             {
                 return STATE_MELEE_ATTACK;
-            } 
+            }
             else
             {
                 return STATE_WALK;

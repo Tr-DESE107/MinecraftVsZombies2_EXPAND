@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
             var hpbarModifier = new IntModifier(LogicEntityProps.HP_BAR_VISIBILITY, IntegerOperator.Set, PROP_HP_BAR_VISIBLITY)
             {
-                Condition = m => m == HPBarVisibility.HIDDEN
+                Condition = m => m == HPBarVisibility.NEVER
             };
             AddModifier(hpbarModifier);
             AddModifier(new FloatModifier(LogicEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             base.PostAdd(buff);
             bool totallyInvisible = buff.Level.StageDefinition.HasBehaviour<WhackAGhostBehaviour>();
             SetTotallyInvisible(buff, totallyInvisible);
-            buff.SetProperty(PROP_HP_BAR_VISIBLITY, totallyInvisible ? HPBarVisibility.HIDDEN : HPBarVisibility.NORMAL);
+            buff.SetProperty(PROP_HP_BAR_VISIBLITY, totallyInvisible ? HPBarVisibility.NEVER : HPBarVisibility.NORMAL);
             buff.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, GetMinAlpha(buff)));
             UpdateIllumination(buff);
         }

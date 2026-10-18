@@ -253,7 +253,7 @@ namespace MVZ2Logic.Level
 
         #region 出怪点数
         public static readonly PropertyMeta<float> SPAWN_POINTS_POWER = Get<float>("spawnPointsPower");
-        public static readonly PropertyMeta<float> SPAWN_POINTS_MUTLIPLIER = Get<float>("spawnPointsMultiplier");
+        public static readonly PropertyMeta<float> SPAWN_POINTS_MULTIPLIER = Get<float>("spawnPointsMultiplier");
         public static readonly PropertyMeta<float> SPAWN_POINTS_ADDITION = Get<float>("spawnPointsAddition");
         public static readonly PropertyMeta<float> BOSS_SPAWN_POINTS_MULTIPLIER = Get<float>("boss_spawn_points_multiplier", 1);
         public static float GetSpawnPointPower(this LevelEngine level)
@@ -266,11 +266,11 @@ namespace MVZ2Logic.Level
         }
         public static float GetSpawnPointMultiplier(this LevelEngine level)
         {
-            return level.GetProperty<float>(SPAWN_POINTS_MUTLIPLIER);
+            return level.GetProperty<float>(SPAWN_POINTS_MULTIPLIER);
         }
         public static void SetSpawnPointMultiplier(this StageDefinition stageDef, float value)
         {
-            stageDef.SetProperty(SPAWN_POINTS_MUTLIPLIER, value);
+            stageDef.SetProperty(SPAWN_POINTS_MULTIPLIER, value);
         }
         public static float GetSpawnPointAddition(this LevelEngine level)
         {
@@ -387,6 +387,42 @@ namespace MVZ2Logic.Level
         public static void SetCurseCount(this LevelEngine level, int value)
         {
             level.SetProperty(CURSE_COUNT, value);
+        }
+        #endregion
+
+        #region 怪物不生成在水路
+        public static readonly PropertyMeta<bool> NO_SPAWN_ENEMY_IN_WATER = Get<bool>("no_spawn_enemy_in_water");
+        public static bool NoSpawnEnemyInWater(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(NO_SPAWN_ENEMY_IN_WATER);
+        }
+        public static void SetNoSpawnEnemyInWater(this LevelEngine level, bool value)
+        {
+            level.SetProperty(NO_SPAWN_ENEMY_IN_WATER, value);
+        }
+        #endregion
+
+        #region 怪物不生成在空路
+        public static readonly PropertyMeta<bool> NO_SPAWN_ENEMY_IN_AIR = Get<bool>("no_spawn_enemy_in_air");
+        public static bool NoSpawnEnemyInAir(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(NO_SPAWN_ENEMY_IN_AIR);
+        }
+        public static void SetNoSpawnEnemyInAir(this LevelEngine level, bool value)
+        {
+            level.SetProperty(NO_SPAWN_ENEMY_IN_AIR, value);
+        }
+        #endregion
+
+        #region 不推进波次
+        public static readonly PropertyMeta<bool> NO_WAVE_ADVANCEMENT = Get<bool>("no_wave_advancement");
+        public static bool NoWaveAdvancement(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(NO_WAVE_ADVANCEMENT);
+        }
+        public static void SetNoWaveAdvancement(this LevelEngine level, bool value)
+        {
+            level.SetProperty(NO_WAVE_ADVANCEMENT, value);
         }
         #endregion
     }

@@ -4,13 +4,11 @@ using System;
 using System.Collections.Generic;
 using MVZ2.Level.Inputing;
 using MVZ2.Models;
-using MVZ2Logic.Inputs;
 using MVZ2Logic.Models;
 using MVZ2Logic.UI;
 using PVZEngine.Buffs;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace MVZ2.Grids
 {
@@ -19,7 +17,7 @@ namespace MVZ2.Grids
         #region 生命周期
         private void Awake()
         {
-            holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
+            holdStreakHandler.OnPointerInteraction += (_, args) => OnPointerInteraction?.Invoke(this, args);
         }
         public void UpdateFixed()
         {
@@ -117,7 +115,7 @@ namespace MVZ2.Grids
         }
         #endregion
 
-        public event Action<GridView, PointerEventData, PointerInteraction>? OnPointerInteraction;
+        public event Action<GridView, PointerInteractionArgs>? OnPointerInteraction;
         [SerializeField]
         private Transform rendererTransform = null!;
         [SerializeField]

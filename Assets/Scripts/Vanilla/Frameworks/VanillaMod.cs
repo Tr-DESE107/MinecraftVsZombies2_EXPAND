@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Customize;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
+using MVZ2.Saves;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2.Vanilla.Unlocks;
@@ -13,6 +14,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
+using MVZ2Logic.Serialization;
 
 using PVZEngine;
 using PVZEngine.Level;
@@ -45,9 +47,17 @@ namespace MVZ2.Vanilla
         {
             return new VanillaSaveData(spaceName);
         }
-        public override ModSaveData LoadSaveData(string json)
+        public override string SerializeSaveData(ModSaveData saveData)
+        {
+            var seri = saveData.ToSerializable();
+            seri.version = SAVE_DATA_VERSION;
+            return seri.ToBson();
+        }
+        public override ModSaveData DeserializeSaveData(string json)
         {
             var serializableLogic = Deserialize<SerializableVanillaSaveData>(json);
+            if (serializableLogic.version > SAVE_DATA_VERSION)
+                throw new NewerSaveDataException();
             return VanillaSaveData.DeserializeFrom(serializableLogic);
         }
         public override void PostAllSaveDataLoaded()
@@ -82,6 +92,7 @@ namespace MVZ2.Vanilla
         }
         #endregion
 
+        public const int SAVE_DATA_VERSION = 1;
         public const float INSTA_DAMAGE_AMOUNT = 58115310;
         public const string spaceName = "mvz2";
 

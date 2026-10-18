@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using PVZEngine.Collisions;
-using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
@@ -31,16 +30,7 @@ namespace MVZ2.GameContent.Effects
                 return;
 
             var damage = self.GetDamage();
-            var damageEffects = self.GetDamageEffects();
-            DamageEffectList effects;
-            if (damageEffects != null)
-            {
-                effects = new DamageEffectList(damageEffects);
-            }
-            else
-            {
-                effects = new DamageEffectList();
-            }
+            var effects = self.GetDamageEffectList();
             collision.OtherCollider.TakeDamage(damage, effects, self);
         }
     }

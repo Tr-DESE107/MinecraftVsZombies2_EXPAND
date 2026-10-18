@@ -239,8 +239,10 @@
                 <id name="mvz2:fragmentId" value="mvz2:nesting_tnt" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <bool name="mvz2:instantTrigger" value="true" />
+                <id name="mvz2:placement" value="mvz2:amphibious" />
+                <int name="mvz2:waterInteraction" value="3" />
 
-                <int name="mvz2:cost" value="150" />
+                <int name="mvz2:cost" value="200" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </nestingTNT>
@@ -896,7 +898,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </entity>
-        <entity template="contraption" id="vortex_hopper" name="漩涡漏斗" tooltip="把附近的僵尸拉入水底">
+        <entity template="contraption" id="vortex_hopper" name="漩涡漏斗" tooltip="把附近的敌怪拉入水底">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.vortex_hopper" />
             </unlock>
@@ -935,7 +937,7 @@
                 <id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Pistenser" />
             </properties>
         </entity>
-        <entity template="dispenser" id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的僵尸">
+        <entity template="dispenser" id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的敌人">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.totenser" />
             </unlock>
@@ -1000,6 +1002,7 @@
                 <id name="mvz2:deathSound" null="true" />
                 <id name="mvz2:hitSound" null="true" />
                 <idArray name="mvz2:gridLayers" value="" />
+                <bool name="mvz2:water_displacement_immune" value="true" />
                 <int name="mvz2:cost" value="175" />
                 <int name="mvz2:hp_bar_visibility" value="-1" />
                 <id name="mvz2:rechargeId" value="mvz2:medium" />
@@ -1043,7 +1046,7 @@
                 <vector3 name="mvz2:size" x="64" y="16" z="64" />
                 <idArray name="mvz2:gridLayers" value="mvz2:carrier mvz2:main" />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
-                <int name="mvz2:vehicleInteraction" value="1" />
+                <int name="mvz2:vehicleInteraction" value="3" />
 
                 <int name="mvz2:cost" value="75" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -1191,7 +1194,7 @@
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
                 <bool name="mvz2:noClimb" value="true" />
-                <bool name="mvz2:suspending_contraption" value="true" />
+                <bool name="mvz2:water_displacement_immune" value="true" />
                 <bool name="mvz2:fragments/noDamageFragments" value="true" />
                 <float name="mvz2:maxHealth" value="4000" />
                 <float name="mvz2:fallResistance" value="10000" />
@@ -1239,6 +1242,7 @@
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:placement" value="mvz2:devourer" />
                 <idArray name="mvz2:gridLayers" value="mvz2:tool" />
+                <bool name="mvz2:water_displacement_immune" value="true" />
                 <int name="mvz2:waterInteraction" value="0" />
                 <int name="mvz2:airInteraction" value="0" />
 
@@ -1450,7 +1454,7 @@
                 <id name="mvz2:placement" value="mvz2:suspension" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
-                <bool name="mvz2:suspending_contraption" value="true" />
+                <bool name="mvz2:water_displacement_immune" value="true" />
                 <float name="mvz2:maxHealth" value="3000" />
                 <float name="mvz2:fallResistance" value="10000" />
                 <int name="mvz2:waterInteraction" value="0" />
@@ -1481,6 +1485,7 @@
                 <vector3 name="mvz2:size" x="0" y="0" z="0" />
                 <id name="mvz2:placement" value="mvz2:any" />
                 <idArray name="mvz2:gridLayers" value="" />
+                <bool name="mvz2:water_displacement_immune" value="true" />
                 <int name="mvz2:hp_bar_visibility" value="-1" />
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
@@ -1612,6 +1617,7 @@
                 <id name="mvz2:deathSound" null="true" />
                 <id name="mvz2:hitSound" null="true" />
                 <idArray name="mvz2:gridLayers" value="" />
+                <bool name="mvz2:water_displacement_immune" value="true" />
                 <int name="mvz2:hp_bar_visibility" value="-1" />
 
                 <int name="mvz2:cost" value="150" />
@@ -1638,10 +1644,10 @@
                 <vector3 name="mvz2:size" x="36" y="100" z="36" />
                 <vector3 name="mvz2:shotOffset" x="25" y="52" z="0" />
 
+                <int name="mvz2:cost" value="125" />
                 <int name="mvz2:triggerCost" value="50" />
                 <bool name="mvz2:triggerActive" value="true" />
                 
-                <int name="mvz2:cost" value="175" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </entity>
@@ -1722,11 +1728,11 @@
                 <id name="mvz2:shootSound" value="mvz2:shot" />
                 <id name="mvz2:projectileId" value="mvz2:air_slash" />
 
-                <int name="mvz2:cost" value="175" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </entity>
-        <entity template="contraption" id="ejector" name="弹射器" tooltip="点击投掷内部的器械">
+        <entity template="contraption" id="ejector" name="弹射器" tooltip="触发后投掷内部的器械">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.ejector" />
             </unlock>
@@ -1747,7 +1753,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </entity>
-        <entity template="contraption" id="teleporter" name="传送器" tooltip="触发后传送器械">
+        <entity template="contraption" id="teleporter" name="传送器" tooltip="点击与器械交换位置">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.teleporter" />
             </unlock>
@@ -1779,7 +1785,7 @@
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
                 <bool name="mvz2:blocksJump" value="true" />
-                <bool name="mvz2:stable_contraption" value="true" />
+                <bool name="mvz2:anchored_contraption" value="true" />
                 <float name="mvz2:maxHealth" value="2000" />
                 <float name="mvz2:fallResistance" value="10000" />
                 <float name="mvz2:groundLimitOffset" value="-16" />
@@ -1794,6 +1800,7 @@
                 <id name="mvz2:deathSound" value="mvz2:wood" />
                 <id name="mvz2:placement" value="mvz2:onbashira" />
                 <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:carrier" />
+                <int name="mvz2:force_against_kraken" value="1" />
 
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
@@ -1856,7 +1863,7 @@
                 <vector3 name="mvz2:size" x="36" y="36" z="36" />
                 <vector3 name="mvz2:shadowScale" x="0.75" y="0.75" z="0.75" />
 
-                <int name="mvz2:cost" value="100" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
@@ -2012,7 +2019,7 @@
                 <id name="mvz2:upgradeFrom" value="mvz2:amethyst_pylon" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="200" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
@@ -2116,7 +2123,7 @@
                 <vector3 name="mvz2:grid_pivot_offset" x="-40" y="0" z="0"  />
                 <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:protector " />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
-                <bool name="mvz2:stable_contraption" value="true" />
+                <bool name="mvz2:anchored_contraption" value="true" />
                 <bool name="mvz2:no_abduction" value="true" />
                 <bool name="mvz2:no_devourer" value="true" />
                 <bool name="mvz2:no_teleporter" value="true" />
@@ -2251,6 +2258,7 @@
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <int name="mvz2:collision_mask_hostile" value="15" />
                 <int name="mvz2:collision_mask_friendly" value="15" />
+                <int name="mvz2:force_against_kraken" value="2" />
 
                 <int name="mvz2:cost" value="25" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
@@ -2758,6 +2766,7 @@
                 <vector3 name="mvz2:size" x="58" y="58" z="58" />
                 <bool name="mvz2:instantEvoke" value="false" />
                 <bool name="mvz2:no_evoke" value="true" />
+                <int name="mvz2:force_against_kraken" value="2" />
                 <float name="mvz2:fallResistance" value="10000" />
                 <float name="mvz2:ejector_damage_override" value="1200" />
                 <float name="mvz2:water_ground_limit_offset" value="-34" />
@@ -2767,6 +2776,52 @@
 
                 <int name="mvz2:cost" value="50" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
+            </properties>
+        </entity>
+        <entity template="contraption" id="anti_gravity_pad" name="反重力板" tooltip="（需要重力板）\n吹飞上方怪物的头盔">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:anti_gravity_pad/evoke" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:gravity_pad" />
+                <bool name="mvz2:loyal" value="true" />
+
+                <bool name="mvz2:shadowHidden" value="true" />
+                <bool name="mvz2:isFloor" value="true" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:placeSound" value="mvz2:metal_break" />
+                <id name="mvz2:placement" value="mvz2:force_pad" />
+                <vector3 name="mvz2:size" x="64" y="2" z="64" />
+                <idArray name="mvz2:gridLayers" value="mvz2:carrier" />
+                <string name="mvz2:sortingLayer" value="Carriers" />
+
+                <int name="mvz2:cost" value="125" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </entity>
+        <entity template="contraption" id="time_bomb" name="定时炸弹" tooltip="一定时间后爆炸">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:explode_on_fire_death" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:dynamite" value="true" />
+                <bool name="mvz2:instantEvoke" value="false" />
+                <bool name="mvz2:no_evoke" value="true" />
+                <int name="mvz2:force_against_kraken" value="2" />
+                <float name="mvz2:damage" value="18000" />
+                <float name="mvz2:range" value="30" />
+                <float name="mvz2:maxHealth" value="1000" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <id name="mvz2:placeSound" value="mvz2:metal_break" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:deathSound" value="mvz2:metal_break" />
+                <id name="mvz2:placement" value="mvz2:amphibious" />
+
+                <int name="mvz2:cost" value="50" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
 
@@ -3675,7 +3730,7 @@
                 <id name="mvz2:deathSound" value="mvz2:zombie_cat_death" />
                 <id name="mvz2:shape" value="mvz2:cat" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="150" />
                 <int name="mvz2:teleporter_cost" value="-100" />
                 <id name="mvz2:Category" value="mvz2:Animal_Exp" />
             </properties>
@@ -3760,7 +3815,7 @@
                 <condition requiredGroups="mvz2:enemy.axolotl_suit" />
             </unlock>
             <behaviours>
-                <behaviour operator="add" id="mvz2:vehicle_crush" />
+                <behaviour operator="add" id="mvz2:axolotl_suit/vehicle_crush" />
                 <behaviour operator="add" id="mvz2:axolotl_suit/death_effects" />
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:axolotl_suit/state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
@@ -5600,9 +5655,11 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:undead" value="false" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:flying_enemy" value="true" />
+                <bool name="mvz2:no_align_to_lane" value="true" />
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" value="mvz2:power_off" />
@@ -5671,6 +5728,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:fallResistance" value="10000" />
@@ -5723,6 +5781,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:invincible" value="true" />
@@ -5750,6 +5809,7 @@
             <properties>
                 <bool name="mvz2:dynamite" value="true" />
                 <id name="mvz2:starting_armor" value="mvz2:bedserker_helmet" />
+                <bool name="mvz2:noReward" value="true" />
                 <float name="mvz2:range" value="80" />
                 <float name="mvz2:speed" value="2" />
                 <float name="mvz2:maxHealth" value="16800" />
@@ -5811,6 +5871,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:immune_slowing" value="true" />
@@ -5892,6 +5953,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:immune_slowing" value="true" />
@@ -5928,6 +5990,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:immune_slowing" value="true" />
@@ -5966,6 +6029,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:immune_slowing" value="true" />
@@ -6001,6 +6065,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:immune_slowing" value="true" />
@@ -6027,6 +6092,7 @@
             </behaviours>
             <properties>
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:immune_slowing" value="true" />
                 <bool name="mvz2:immune_instakill" value="true" />
@@ -6061,7 +6127,7 @@
         </entity>
         <entity template="specialEnemy" id="bubble" name="泡泡" deathMessage="啪">
             <unlock>
-                <condition required="mvz2:enemy.bubble_gun_gurgle" />
+                <condition requiredGroups="mvz2:enemy.bubble_gun_gurgle" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:enemy_state" />
@@ -6073,6 +6139,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:noReward" value="true" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:cannot_be_carried_by_other_enemy" value="true" />
@@ -6093,6 +6160,29 @@
 
                 <vector3 name="mvz2:model_position_offset" x="0" y="0" z="-4"/>
                 <int name="mvz2:cost" value="0" />
+            </properties>
+        </entity>
+        <entity template="drowned" id="drowned" name="溺尸" deathMessage="沉入海底">
+            <behaviours includeSelf="false"/>
+            <properties>
+                <int name="mvz2:cost" value="50" />
+                <int name="mvz2:teleporter_cost" value="-25" />
+            </properties>
+        </entity>
+        <entity template="drowned" id="leather_capped_drowned" name="皮帽溺尸" deathMessage="沉入海底">
+            <behaviours includeSelf="false"/>
+            <properties>
+                <id name="mvz2:starting_armor" value="mvz2:leather_cap" />
+                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:teleporter_cost" value="-50" />
+            </properties>
+        </entity>
+        <entity template="drowned" id="iron_helmetted_drowned" name="铁盔溺尸" deathMessage="沉入海底">
+            <behaviours includeSelf="false"/>
+            <properties>
+                <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
+                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:teleporter_cost" value="-75" />
             </properties>
         </entity>
 
@@ -6288,6 +6378,34 @@
                 <vector3 name="mvz2:shadowScale" x="2" y="2" z="2" />
                 <color name="mvz2:bloodColor" value="#00000000" />
                 <color name="mvz2:bloodColorCensored" value="#00000000" />
+            </properties>
+        </entity>
+        <entity template="boss" id="kraken" name="克拉肯">
+            <properties>
+                <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:collision_mask_hostile" value="15" />
+                <float name="mvz2:maxHealth" value="99999" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <bool name="mvz2:depth_test" value="true" />
+                <vector3 name="mvz2:size" x="280" y="160" z="280" />
+                <vector3 name="mvz2:shadowScale" x="6" y="6" z="6" />
+                <color name="mvz2:bloodColor" value="#000000FF" />
+                <color name="mvz2:bloodColorCensored" value="#000000FF" />
+            </properties>
+        </entity>
+        <entity template="boss" id="kraken_tentacle" name="克拉肯的触手">
+            <properties>
+                <bool name="mvz2:dont_count_boss_hp" value="true" />
+                <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:collision_mask_hostile" value="15" />
+                <int name="mvz2:hp_bar_visibility" value="2" />
+                <float name="mvz2:maxHealth" value="1800" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <bool name="mvz2:depth_test" value="true" />
+                <vector3 name="mvz2:size" x="70" y="240" z="70" />
+                <vector3 name="mvz2:shadowScale" x="2" y="2" z="2" />
+                <color name="mvz2:bloodColor" value="#000000FF" />
+                <color name="mvz2:bloodColorCensored" value="#000000FF" />
             </properties>
         </entity>
 
@@ -6531,6 +6649,7 @@
                 <bool name="mvz2:noHitEntities" value="true" />
                 <float name="mvz2:gravity" value="1" />
                 <vector3 name="mvz2:size" x="24" y="24" z="24" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
             </properties>
         </entity>
@@ -6565,6 +6684,7 @@
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
                 <id name="mvz2:modelId" value="mvz2:entity.tnt" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
             </properties>
         </entity>
@@ -6653,7 +6773,9 @@
                 <bool name="mvz2:noHitEntities" value="true" />
                 <float name="mvz2:gravity" value="1" />
                 <vector3 name="mvz2:size" x="24" y="24" z="24" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_gravity_pad" value="true" />
+                <bool name="mvz2:ignore_force_pad" value="true" />
             </properties>
         </entity>
         <entity template="projectile" id="diamond_caltrop">
@@ -6764,6 +6886,7 @@
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="40" y="40" z="40" />
                 <color name="mvz2:lightColor" value="#FF00FF" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
                 <int name="mvz2:lightLevel" value="7" />
 
@@ -6777,6 +6900,7 @@
                 <float name="mvz2:damage" value="100" />
                 <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
             </properties>
         </entity>
@@ -6953,6 +7077,7 @@
                 <int name="mvz2:maxTimeout" value="10" />
                 <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
             </properties>
         </entity>
@@ -6973,6 +7098,7 @@
                 <int name="mvz2:maxTimeout" value="10" />
                 <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
             </properties>
         </entity>
@@ -7004,6 +7130,7 @@
                 <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:size" x="130" y="130" z="130" />
                 <vector3 name="mvz2:shadowScale" x="3" y="3" z="3" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
             </properties>
         </entity>
@@ -7056,6 +7183,7 @@
                 <bool name="mvz2:noDestroyOutsideLawn" value="true" />
                 <bool name="mvz2:pointToDirection" value="true" />
                 <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:no_homing" value="true" />
                 <bool name="mvz2:ignore_force_pad" value="true" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
                 <float name="mvz2:range" value="120" />
@@ -7561,6 +7689,7 @@
             </properties>
         </entity>
         <entity template="effect" id="splash_particles">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />
             </properties>
@@ -7645,10 +7774,17 @@
         </entity>
         <entity template="effect" id="nightmare_portal">
             <properties>
-                <int name="mvz2:sortingOrder" value="-10" />
                 <bool name="mvz2:decorative" value="false" />
                 <int name="mvz2:maxTimeout" value="30" />
                 <bool name="mvz2:faceLeftAtDefault" value="true" />
+                <vector3 name="mvz2:model_position_offset" x="0" y="0" z="0"/>
+            </properties>
+        </entity>
+        <entity template="effect" id="nightmare_portal_pandora">
+            <properties>
+                <bool name="mvz2:decorative" value="false" />
+                <bool name="mvz2:faceLeftAtDefault" value="true" />
+                <vector3 name="mvz2:model_position_offset" x="0" y="0" z="1"/>
             </properties>
         </entity>
         <entity template="effect" id="dark_matter_particles">
@@ -7802,6 +7938,17 @@
             </behaviours>
             <properties>
                 <int name="mvz2:sortingOrder" value="-9999" />
+            </properties>
+        </entity>
+        <entity template="effect" id="miracle_mallet_minion">
+            <properties>
+                <bool name="mvz2:decorative" value="false" />
+                <float name="mvz2:range" value="16" />
+                <float name="mvz2:attackSpeed" value="1" />
+                <vector3 name="mvz2:size" x="40" y="40" z="40" />
+                <bool name="mvz2:shadowHidden" value="false" />
+                <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
+                <vector3 name="mvz2:model_position_offset" x="0" y="0" z="-10"/>
             </properties>
         </entity>
         <entity template="effect" id="thunder_bolt_horizontal">
@@ -8130,6 +8277,7 @@
             <behaviours>
                 <behaviour operator="add" id="mvz2:light_fadeout"/>
                 <behaviour operator="add" id="mvz2:set_model_property_variant" />
+                <behaviour operator="add" id="mvz2:blown_away_by_wind"/>
             </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="60"/>
@@ -8354,18 +8502,100 @@
         <entity template="effect" id="creaking_particles">
             <properties>
                 <int name="mvz2:maxTimeout" value="45" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </entity>
         <entity template="effect" id="cleave_attack">
             <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="15" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </entity>
         <entity template="effect" id="bubble_break_particles">
             <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="3" />
+                <bool name="mvz2:decorative" value="true" />
+            </properties>
+        </entity>
+        <entity template="effect" id="frozen_shards">
+            <behaviours includeSelf="false"/>
+            <properties>
+                <int name="mvz2:maxTimeout" value="15" />
+                <bool name="mvz2:decorative" value="true" />
+            </properties>
+        </entity>
+        <entity template="effect" id="cursed_fire_breath">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:light_fadeout"/>
+                <behaviour operator="add" id="mvz2:set_model_property_variant" />
+                <behaviour operator="add" id="mvz2:dot_collision_damage"/>
+                <behaviour operator="add" id="mvz2:blown_away_by_wind"/>
+            </behaviours>
+            <properties>
+                <int name="mvz2:maxTimeout" value="60"/>
+                <int name="mvz2:collision_mask_hostile" value="15" />
+                <vector3 name="mvz2:size" x="96" y="96" z="96" />
+                <bool name="mvz2:isFire" value="true" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="160" y="160" z="160" />
+                <color name="mvz2:lightColor" value="#00FF00" />
+                <idArray name="mvz2:damageEffects" value="mvz2:fire mvz2:mute mvz2:damage_body_after_armor_broken" />
+            </properties>
+        </entity>
+        <entity template="effect" id="kraken_death_ray">
+            <properties>
+                <int name="mvz2:maxTimeout" value="150"/>
+                <vector3 name="mvz2:size" x="16" y="16" z="16" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
+                <color name="mvz2:lightColor" value="#FF0000" />
+                <idArray name="mvz2:damageEffects" value="mvz2:light mvz2:mute mvz2:damage_body_after_armor_broken" />
+            </properties>
+        </entity>
+        <entity template="effect" id="critical_sparks">
+            <behaviours includeSelf="false"/>
+            <properties>
+                <int name="mvz2:sortingOrder" value="99" />
+                <int name="mvz2:maxTimeout" value="15" />
+                <bool name="mvz2:decorative" value="true" />
+            </properties>
+        </entity>
+        <entity template="effect" id="kraken_drainage_splash">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:dot_collision_damage"/>
+            </behaviours>
+            <properties>
+                <vector3 name="mvz2:size" x="80" y="160" z="80" />
+                <int name="mvz2:collision_mask_hostile" value="15" />
+                <int name="mvz2:maxTimeout" value="180" />
+            </properties>
+        </entity>
+        <entity template="effect" id="rising_ice_pillar">
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:timeout_remove" id="mvz2:timeout_death" />
+                <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="add" id="mvz2:play_death_sound"/>
+                <behaviour operator="add" id="mvz2:remove_on_death" />
+            </behaviours>
+            <properties>
+                <vector3 name="mvz2:size" x="80" y="160" z="80" />
+                <int name="mvz2:maxTimeout" value="30" />
+                <id name="mvz2:deathSound" value="mvz2:glass_break" />
+            </properties>
+        </entity>
+        <entity template="effect" id="kraken_land_tentacle" name="克拉肯的陆地触手">
+            <properties>
+                <float name="mvz2:groundLimitOffset" value="-100" />
+                <int name="mvz2:waterInteraction" value="0" />
+                <float name="mvz2:range" value="320" />
+                <float name="mvz2:damage" value="100" />
+                <bool name="mvz2:depth_test" value="true" />
+                <vector3 name="mvz2:size" x="720" y="80" z="60" />
+                <vector3 name="mvz2:boundsPivot" x="1" y="0" z="0.5" />
+                <bool name="mvz2:shadowHidden" value="true" />
+                <bool name="mvz2:faceLeftAtDefault" value="true" />
             </properties>
         </entity>
         

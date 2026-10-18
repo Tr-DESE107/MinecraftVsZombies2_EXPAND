@@ -13,6 +13,8 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public const string aceOfSpades = "ace_of_spades";
 
         public const string theFool = "the_fool";
+        public const string theMagician = "the_magician";
+        public const string theHighPriestess = "the_high_priestess";
         public const string theEmpress = "the_empress";
         public const string theEmperor = "the_emperor";
         public const string theHierophant = "the_hierophant";
@@ -21,7 +23,10 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public const string strength = "strength";
         public const string theHermit = "the_hermit";
         public const string wheelOfFortune = "wheel_of_fortune";
+        public const string justice = "justice";
         public const string theHangedMan = "the_hanged_man";
+        public const string death = "death";
+        public const string temperance = "temperance";
         public const string theTower = "the_tower";
         public const string theStar = "the_star";
 
@@ -39,6 +44,10 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public const string independenceDay = "independence_day";
         public const string heavyContraption = "heavy_contraption";
         public const string bindingChains = "binding_chains";
+
+        public const string driverless = "driverless";
+        public const string toTheMoon = "to_the_moon";
+        public const string paleDebt = "pale_debt";
     }
     public static class VanillaRandomChinaEventID
     {

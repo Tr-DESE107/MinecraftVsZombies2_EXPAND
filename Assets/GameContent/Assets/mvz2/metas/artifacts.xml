@@ -5,7 +5,7 @@
             <condition required="mvz2:level.halloween_5" />
         </unlock>
     </artifact>
-    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌方怪物" sprite="mvz2:artifacts/hoe">
+    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的前三只敌方怪物" sprite="mvz2:artifacts/hoe">
         <unlock>
             <condition required="mvz2:artifact.hoe" />
         </unlock>
@@ -59,7 +59,7 @@
             <condition required="mvz2:artifact.inverted_mirror" />
         </unlock>
     </artifact>
-    <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="+15%友方器械伤害" sprite="mvz2:artifacts/miracle_mallet_replica">
+    <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="召唤万宝槌仆从击晕最前方的敌怪" sprite="mvz2:artifacts/miracle_mallet_replica">
         <unlock>
             <condition required="mvz2:level.castle_11" />
         </unlock>
@@ -76,7 +76,7 @@
     </artifact>
 
     <!-- Mausoleum -->
-    <artifact id="manipulative_talismans" name="控制灵符" tooltip="怪物死亡并倒下时有10%的概率复活，并变为友方" sprite="mvz2:artifacts/manipulative_talismans">
+    <artifact id="manipulative_talismans" name="控制灵符" tooltip="怪物死亡并倒下时有25%的概率复活，并变为友方" sprite="mvz2:artifacts/manipulative_talismans">
         <unlock>
             <condition required="mvz2:level.mausoleum_3" />
         </unlock>

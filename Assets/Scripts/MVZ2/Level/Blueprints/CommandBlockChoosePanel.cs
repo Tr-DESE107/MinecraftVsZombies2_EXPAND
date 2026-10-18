@@ -2,10 +2,9 @@
 
 using System;
 using MVZ2.Blueprints;
+using MVZ2.Level.Inputing;
 using MVZ2.UI;
-using MVZ2Logic.Inputs;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.Level.Blueprints
@@ -23,12 +22,12 @@ namespace MVZ2.Level.Blueprints
         private void Awake()
         {
             cancelButton.onClick.AddListener(() => OnCancelButtonClick?.Invoke());
-            displayer.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintPointerInteraction?.Invoke(index, data, i);
-            displayer.OnBlueprintSelect += (index, data) => OnBlueprintSelect?.Invoke(index, data);
+            displayer.OnBlueprintPointerInteraction += (index, args) => OnBlueprintPointerInteraction?.Invoke(index, args);
+            displayer.OnBlueprintSelect += (index, args) => OnBlueprintSelect?.Invoke(index, args);
         }
         public event Action? OnCancelButtonClick;
-        public event Action<int, PointerEventData, PointerInteraction>? OnBlueprintPointerInteraction;
-        public event Action<int, PointerEventData>? OnBlueprintSelect;
+        public event Action<int, PointerInteractionArgs>? OnBlueprintPointerInteraction;
+        public event Action<int, PointerInteractionArgs>? OnBlueprintSelect;
         [SerializeField]
         Button cancelButton = null!;
         [SerializeField]

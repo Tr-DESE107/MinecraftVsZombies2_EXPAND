@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Contraptions
                 // 注意：这里不再像原来那样在 count>=MAX 时 break，  
                 // 以保证 levelSum 能统计到所有入射光；count 仍按上限 clamp。  
                 count = Mathf.Clamp(count, 0, MAX_LIGHT_SOURCE_COUNT);
-                SetDamageMultiplier(entity, Mathf.Max(count * 2, 1));
+                SetDamageMultiplier(entity, 1 + count);
                 SetIncidentSum(entity, levelSum);
                 entity.SetModelProperty("LightSourceCount", count);
                 entity.SetModelProperty("IncidentSum", levelSum);

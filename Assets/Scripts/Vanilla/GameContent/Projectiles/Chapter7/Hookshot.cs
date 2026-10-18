@@ -139,13 +139,13 @@ namespace MVZ2.GameContent.Projectiles
         #region 拖拽
         public static bool CanBeDraggedToTile(Entity target)
         {
-            return !target.IsStableContraption() && (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.OBSTACLE);
+            return !target.IsAnchoredContraption() && (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.OBSTACLE);
         }
         public static bool WillBeDraggedInsteadOfDraggingOther(Entity self, Entity other)
         {
             if (other.Type == EntityTypes.PLANT || other.Type == EntityTypes.OBSTACLE)
             {
-                if (other.IsStableContraption())
+                if (other.IsAnchoredContraption())
                 {
                     return true;
                 }
@@ -162,10 +162,12 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static void DragToTile(Entity projectile, Entity target)
         {
+            var level = projectile.Level;
             var direction = 1;
-            if (projectile.Parent != null)
+            var parent = projectile.Parent;
+            if (parent != null)
             {
-                direction = Math.Sign(projectile.Parent.Position.x - target.Position.x);
+                direction = Math.Sign(parent.Position.x - target.Position.x);
                 if (direction == 0)
                 {
                     direction = 1;
@@ -173,7 +175,13 @@ namespace MVZ2.GameContent.Projectiles
             }
             var column = target.GetColumn() + direction;
             var lane = target.GetLane();
-            if (target.Level.ValidateGridOutOfBounds(column, lane))
+
+            // 如果会把目标拉到主人身后，则不拉
+            if (parent != null && (level.GetEntityColumnX(column) - parent.Position.x) * parent.GetFacingX() < 0)
+            {
+                return;
+            }
+            if (level.ValidateGridOutOfBounds(column, lane))
             {
                 target.StartChangingGrid(column, lane, speedFactor: DRAG_TO_TILE_SPEED_FACTOR);
             }

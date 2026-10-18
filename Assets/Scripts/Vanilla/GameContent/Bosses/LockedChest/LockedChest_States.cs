@@ -91,7 +91,7 @@ namespace MVZ2.GameContent.Bosses
         private static int GetShadowVariant(Entity entity, bool front)
         {
             int variant = 0;
-            if (GetPhase(entity) == PHASE_2)
+            if (entity.GetPhase() == PHASE_2)
             {
                 variant |= 1;
             }
@@ -236,7 +236,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     var nextIndex = stateMachine.GetNextStateIndex(entity);
                     int[] pool;
-                    if (GetPhase(entity) == PHASE_1)
+                    if (entity.GetPhase() == PHASE_1)
                     {
                         pool = statePoolPhase1;
                         nextIndex = pool.FindNextStateIndex(nextIndex, state => CanSwitchStatePhase1(entity, state));

@@ -2,7 +2,6 @@
 
 using MVZ2.Vanilla;
 using PVZEngine;
-using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Buffs
 {
@@ -52,7 +51,8 @@ namespace MVZ2.GameContent.Buffs
             public const string slendermanTransition = "slenderman_transition";
             public const string nightmareaperTransition = "nightmareaper_transition";
             public const string nightmareCleared = "nightmare_cleared";
-            public const string finalClearAutoCollect = "final_clear_auto_collect"; 
+            public const string finalClearAutoCollect = "final_clear_auto_collect";
+            public const string nightmareRedFilter = "nightmare_red_filter";
 
             // Chapter 3
             public const string reverseSatellite = "reverse_satellite";
@@ -83,11 +83,18 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 7
             public const string decorativeWindSpeed = "decorative_wind_speed";
             public const string raining = "raining";
+            public const string krakenNoWaterLaneEnemySpawn = "kraken_no_water_lane_enemy_spawn";
+            public const string krakenNoEnemySpawn = "kraken_no_enemy_spawn";
+            public const string krakenTransition = "kraken_transition";
+            public const string krakenCleared = "kraken_cleared";
+            public const string nitoriGivesLilyPad = "nitori_gives_lily_pad"; 
 
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
             public const string superRecharge = "super_recharge";
             public const string ancientEgypt = "ancient_egypt";
+            public const string theMagician = "the_magician";
+            public const string temperance = "temperance";
 
             //EXPAND
             public const string slendermanBlackSun = "slendermanBlackSun";
@@ -104,6 +111,8 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 6
             public const string brokenTile = "broken_tile";
 
+            // Chapter 6
+            public const string timeBombExplosion = "time_bomb_explosion";
             //EXPAND
             public const string RadiationGrid = "RadiationGrid";
         }
@@ -150,6 +159,7 @@ namespace MVZ2.GameContent.Buffs
             public const string teleporterTeleportUp = "teleporter_teleport_up";
             public const string teleporterTeleportDown = "teleporter_teleport_down";
             public const string galeLeafArtifactPickup = "gale_leaf_artifact_pickup";
+            public const string frozen = "frozen";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
@@ -210,6 +220,7 @@ namespace MVZ2.GameContent.Buffs
             public const string magichestInvincible = "magichest_invincible";
             public const string frankensteinShocked = "frankenstein_shocked";
             public const string dreamKeyShield = "dream_key_shield";
+            public const string moonlightSensorDaylight = "moonlight_sensor_daylight";
 
             // Chapter 2
             public const string nocturnal = "nocturnal";
@@ -229,7 +240,6 @@ namespace MVZ2.GameContent.Buffs
             public const string stoneShieldProtected = "stone_shield_protected";
             public const string glowstoneProtected = "glowstone_protected";
             public const string ironCurtain = "iron_curtain";
-            public const string miracleMalletReplicaDamage = "miracle_mallet_replica_damage";
             public const string FrankensteinBrainAddHealthBuff = "FrankensteinBrainAddHealthBuff";
             public const string brokenLantern = "broken_lantern";
 
@@ -261,8 +271,9 @@ namespace MVZ2.GameContent.Buffs
             public const string extendingArm = "extending_arm";
             public const string krakensTentacleAttackSpeed = "krakens_tentacle_attack_speed";
             public const string contraptionFall = "contraption_fall";
-            public const string carryingOtherTargetable = "carrying_other_targetable";
+            public const string carryingOtherCattail = "carrying_other_cattail";
             public const string whirlwindAttack = "whirlwind_attack";
+            public const string absorbedByKraken = "absorbed_by_kraken";
             //EXPAND
             public const string TeslaCoilOvercharge = "TeslaCoilOvercharge";
             public const string FireDispenserCursedBuff = "FireDispenserCursedBuff";
@@ -314,6 +325,7 @@ namespace MVZ2.GameContent.Buffs
             public const string forcePadDrag = "force_pad_drag";
             public const string nightmareComeTrue = "nightmare_come_true";
             public const string darkMatterInvisible = "dark_matter_invisible";
+            public const string antiGravityPad = "anti_gravity_pad";
             public const string NightmareMaskEvade = "NightmareMaskEvade";
             public const string WitherHeartShieldResistanceBuff = "WitherHeartShieldResistanceBuff";
             public const string LeftHandBowBuff = "LeftHandBowBuff";
@@ -394,6 +406,11 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 6
             public const string lockedChestInvincible = "locked_chest_invincible";
+
+            // Chapter 7
+            public const string krakenTentacleInactive = "kraken_tentacle_inactive";
+            public const string krakenInactive = "kraken_inactive";
+            public const string krakenAbsorbedDynamite = "kraken_absorbed_dynamite";
         }
         public static class Cart
         {
@@ -427,6 +444,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 7
             public const string chillProjectile = "chill_projectile";
             public const string homingProjectile = "homing_projectile";
+            public const string cattailProjectile = "cattail_projectile";
             public const string airSlashDamageUp = "air_slash_damage_up";
             public const string prismaticPylonProjectileRed = "prismatic_pylon_projectile_red";
             public const string prismaticPylonProjectileOrange = "prismatic_pylon_projectile_orange";
@@ -470,6 +488,9 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 7
             public const string bunbunmaruNewspaper = "bunbunmaru_newspaper";
             public const string lilyPlatform = "lily_platform";
+
+            // Random China
+            public const string temperanceCostReduction = "temperance_cost_reduction";
             // Chapter 3
             public const string witherSkeletonSkullReduceCost = "wither_skeleton_skull_reduce_cost";
 
@@ -542,6 +563,8 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 7
             public static readonly NamespaceID decorativeWindSpeed = Get(VanillaBuffNames.Level.decorativeWindSpeed);
             public static readonly NamespaceID raining = Get(VanillaBuffNames.Level.raining);
+            public static readonly NamespaceID krakenNoWaterLaneEnemySpawn = Get(VanillaBuffNames.Level.krakenNoWaterLaneEnemySpawn);
+            public static readonly NamespaceID krakenNoEnemySpawn = Get(VanillaBuffNames.Level.krakenNoEnemySpawn);
 
             // Random China
             public static readonly NamespaceID superRecharge = Get(VanillaBuffNames.Level.superRecharge);
@@ -593,6 +616,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID petrified = Get(VanillaBuffNames.Entity.petrified);
             public static readonly NamespaceID carriedByBalloon = Get(VanillaBuffNames.Entity.carriedByBalloon);
             public static readonly NamespaceID burning = Get(VanillaBuffNames.Entity.burning);
+            public static readonly NamespaceID frozen = Get(VanillaBuffNames.Entity.frozen);
 
             // Random China
             public static readonly NamespaceID worldwideCelebration = Get(VanillaBuffNames.Entity.worldwideCelebration);
@@ -668,7 +692,6 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.Contraption.stoneShieldProtected);
             public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.Contraption.glowstoneProtected);
             public static readonly NamespaceID ironCurtain = Get(VanillaBuffNames.Contraption.ironCurtain);
-            public static readonly NamespaceID miracleMalletReplicaDamage = Get(VanillaBuffNames.Contraption.miracleMalletReplicaDamage);
             public static readonly NamespaceID brokenLantern = Get(VanillaBuffNames.Contraption.brokenLantern);
 
             // Chapter 4
@@ -695,7 +718,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 7
             public static readonly NamespaceID extendingArm = Get(VanillaBuffNames.Contraption.extendingArm);
             public static readonly NamespaceID krakensTentacleAttackSpeed = Get(VanillaBuffNames.Contraption.krakensTentacleAttackSpeed);
-            public static readonly NamespaceID carryingOtherTargetable = Get(VanillaBuffNames.Contraption.carryingOtherTargetable);
+            public static readonly NamespaceID carryingOtherTargetable = Get(VanillaBuffNames.Contraption.carryingOtherCattail);
             //EXPAND
             public static readonly NamespaceID TeslaCoilOvercharge = Get(VanillaBuffNames.Contraption.TeslaCoilOvercharge);
             public static readonly NamespaceID FireDispenserCursedBuff = Get(VanillaBuffNames.Contraption.FireDispenserCursedBuff);
@@ -739,6 +762,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID forcePadDrag = Get(VanillaBuffNames.Enemy.forcePadDrag);
             public static readonly NamespaceID nightmareComeTrue = Get(VanillaBuffNames.Enemy.nightmareComeTrue);
             public static readonly NamespaceID darkMatterInvisible = Get(VanillaBuffNames.Enemy.darkMatterInvisible);
+            public static readonly NamespaceID antiGravityPad = Get(VanillaBuffNames.Enemy.antiGravityPad);
             public static readonly NamespaceID NightmareMaskEvade = Get(VanillaBuffNames.Enemy.NightmareMaskEvade);
             public static readonly NamespaceID WitherHeartShieldResistanceBuff = Get(VanillaBuffNames.Enemy.WitherHeartShieldResistanceBuff);
             public static readonly NamespaceID LeftHandBowBuff = Get(VanillaBuffNames.Enemy.LeftHandBowBuff);
@@ -890,6 +914,9 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 7
             public static readonly NamespaceID bunbunmaruNewspaper = Get(VanillaBuffNames.SeedPack.bunbunmaruNewspaper);
             public static readonly NamespaceID lilyPlatform = Get(VanillaBuffNames.SeedPack.lilyPlatform);
+
+            // Random China
+            public static readonly NamespaceID temperanceCostReduction = Get(VanillaBuffNames.SeedPack.temperanceCostReduction);
             //EXPAND
             public static readonly NamespaceID FrankensteinBrainBuff = Get(VanillaBuffNames.SeedPack.FrankensteinBrainBuff);
             public static readonly NamespaceID ChippedWitherSkeletonSkullReduceCost = Get(VanillaBuffNames.SeedPack.ChippedWitherSkeletonSkullReduceCost);

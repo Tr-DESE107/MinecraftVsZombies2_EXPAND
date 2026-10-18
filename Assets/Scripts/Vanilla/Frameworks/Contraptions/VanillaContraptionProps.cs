@@ -87,23 +87,23 @@ namespace MVZ2.Vanilla.Contraptions
         public static bool NoTeleporter(this Entity entity) => entity.GetProperty<bool>(NO_TELEPORTER);
         #endregion
 
-        #region 悬浮器械
-        public static readonly PropertyMeta<bool> SUSPENDING_CONTRAPTION = Get<bool>("suspending_contraption");
-        public static bool IsSuspendingContraption(this Entity contraption)
+        #region 免疫水流位移
+        public static readonly PropertyMeta<bool> WATER_DISPLACEMENT_IMMUNE = Get<bool>("water_displacement_immune");
+        public static bool IsWaterDisplacementImmune(this Entity contraption)
         {
-            return contraption.GetProperty<bool>(SUSPENDING_CONTRAPTION);
+            return contraption.GetProperty<bool>(WATER_DISPLACEMENT_IMMUNE);
         }
         #endregion
 
         #region 稳固器械
-        public static readonly PropertyMeta<bool> STABLE_CONTRAPTION = Get<bool>("stable_contraption");
-        public static bool IsStableContraption(this EntityDefinition definition)
+        public static readonly PropertyMeta<bool> ANCHORED_CONTRAPTION = Get<bool>("anchored_contraption");
+        public static bool IsAnchoredContraption(this EntityDefinition definition)
         {
-            return definition.GetProperty<bool>(STABLE_CONTRAPTION);
+            return definition.GetProperty<bool>(ANCHORED_CONTRAPTION);
         }
-        public static bool IsStableContraption(this Entity contraption)
+        public static bool IsAnchoredContraption(this Entity contraption)
         {
-            return contraption.GetProperty<bool>(STABLE_CONTRAPTION);
+            return contraption.GetProperty<bool>(ANCHORED_CONTRAPTION);
         }
         #endregion
 
@@ -128,6 +128,14 @@ namespace MVZ2.Vanilla.Contraptions
         public static float GetEjectorDamageOverride(this Entity entity)
         {
             return entity.GetProperty<float>(EJECTOR_DAMAGE_OVERRIDE);
+        }
+        #endregion
+
+        #region 投掷击晕克拉肯
+        public static readonly PropertyMeta<int> FORCE_AGAINST_KRAKEN = Get<int>("force_against_kraken");
+        public static int GetForceAgainstKraken(this Entity entity)
+        {
+            return entity.GetProperty<int>(FORCE_AGAINST_KRAKEN);
         }
         #endregion
     }

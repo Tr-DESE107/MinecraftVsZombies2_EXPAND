@@ -38,6 +38,11 @@
             <condition required="mvz2:level.ship_11"/>
         </hiddenUntil>
     </minigame>
+    <minigame id="krakens_revenge" stage="mvz2:krakens_revenge" area="mvz2:mountain" icon="mvz2:arcade/krakens_revenge">
+        <hiddenUntil>
+            <condition required="mvz2:level.mountain_11"/>
+        </hiddenUntil>
+    </minigame>
     
     <minigame id="locked_chests_revenge" stage="mvz2:locked_chests_revenge" area="mvz2:palace" icon="mvz2:arcade/locked_chests_revenge">
         <hiddenUntil>

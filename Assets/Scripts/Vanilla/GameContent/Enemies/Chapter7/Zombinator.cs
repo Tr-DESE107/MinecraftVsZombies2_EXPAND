@@ -11,7 +11,6 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
-using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
@@ -70,7 +69,7 @@ namespace MVZ2.GameContent.Enemies
                 return;
             if (!entity.ShouldTriggerDeathEffects(deathInfo))
                 return;
-            var phase = GetPhase(entity);
+            var phase = entity.GetPhase();
             if (phase < PHASE_3)
             {
                 entity.Velocity += entity.GetFacingDirection() * -KNOCKBACK_SPEED;
@@ -88,20 +87,20 @@ namespace MVZ2.GameContent.Enemies
                 return;
             if (deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
-            var phase = GetPhase(entity);
+            var phase = entity.GetPhase();
             Explosion.Spawn(entity, entity.GetCenter(), 40);
             entity.PlaySound(VanillaSoundID.largeExplosion);
             entity.Remove();
         }
         public static void SwitchPhase(Entity entity, int phase)
         {
-            SetPhase(entity, phase);
+            entity.SetPhase(phase);
             entity.SetModelProperty("Phase", phase);
             UpdatePhaseProperties(entity);
         }
         public static void UpdatePhaseProperties(Entity entity)
         {
-            var phase = GetPhase(entity);
+            var phase = entity.GetPhase();
             switch (phase)
             {
                 case PHASE_1:

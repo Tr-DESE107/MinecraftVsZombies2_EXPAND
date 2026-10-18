@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using MVZ2.GameContent.Entities;
-using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
@@ -147,10 +146,10 @@ namespace MVZ2.GameContent.Contraptions
             var cost2 = def2.GetCost();
             var rechargeQuality1 = recharge1.GetQuality();
             var rechargeQuality2 = recharge2.GetQuality();
-            var quality1 = Mathf.Pow(cost1 / 25, 1.3f) * (rechargeQuality1 + 1) / 2f;
-            var quality2 = Mathf.Pow(cost2 / 25, 1.3f) * (rechargeQuality2 + 1) / 2f;
+            var quality1 = Mathf.Pow(cost1 / 25f, 1.3f) * (rechargeQuality1 + 1) / 2f;
+            var quality2 = Mathf.Pow(cost2 / 25f, 1.3f) * (rechargeQuality2 + 1) / 2f;
             var qualityAccumulate = Mathf.CeilToInt(quality1 * quality2);
-            var t = Mathf.Clamp01((qualityAccumulate / 150f - 1) / 14f);
+            var t = Mathf.Clamp01(qualityAccumulate / 2250f);
 
             var minSeconds = entity.GetProperty<float>(PROP_MIN_PRODUCE_TIME);
             var maxSeconds = entity.GetProperty<float>(PROP_MAX_PRODUCE_TIME);
@@ -163,7 +162,7 @@ namespace MVZ2.GameContent.Contraptions
             if (productionTimer.RunToExpiredAndNotNull(entity.GetProduceSpeed()))
             {
                 productionTimer.Reset();
-                entity.Spawn(VanillaPickupID.starshard, entity.GetCenter());
+                entity.ProduceStarshard(entity.GetCenter());
 
                 // 新增：产出星之碎片时，把场上的黑曜石变为爆炸黑曜石  
                 ConvertObsidian(entity);

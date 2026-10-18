@@ -20,7 +20,6 @@ using MVZ2Logic.Modding;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Collisions;
-using PVZEngine.Collisions.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Tools;
@@ -34,8 +33,46 @@ namespace MVZ2.GameContent.GlobalCallbacks
     {
         public override void Apply(Mod mod)
         {
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEjectedEntityDeathCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_EJECTED_ENTITY_LAND, PostEjectedEntityLandCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_COMMAND_BLOCK_TRANSFORM, PostCommandBlockTransformCallback);
+        }
+        private void PostEjectedEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResultVoid result)
+        {
+            var entity = param.entity;
+            var deathInfo = param.deathInfo;
+            if (!entity.ShouldTriggerDeathEffects(deathInfo))
+                return;
+            using var buffsItem = ListPool<Buff>.Rent();
+            var buffs = buffsItem.Value;
+            entity.GetBuffs<ThrownByEjectorBuff>(buffs);
+            if (buffs.Count <= 0)
+                return;
+            int faction = 0;
+            float damageMultiplier = 1;
+            foreach (var buff in buffs)
+            {
+                faction = ThrownByEjectorBuff.GetFaction(buff);
+                damageMultiplier *= ThrownByEjectorBuff.GetDamageMultiplier(buff);
+            }
+
+            var shell = entity.GetShellID();
+            if (shell == VanillaShellID.ice)
+            {
+                // 冰落地时爆出冰锥
+                IceLand(entity, damageMultiplier);
+                entity.RemoveBuffs(buffs);
+            }
+
+            if (!entity.IsAIFrozen())
+            {
+                // 炸药落地后如果死亡，就引爆
+                if (entity.TryBehaviourExplode(entity.GetRange(), entity.GetDamage()))
+                {
+                    entity.Remove();
+                    entity.RemoveBuffs(buffs);
+                }
+            }
         }
         private void PostEjectedEntityLandCallback(VanillaLevelCallbacks.PostEjectedEntityLandParams param, CallbackResultVoid result)
         {
@@ -126,8 +163,6 @@ namespace MVZ2.GameContent.GlobalCallbacks
         }
         private void IceLand(Entity entity, float damageMultiplier)
         {
-            if (!entity.IsDead)
-                return;
             entity.PlaySound(VanillaSoundID.frozenOrb);
             var level = entity.Level;
             // 发射冰锥
@@ -151,6 +186,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 entity.ShootProjectile(projArgs);
             }
 
+            var spawnParams = entity.GetSpawnParams();
+            spawnParams.SetProperty(EngineEntityProps.TINT, new Color(0.75f, 0.85f, 1, 1));
+            entity.Spawn(VanillaEffectID.smokeCluster, entity.GetCenter(), spawnParams);
+
             using var resultsItem = ListPool<IEntityCollider>.Rent();
             var results = resultsItem.Value;
             slowDetector.DetectMultiple(entity, results);
@@ -158,15 +197,23 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 if (!collider.IsForMain())
                     continue;
-                collider.Entity.InflictSlow(SLOW_FRAMES, new EntitySourceReference(entity));
+                collider.Entity.InflictFrozenAndSlow(FROZEN_FRAMES, SLOW_FRAMES, new EntitySourceReference(entity));
             }
+            entity.FreezeObjects(freezeObjectDetector);
         }
         public const float LIGHTNING_RADIUS = 200f;
         public const float SLOW_RADIUS = 120f;
+        public const int FROZEN_FRAMES = 300;
         public const int SLOW_FRAMES = 300;
         private Detector thunderDetector = new SphereDetector(LIGHTNING_RADIUS)
         {
             canDetectInvisible = true
+        };
+        private Detector freezeObjectDetector = new SphereDetector(SLOW_RADIUS)
+        {
+            canDetectInvisible = true,
+            mask = EntityCollisionHelper.MASK_ALL,
+            factionTarget = FactionTarget.Any
         };
         private Detector slowDetector = new SphereDetector(SLOW_RADIUS)
         {

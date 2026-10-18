@@ -86,36 +86,17 @@ namespace MVZ2.GameContent.Bosses
             if (other.Type != EntityTypes.PLANT && other.Type != EntityTypes.OBSTACLE)
                 return;
             var otherCollider = collision.OtherCollider;
-            var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
+            var entityState = stateMachine.GetStateNumber(self);
             var substate = stateMachine.GetSubState(self);
             if (other.IsInvincible())
             {
-                if (self.State == STATE_CHARGE && substate == ChargeState.SUBSTATE_DASH)
-                {
-                    Stun(self);
-                }
+                ContactWithInvincibleTarget(self, other, otherCollider);
             }
             else
             {
-                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
-                if (result != null && result.HasAnyFatal())
-                {
-                    other.PlaySound(VanillaSoundID.smash);
-                    if (self.State == STATE_EAT && (substate == EatState.SUBSTATE_DASH || substate == EatState.SUBSTATE_EATEN))
-                    {
-                        if (other.IsEntityOf(VanillaContraptionID.goldenApple))
-                        {
-                            Stun(self);
-                            self.TakeDamage(GOLDEN_APPLE_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.BYPASS_BOSS_ARMOR), other);
-                        }
-                        else
-                        {
-                            self.HealEffects(EAT_HEALING, other);
-                        }
-                    }
-                }
+                DealContactDamage(self, other, otherCollider);
             }
-            if (self.State == STATE_EAT && substate == EatState.SUBSTATE_DASH)
+            if (entityState == STATE_EAT && substate == EatState.SUBSTATE_DASH)
             {
                 FinishEat(self);
             }
@@ -160,11 +141,48 @@ namespace MVZ2.GameContent.Bosses
             var projectile = hit.Projectile;
             projectile.Remove();
         }
+        private void ContactWithInvincibleTarget(Entity self, Entity other, IEntityCollider otherCollider)
+        {
+            var state = stateMachine.GetStateNumber(self);
+            var substate = stateMachine.GetSubState(self);
+            if (state == STATE_CHARGE && substate == ChargeState.SUBSTATE_DASH)
+            {
+                Stun(self);
+            }
+        }
+        private void DealContactDamage(Entity self, Entity other, IEntityCollider otherCollider)
+        {
+            var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
+            var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
+            if (result != null && result.HasAnyFatal())
+            {
+                ProcessContactKill(self, other, otherCollider);
+            }
+        }
+        private void ProcessContactKill(Entity self, Entity other, IEntityCollider otherCollider)
+        {
+            other.PlaySound(VanillaSoundID.smash);
+            var state = stateMachine.GetStateNumber(self);
+            var substate = stateMachine.GetSubState(self);
+
+            bool eating = state == STATE_EAT && (substate == EatState.SUBSTATE_DASH || substate == EatState.SUBSTATE_EATEN);
+            bool charging = state == STATE_CHARGE && substate == ChargeState.SUBSTATE_DASH;
+            if (eating || charging)
+            {
+                if (other.IsEntityOf(VanillaContraptionID.goldenApple))
+                {
+                    Stun(self);
+                    self.TakeDamage(GOLDEN_APPLE_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.BYPASS_BOSS_ARMOR), other);
+                }
+                else if (eating)
+                {
+                    self.HealEffects(EAT_HEALING, other);
+                }
+            }
+        }
         #endregion 事件
 
         #region 字段
-        public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
-        public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static float[]? GetHeadAngles(Entity entity) => entity.GetBehaviourField<float[]>(PROP_HEAD_ANGLES);
         public static void SetHeadAngles(Entity entity, float[] value) => entity.SetBehaviourField(PROP_HEAD_ANGLES, value);
         public static float GetHeadOpen(Entity entity) => entity.GetBehaviourField<float>(PROP_HEAD_OPEN);
@@ -319,7 +337,7 @@ namespace MVZ2.GameContent.Bosses
         }
         public static bool HasArmor(Entity entity)
         {
-            return GetPhase(entity) == PHASE_2 && !entity.IsDead;
+            return entity.GetPhase() == PHASE_2 && !entity.IsDead;
         }
         public static Vector3 GetHeadPosition(Entity entity, int head)
         {
@@ -337,7 +355,6 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<float> PROP_HEAD_OPEN = new VanillaEntityPropertyMeta<float>("HeadOpen");
         private static readonly VanillaEntityPropertyMeta<EntityID?[]> PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta<EntityID?[]>("HeadTargets");
         private static readonly VanillaEntityPropertyMeta<float[]> PROP_SKULL_CHARGES = new VanillaEntityPropertyMeta<float[]>("SkullCharges");
-        private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("Phase");
         private static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_LANE = new VanillaEntityPropertyMeta<int>("TargetLane");
 
         private static readonly Vector3[] headPositionOffsets = new Vector3[]

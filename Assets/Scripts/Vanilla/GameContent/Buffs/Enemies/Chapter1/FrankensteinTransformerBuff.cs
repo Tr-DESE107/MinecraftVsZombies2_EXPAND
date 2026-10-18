@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(new BooleanModifier(VanillaEntityProps.INVISIBLE, true));
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
+            AddModifier(new BooleanModifier(VanillaEntityProps.CAN_DEACTIVE, false));
         }
     }
 }

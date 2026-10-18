@@ -2,10 +2,10 @@
 
 using System;
 using System.Collections.Generic;
+using MVZ2.Level.Inputing;
 using MVZ2.UI;
 using MVZ2Logic.Models;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace MVZ2.Almanacs
 {
@@ -82,19 +82,19 @@ namespace MVZ2.Almanacs
         }
         public void SetActiveEnemyEntry(IModelBuilder model, string name, string description)
         {
-            enemies.SetActiveEntry(model, name, description);
+            enemies.SetActiveEntry(model, Color.white, name, description);
         }
         public void SetActiveArtifactEntry(Sprite? sprite, Color color, string name, string description)
         {
             artifacts.SetActiveEntry(sprite, color, name, description, true, false);
         }
-        public void SetActiveMiscEntry(Sprite? sprite, string name, string description, bool sized = false, bool zoom = true)
+        public void SetActiveMiscEntry(Sprite? sprite, Color color, string name, string description, bool sized = false, bool zoom = true)
         {
-            miscs.SetActiveEntry(sprite, Color.white, name, description, sized, zoom);
+            miscs.SetActiveEntry(sprite, color, name, description, sized, zoom);
         }
-        public void SetActiveMiscEntry(IModelBuilder model, string name, string description)
+        public void SetActiveMiscEntry(IModelBuilder model, Color color, string name, string description)
         {
-            miscs.SetActiveEntry(model, name, description);
+            miscs.SetActiveEntry(model, color, name, description);
         }
         public void UpdateTagIcons(AlmanacPageType page, AlmanacTagIconViewData[] viewDatas)
         {
@@ -193,8 +193,8 @@ namespace MVZ2.Almanacs
 
                 if (page is ContraptionAlmanacPage contraptionPage)
                 {
-                    contraptionPage.OnEntryClick += (index, data) => OnContraptionEntryClick?.Invoke(index, data);
-                    contraptionPage.OnCommandBlockClick += (data) => OnCommandBlockClick?.Invoke(data);
+                    contraptionPage.OnEntryClick += (index, args) => OnContraptionEntryClick?.Invoke(index, args);
+                    contraptionPage.OnCommandBlockClick += (args) => OnCommandBlockClick?.Invoke(args);
                 }
 
                 if (page is MiscAlmanacPage miscPage)
@@ -210,8 +210,8 @@ namespace MVZ2.Almanacs
         public event Action<bool>? OnReturnClick;
         public event Action<IndexAlmanacPage.ButtonType>? OnIndexButtonClick;
 
-        public event Action<PointerEventData>? OnCommandBlockClick;
-        public event Action<int, PointerEventData>? OnContraptionEntryClick;
+        public event Action<PointerInteractionArgs>? OnCommandBlockClick;
+        public event Action<int, PointerInteractionArgs>? OnContraptionEntryClick;
         public event Action<AlmanacPageType, int>? OnMiscEntryClick;
         public event Action<AlmanacPageType, int, int>? OnGroupEntryClick;
         public event Action<AlmanacPageType>? OnZoomClick;

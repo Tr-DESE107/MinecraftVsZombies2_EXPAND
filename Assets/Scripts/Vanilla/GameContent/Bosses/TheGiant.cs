@@ -8,7 +8,6 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
@@ -62,7 +61,7 @@ namespace MVZ2.GameContent.Bosses
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
 
-            if (GetPhase(entity) == PHASE_3)
+            if (entity.GetPhase() == PHASE_3)
             {
                 var malleable = GetMalleable(entity);
                 malleable = Mathf.Max(0, malleable - MALLEABLE_DECAY_PHASE_3);
@@ -129,12 +128,7 @@ namespace MVZ2.GameContent.Bosses
             var otherCollider = collision.OtherCollider;
             if (!other.IsInvincible() && other.Type == EntityTypes.PLANT)
             {
-                var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
-                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
-                if (result != null && result.HasAnyFatal())
-                {
-                    other.PlaySound(VanillaSoundID.smash);
-                }
+                self.BossCrush(otherCollider);
             }
         }
         public override void PostTakeDamage(DamageOutput result)
@@ -153,8 +147,6 @@ namespace MVZ2.GameContent.Bosses
         #endregion 事件
 
         #region 字段
-        public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
-        public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static bool IsFlipX(Entity entity) => entity.GetBehaviourField<bool>(PROP_FLIP_X);
         public static void SetFlipX(Entity entity, bool value) => entity.SetBehaviourField(PROP_FLIP_X, value);
         public static int GetTargetGridIndex(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_INDEX);
@@ -532,7 +524,6 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("Phase");
         private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta<List<EntityID>>("ZombieBlocks");
         private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_SNAKE_TAILS = new VanillaEntityPropertyMeta<List<EntityID>>("SnakeTails");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("FlipX");

@@ -2,15 +2,14 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
-using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 using PVZEngine.Tools.Timing;
 
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -19,7 +18,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public SlowBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, new Color(0.5f, 0.5f, 1, 1f)));
+            AddModifier(VanillaModifiers.slow);
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.5f));
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, 0.5f));
         }

@@ -114,6 +114,9 @@
     <sound name="cave">
         <sample path="mvz2:cave" weight="1" />
     </sound>
+    <sound name="cave_ambience">
+        <sample path="mvz2:cave_ambience" weight="1" />
+    </sound>
     <sound name="chains_break" maxCount="1" priority="0">
         <sample path="mvz2:chains_break" weight="1" />
     </sound>
@@ -175,6 +178,9 @@
     <sound name="creaking_spawn">
         <sample path="mvz2:entity/creaking/spawn" weight="1" />
     </sound>
+    <sound name="critical">
+        <sample path="mvz2:critical" weight="1" />
+    </sound>
     <sound name="crystal_break">
         <sample path="mvz2:random/crystal/crystal_break1" weight="1" />
         <sample path="mvz2:random/crystal/crystal_break2" weight="1" />
@@ -205,6 +211,9 @@
     <sound name="data_stream">
         <sample path="mvz2:data_stream" weight="1" />
     </sound>
+    <sound name="death_tarot">
+        <sample path="mvz2:death_tarot" weight="1" />
+    </sound>
     <sound name="decrepify">
         <sample path="mvz2:decrepify" weight="1" />
     </sound>
@@ -219,6 +228,9 @@
     </sound>
     <sound name="dialog_cut">
         <sample path="mvz2:talk/dialog_cut" weight="1" />
+    </sound>
+    <sound name="dialog_dong">
+        <sample path="mvz2:talk/dialog_dong" weight="1" />
     </sound>
     <sound name="dialog_explosive">
         <sample path="mvz2:talk/dialog_explosive" weight="1" />
@@ -567,6 +579,54 @@
     </sound>
     <sound name="juicy">
         <sample path="mvz2:juicy" weight="1" />
+    </sound>
+    <sound name="killed">
+        <sample path="mvz2:killed" weight="1" />
+    </sound>
+    <sound name="kraken_absorb">
+        <sample path="mvz2:flood" weight="1" />
+    </sound>
+    <sound name="kraken_absorb_roar">
+        <sample path="mvz2:kraken_eyes" weight="1" />
+    </sound>
+    <sound name="kraken_barrage">
+        <sample path="mvz2:kraken_barrage" weight="1" />
+    </sound>
+    <sound name="kraken_command_roar">
+        <sample path="mvz2:kraken_laser_ready_roar" weight="1" />
+    </sound>
+    <sound name="kraken_cursed_flame">
+        <sample path="mvz2:dragon_breath" weight="1" />
+    </sound>
+    <sound name="kraken_death">
+        <sample path="mvz2:kraken_death" weight="1" />
+    </sound>
+    <sound name="kraken_death_ray">
+        <sample path="mvz2:kraken_death_ray" weight="1" />
+    </sound>
+    <sound name="kraken_drainage">
+        <sample path="mvz2:flood" weight="1" />
+    </sound>
+    <sound name="kraken_eyes">
+        <sample path="mvz2:kraken_eyes" weight="1" />
+    </sound>
+    <sound name="kraken_hatch_open">
+        <sample path="mvz2:kraken_hatch_open" weight="1" />
+    </sound>
+    <sound name="kraken_hatch_close">
+        <sample path="mvz2:kraken_hatch_close" weight="1" />
+    </sound>
+    <sound name="kraken_laser_ready_roar">
+        <sample path="mvz2:kraken_laser_ready_roar" weight="1" />
+    </sound>
+    <sound name="kraken_laser_charge">
+        <sample path="mvz2:kraken_laser_charge" weight="1" />
+    </sound>
+    <sound name="kraken_pain">
+        <sample path="mvz2:kraken_pain" weight="1" />
+    </sound>
+    <sound name="kraken_roar">
+        <sample path="mvz2:kraken_roar" weight="1" />
     </sound>
     <sound name="large_explosion">
         <sample path="mvz2:large_explosion" weight="1" />
@@ -1061,6 +1121,15 @@
         <sample path="mvz2:random/thunder2" weight="1" />
         <sample path="mvz2:random/thunder3" weight="1" />
     </sound>
+    <sound name="time_bomb_appears">
+        <sample path="mvz2:time_bomb_appears" weight="1" />
+    </sound>
+    <sound name="time_bomb_explosion">
+        <sample path="mvz2:meteor_land" weight="1" />
+    </sound>
+    <sound name="time_bomb_tick">
+        <sample path="mvz2:time_bomb_tick" weight="1" />
+    </sound>
     <sound name="time_warp">
         <sample path="mvz2:time_warp" weight="1" />
     </sound>
@@ -1100,6 +1169,9 @@
     </sound>
     <sound name="ufo_alert" maxCount="1">
         <sample path="mvz2:ufo_alert" weight="1" />
+    </sound>
+    <sound name="underwater_ambience">
+        <sample path="mvz2:underwater_ambience" weight="1" />
     </sound>
     <sound name="villager_crazy" priority="64">
         <sample path="mvz2:talk/villager/villager_crazy" weight="1" />

@@ -202,7 +202,7 @@ namespace MVZ2.Level.Entities
         public bool IsHovered() => holdStreakHandler.IsHovered();
         public bool IsPressed() => holdStreakHandler.IsPressed();
         public int GetHoveredPointerCount() => holdStreakHandler.GetHoveredPointerCount();
-        public PointerEventData GetHoveredPointerEventData(int index) => holdStreakHandler.GetHoveredPointerEventData(index);
+        public int GetHoveredPointerID() => holdStreakHandler.GetHoveredPointerID();
         public Vector2 TransformWorld2ColliderPosition(Vector3 worldPosition)
         {
             if (Model is not EntityModel spriteModel)
@@ -251,10 +251,10 @@ namespace MVZ2.Level.Entities
             var pos = TransformWorld2ColliderPosition(worldPosition);
             return new HeldItemTargetEntity(Entity, pos, screenPosition);
         }
-        public HeldItemTargetEntity GetHeldItemTarget(PointerEventData data)
+        public HeldItemTargetEntity GetHeldItemTarget(RaycastResult result)
         {
-            var worldPosition = data.pointerCurrentRaycast.worldPosition;
-            var screenPosition = data.pointerCurrentRaycast.screenPosition;
+            var worldPosition = result.worldPosition;
+            var screenPosition = result.screenPosition;
             var pos = TransformWorld2ColliderPosition(worldPosition);
             return new HeldItemTargetEntity(Entity, pos, screenPosition);
         }
@@ -284,7 +284,7 @@ namespace MVZ2.Level.Entities
         #region 生命周期
         private void Awake()
         {
-            holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
+            holdStreakHandler.OnPointerInteraction += (_, args) => OnPointerInteraction?.Invoke(this, args);
             bodyModelInterface = new BodyModelInterface(this);
             hpBarSource = new EntityHPBarSource(this);
         }
@@ -351,7 +351,7 @@ namespace MVZ2.Level.Entities
             }
             if (definition == null)
                 return false;
-            var target = GetHeldItemTarget(d);
+            var target = GetHeldItemTarget(d.pointerCurrentRaycast);
             var pointer = InputHelper.GetPointerDataFromEventData(d);
             return definition.IsValidFor(target, data, pointer);
         }
@@ -572,9 +572,11 @@ namespace MVZ2.Level.Entities
             Model.SetGroundY(transGroundPos.y);
             Model.transform.localPosition = Level.LawnToTransScale * Entity.GetModelPositionOffset();
 
-            var centerTransform = Model.GetCenterTransform();
-            if (centerTransform.Exists())
-                centerTransform.localEulerAngles = Entity.RenderRotation;
+            var centerAnchor = Model.GetCenterAnchor();
+            if (centerAnchor.Exists())
+            {
+                centerAnchor.transform.localEulerAngles = Entity.RenderRotation;
+            }
 
             if (modelPropertyCache.IsDirty)
             {
@@ -661,7 +663,11 @@ namespace MVZ2.Level.Entities
                 if (!entity.HasTakenGrid())
                     return true;
             }
-            return false; ;
+            if (entity.GetHPBarVisibility() == HPBarVisibility.UNLOCKED)
+            {
+                return true;
+            }
+            return false;
         }
         public bool ShouldShowMainHPBar()
         {
@@ -739,13 +745,19 @@ namespace MVZ2.Level.Entities
         public static string GetHPBarText(float health, float maxHealth, int amountMode)
         {
             var text = string.Empty;
+            int current = Mathf.RoundToInt(health);
+            if (health > 0)
+            {
+                current = Mathf.Max(1, current);
+            }
+            int max = Mathf.RoundToInt(maxHealth);
             switch (amountMode)
             {
                 case HPBarAmountMode.CURRENT_ONLY:
-                    text = Mathf.CeilToInt(Mathf.Max(0, health)).ToString();
+                    text = current.ToString();
                     break;
                 case HPBarAmountMode.CURRENT_AND_MAX:
-                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE_WITH_MAX, Mathf.CeilToInt(Mathf.Max(0, health)), Mathf.CeilToInt(maxHealth));
+                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE_WITH_MAX, current, max);
                     break;
             }
             return text;
@@ -792,7 +804,7 @@ namespace MVZ2.Level.Entities
         #endregion
 
         #region 事件
-        public event Action<EntityController, PointerEventData, PointerInteraction>? OnPointerInteraction;
+        public event Action<EntityController, PointerInteractionArgs>? OnPointerInteraction;
         #endregion
 
         #region 属性字段
@@ -860,8 +872,9 @@ namespace MVZ2.Level.Entities
                     model.transform.localScale = entity.GetFinalDisplayScale();
                     model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                     model.SortingOrder = entity.GetSortingOrder();
-                    model.SetLightVisible(entity.IsLightSource());
+                    model.SetLightVisible(entity.IsLightSource() && !entity.GetHideLight());
                     model.SetLightColor(entity.GetLightColor());
+                    UpdateLightPosition(entityCtrl, model);
                     var lightScaleLawn = entity.GetLightRange();
                     var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
                     model.SetLightRange(lightScale);
@@ -964,10 +977,11 @@ namespace MVZ2.Level.Entities
                             break;
 
                         case PropertyName.LightSource:
+                        case PropertyName.HideLight:
                             {
                                 if (model is EntityModel sprModel)
                                 {
-                                    sprModel.SetLightVisible(entity.IsLightSource());
+                                    sprModel.SetLightVisible(entity.IsLightSource() && !entity.GetHideLight());
                                 }
                             }
                             break;
@@ -989,9 +1003,42 @@ namespace MVZ2.Level.Entities
                                 }
                             }
                             break;
+                        case PropertyName.UsePositionAsLightCenter:
+                        case PropertyName.LightCenterOffset:
+                            {
+                                if (model is EntityModel sprModel)
+                                {
+                                    UpdateLightPosition(entityCtrl, sprModel);
+                                }
+                            }
+                            break;
                     }
                 }
                 dirtyProperties.Clear();
+            }
+            private void UpdateLightPosition(EntityController entityCtrl, EntityModel sprModel)
+            {
+                var entity = entityCtrl.Entity;
+                bool usePosition = entity.UsePositionAsLightCenter();
+                ModelAnchor? anchor;
+                if (usePosition)
+                {
+                    anchor = sprModel.GetRootAnchor();
+                }
+                else
+                {
+                    anchor = sprModel.GetCenterAnchor();
+                }
+                Transform? parent = null;
+                if (anchor.Exists())
+                {
+                    parent = anchor.transform;
+                }
+                sprModel.SetLightParent(parent);
+
+                var offset = entity.GetLightCenterOffset();
+                offset = entityCtrl.Level.LawnToTransDistance(offset);
+                sprModel.SetLightOffset(offset);
             }
             public void SetDirtyProperty(PropertyName property)
             {
@@ -1034,6 +1081,9 @@ namespace MVZ2.Level.Entities
                 { LogicEntityProps.IS_LIGHT_SOURCE, PropertyName.LightSource },
                 { LogicEntityProps.LIGHT_COLOR, PropertyName.LightColor },
                 { LogicEntityProps.LIGHT_RANGE, PropertyName.LightRange },
+                { LogicEntityProps.USE_POSITION_AS_LIGHT_CENTER, PropertyName.UsePositionAsLightCenter },
+                { LogicEntityProps.LIGHT_CENTER_OFFSET, PropertyName.LightCenterOffset },
+                { LogicEntityProps.HIDE_LIGHT, PropertyName.HideLight },
             };
             public enum PropertyName
             {
@@ -1055,6 +1105,9 @@ namespace MVZ2.Level.Entities
                 LightSource,
                 LightColor,
                 LightRange,
+                UsePositionAsLightCenter,
+                LightCenterOffset,
+                HideLight
             }
         }
         #endregion

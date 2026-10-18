@@ -2080,7 +2080,6 @@
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:necromancer" />
-            <spawn id="mvz2:reflective_barrier_zombie" />
             <spawn id="mvz2:hacker" />
             <spawn id="mvz2:bubble_gun_gurgle" />
         </spawns>
@@ -2099,9 +2098,10 @@
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:cave_spider" />
             <spawn id="mvz2:ghast" />
-            <spawn id="mvz2:zombie_cloud" />
-            <spawn id="mvz2:cannoneer_zombie" />
+            <spawn id="mvz2:reflective_barrier_zombie" />
             <spawn id="mvz2:hookshot_drowned" />
         </spawns>
     </stage>
@@ -2120,16 +2120,21 @@
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
-            <spawn id="mvz2:cave_spider" />
             <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:zombie_cloud" />
             <spawn id="mvz2:bubble_gun_gurgle" />
             <spawn id="mvz2:hookshot_drowned" />
         </spawns>
     </stage>
     <stage id="mountain_6" name="妖怪之山" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <unlock>
-            <condition required="mvz2:level.mountain_5" />
+            <condition required="mvz2:kourindou_visited_mountain_2" />
         </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mountain_6" />
+            <talk type="end" value="mvz2:mountain_6_over" />
+            <talk type="map" value="mvz2:mountain_6_map" />
+        </talks>
         <conveyor>
             <entry id="mvz2:lily_pad" count="4" />
             <entry id="mvz2:ejector" count="6" />
@@ -2202,6 +2207,8 @@
             <spawn id="mvz2:shikaisen_zombie" />
             <spawn id="mvz2:emperor_zombie" />
             <spawn id="mvz2:axolotl_suit" />
+            <fixedSpawn id="mvz2:axolotl_suit" wave="11" count="1" />
+            <fixedSpawn id="mvz2:axolotl_suit" wave="20" count="1" />
         </spawns>
     </stage>
     <stage id="mountain_10" name="妖怪之山" dayNumber="10">
@@ -2213,10 +2220,10 @@
             <talk type="end" value="mvz2:mountain_10_over" />
             <talk type="map" value="mvz2:mountain_10_map" />
         </talks>
-        <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:palace" />
+        <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:mountain" />
         <spawns flags="3" pointsPower="1.02">
             <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_helmetted_zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
             <spawn id="mvz2:bubble_gun_gurgle" />
@@ -2235,15 +2242,14 @@
             <talk type="map" value="mvz2:mountain_11_map" />
         </talks>
         <conveyor>
-            <entry id="mvz2:lily_pad" count="24" />
-            <entry id="mvz2:maplewheel" count="24" />
-            <entry id="mvz2:ejector" count="4" />
-            <entry id="mvz2:teleporter" count="2" minCount="0" />
-            <entry id="mvz2:onbashira" count="12" />
-            <entry id="mvz2:freezenser" count="6" />
-            <entry id="mvz2:autotrap" count="8" />
-            <entry id="mvz2:nesting_tnt" count="4" minCount="0" />
-            <entry id="mvz2:loan_sign" count="1" minCount="0" />
+            <entry id="mvz2:lily_pad" count="15" />
+            <entry id="mvz2:maplewheel" count="12" />
+            <entry id="mvz2:ejector" count="8" />
+            <entry id="mvz2:teleporter" count="4" minCount="0" />
+            <entry id="mvz2:onbashira" count="8" />
+            <entry id="mvz2:freezenser" count="7" />
+            <entry id="mvz2:autotrap" count="4" />
+            <entry id="mvz2:nesting_tnt" count="3" minCount="0" />
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />
         <spawns flags="2" pointsMultiplier="3">
@@ -2564,6 +2570,25 @@
             <spawn id="mvz2:WraithBerserker" />
             <spawn id="mvz2:WraithDullhan" />
             <spawn id="mvz2:WraithVanguard" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    <stage id="krakens_revenge" name="克拉肯的复仇" type="minigame" music="mvz2:mountain_final" >
+        <unlock>
+            <condition required="mvz2:level.mountain_11"/>
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:bubble_gun_gurgle" />
+            <spawn id="mvz2:hookshot_drowned" />
+            <spawn id="mvz2:zombinator" />
+            <spawn id="mvz2:axolotl_suit" />
         </spawns>
         <properties>
             <bool name="mvz2:boss_revenge" value="true"/>

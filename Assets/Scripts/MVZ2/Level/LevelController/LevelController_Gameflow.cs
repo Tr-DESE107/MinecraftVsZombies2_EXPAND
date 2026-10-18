@@ -148,6 +148,7 @@ namespace MVZ2.Level
         {
             if (isGameStarted)
                 return;
+            SetGameStarted(true);
             level.ResetHeldItem();
             level.RemovePreviewEnemies();
             var starshardSlots = Saves.GetStarshardSlots();
@@ -157,6 +158,7 @@ namespace MVZ2.Level
             BlueprintChoosePart.ApplyChoose();
             // 设置难度
             UpdateDifficulty();
+            UpdateCurseIcon();
 
             StartGame_Audio();
             StartGame_ProgressBar();
@@ -170,9 +172,7 @@ namespace MVZ2.Level
             }
 
             level.Start();
-            SetGameStarted(true);
             UpdateFocusLost(Application.isFocused);
-            UpdateCurseIcon();
         }
         private void SetGameStarted(bool value)
         {
@@ -185,17 +185,19 @@ namespace MVZ2.Level
         #endregion
 
         #region 重新开始
-        public Task RestartLevel()
+        public Task RestartLevel(LevelRestartStatus status)
         {
             RemoveLevelState();
-            return ReloadLevel();
+            return ReloadLevel(status);
         }
-        public async Task ReloadLevel()
+        public async Task ReloadLevel(LevelRestartStatus status)
         {
             Saves.SaveToFile(); // 关卡重载时保存游戏
             Dispose();
             await LevelManager.GotoLevelSceneAsync();
             LevelManager.InitLevel(startAreaID, startStageID, exitTarget: exitTarget);
+
+            level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_RESTART, new LogicLevelCallbacks.LevelRestartArgs(level, status));
         }
         public void RemoveLevelState()
         {

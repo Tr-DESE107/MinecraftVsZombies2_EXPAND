@@ -18,6 +18,12 @@ namespace MVZ2.GameContent.Detections
         {
             return self.GetBounds();
         }
+        public override bool ValidateTarget(DetectionParams self, Entity target)
+        {
+            if (target.IsForcedMovement())
+                return false;
+            return base.ValidateTarget(self, target);
+        }
         protected override bool ValidateCollider(DetectionParams param, IEntityCollider collider)
         {
             if (!collider.IsForMain())

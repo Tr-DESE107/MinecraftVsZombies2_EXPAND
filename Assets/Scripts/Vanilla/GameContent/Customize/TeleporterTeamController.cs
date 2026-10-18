@@ -9,6 +9,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
 using MVZ2.GameContent.Recharges;
+using MVZ2.Level.Inputing;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Options;
@@ -72,8 +73,12 @@ namespace MVZ2.GameContent.Customize
         }
         private void Update()
         {
-            var pointerPosition = Global.Input.GetPointerScreenPosition();
-            var worldPosition = GetCamera().ScreenToWorldPoint(pointerPosition);
+            var worldPosition = Vector3.one * -1000f;
+
+            if (Global.Input.TryGetPointerScreenPosition(out var pointerPosition))
+            {
+                worldPosition = GetCamera().ScreenToWorldPoint(pointerPosition);
+            }
             worldPosition.z = transform.position.z;
             ui.SetHoldingModelPosition(worldPosition);
 
@@ -93,22 +98,22 @@ namespace MVZ2.GameContent.Customize
         #endregion
 
         #region 事件回调
-        private void OnBlueprintPointerInteractionCallback(int index, PointerEventData pointerData, PointerInteraction interaction)
+        private void OnBlueprintPointerInteractionCallback(int index, PointerInteractionArgs args)
         {
-            var pointerType = InputHelper.GetPointerType(pointerData.pointerId);
+            var pointerType = InputHelper.GetPointerType(args.pointerId);
             switch (pointerType)
             {
                 case PointerTypes.MOUSE:
-                    HandleMouseBlueprintPointerInteraction(index, pointerData, interaction);
+                    HandleMouseBlueprintPointerInteraction(index, args);
                     break;
                 case PointerTypes.TOUCH:
-                    HandleTouchBlueprintPointerInteraction(index, pointerData, interaction);
+                    HandleTouchBlueprintPointerInteraction(index, args);
                     break;
             }
         }
-        private void HandleMouseBlueprintPointerInteraction(int index, PointerEventData pointerData, PointerInteraction interaction)
+        private void HandleMouseBlueprintPointerInteraction(int index, PointerInteractionArgs args)
         {
-            switch (interaction)
+            switch (args.interaction)
             {
                 case PointerInteraction.Enter:
                     {
@@ -126,15 +131,15 @@ namespace MVZ2.GameContent.Customize
                     HideTooltip();
                     break;
                 case PointerInteraction.Down:
-                    if (pointerData.IsMouseButNotLeft())
+                    if (InputHelper.IsMouseButNotLeft(args.pointerId))
                         break;
                     SelectBlueprintAction(index);
                     break;
             }
         }
-        private void HandleTouchBlueprintPointerInteraction(int index, PointerEventData pointerData, PointerInteraction interaction)
+        private void HandleTouchBlueprintPointerInteraction(int index, PointerInteractionArgs args)
         {
-            switch (interaction)
+            switch (args.interaction)
             {
                 case PointerInteraction.Enter:
                     {
@@ -156,7 +161,7 @@ namespace MVZ2.GameContent.Customize
                     draggingTargetBlueprintIndex = index;
                     break;
                 case PointerInteraction.Drag:
-                    if (!dragBlueprintStarted && Mathf.Abs(pointerData.delta.x) > Mathf.Abs(pointerData.delta.y))
+                    if (!dragBlueprintStarted && Mathf.Abs(args.delta.x) > Mathf.Abs(args.delta.y))
                     {
                         ui.DisableBlueprintDisplayerScrollRectDragging();
                         SelectBlueprintAction(draggingTargetBlueprintIndex);
@@ -187,22 +192,22 @@ namespace MVZ2.GameContent.Customize
                 return;
             SelectPickaxeAction();
         }
-        private void OnLayoutTilePointerInteractionCallback(int index, PointerEventData pointerData, PointerInteraction interaction)
+        private void OnLayoutTilePointerInteractionCallback(int index, PointerInteractionArgs args)
         {
-            var pointerType = InputHelper.GetPointerType(pointerData.pointerId);
+            var pointerType = InputHelper.GetPointerType(args.pointerId);
             switch (pointerType)
             {
                 case PointerTypes.MOUSE:
-                    HandleMouseLayoutTilePointerInteraction(index, pointerData, interaction);
+                    HandleMouseLayoutTilePointerInteraction(index, args);
                     break;
                 case PointerTypes.TOUCH:
-                    HandleTouchLayoutTilePointerInteraction(index, pointerData, interaction);
+                    HandleTouchLayoutTilePointerInteraction(index, args);
                     break;
             }
         }
-        private void HandleMouseLayoutTilePointerInteraction(int index, PointerEventData pointerData, PointerInteraction interaction)
+        private void HandleMouseLayoutTilePointerInteraction(int index, PointerInteractionArgs args)
         {
-            switch (interaction)
+            switch (args.interaction)
             {
                 case PointerInteraction.Enter:
                     SetFocusedLayoutTileIndex(index);
@@ -211,15 +216,15 @@ namespace MVZ2.GameContent.Customize
                     SetFocusedLayoutTileIndex(-1);
                     break;
                 case PointerInteraction.Down:
-                    if (pointerData.IsMouseButNotLeft())
+                    if (InputHelper.IsMouseButNotLeft(args.pointerId))
                         break;
                     ConfirmOnLayoutTileAction(index);
                     break;
             }
         }
-        private void HandleTouchLayoutTilePointerInteraction(int index, PointerEventData pointerData, PointerInteraction interaction)
+        private void HandleTouchLayoutTilePointerInteraction(int index, PointerInteractionArgs args)
         {
-            switch (interaction)
+            switch (args.interaction)
             {
                 case PointerInteraction.Enter:
                     SetFocusedLayoutTileIndex(index);
@@ -284,6 +289,12 @@ namespace MVZ2.GameContent.Customize
         {
             SetEnergyCost(0);
             ui.SetLayoutTileCount(MAX_TILE_COUNT);
+            for (int i = 0; i < MAX_TILE_COUNT; i++)
+            {
+                var lane = i / Teleporter_Evoke.WIDTH;
+                ui.SetLayoutTileZ(i, lane * Z_OFFSET_PER_LANE);
+            }
+
             ui.ClearTiles();
             var tileIndexes = team.GetTileIndexes();
             foreach (var index in tileIndexes)
@@ -797,6 +808,7 @@ namespace MVZ2.GameContent.Customize
         [TranslateMsg("传送器战队的警告提示")]
         public const string WARNING_NOT_SAVED = "您有未保存的更改。\n确认要丢弃所有更改并退出吗？";
         public const int MAX_TILE_COUNT = 9;
+        public const float Z_OFFSET_PER_LANE = -80f;
         public const int MAX_ENERGY = 250;
         [SerializeField]
         private TeleporterTeamUI ui = null!;

@@ -2,6 +2,8 @@
 
 using MVZ2.Vanilla.Enemies;
 
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Modifiers;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -9,12 +11,13 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [AutoBuffDefinition(VanillaBuffNames.Enemy.AntiGravityPadGravity)]
-    public class AntiGravityPadGravityBuff : BuffDefinition
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.antiGravityPad)]
+    public class AntiGravityPadBuff : BuffDefinition
     {
-        public AntiGravityPadGravityBuff(string nsp, string name) : base(nsp, name)
+        public AntiGravityPadBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Add, -1.25f));
+            AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Add, -1, VanillaModifierPriorities.GRAVITY_PAD));
+            AddModifier(new FloatModifier(VanillaEntityProps.BLOW_MASS_OFFSET, NumberOperator.Add, -2));
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 1.25f));
         }
     }
